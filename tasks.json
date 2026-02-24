@@ -1,1 +1,857 @@
-{}
+{
+  "bioe_210___weekly_hw_5__20260303": {
+    "id": "bioe_210___weekly_hw_5__20260303",
+    "title": "BioE 210 \u2014 Weekly HW 5",
+    "course": "BioE 210",
+    "due": "2026-03-03T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_6__20260310": {
+    "id": "bioe_210___weekly_hw_6__20260310",
+    "title": "BioE 210 \u2014 Weekly HW 6",
+    "course": "BioE 210",
+    "due": "2026-03-10T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_7__20260317": {
+    "id": "bioe_210___weekly_hw_7__20260317",
+    "title": "BioE 210 \u2014 Weekly HW 7",
+    "course": "BioE 210",
+    "due": "2026-03-17T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_8__20260324": {
+    "id": "bioe_210___weekly_hw_8__20260324",
+    "title": "BioE 210 \u2014 Weekly HW 8",
+    "course": "BioE 210",
+    "due": "2026-03-24T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_9__20260331": {
+    "id": "bioe_210___weekly_hw_9__20260331",
+    "title": "BioE 210 \u2014 Weekly HW 9",
+    "course": "BioE 210",
+    "due": "2026-03-31T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_10__20260407": {
+    "id": "bioe_210___weekly_hw_10__20260407",
+    "title": "BioE 210 \u2014 Weekly HW 10",
+    "course": "BioE 210",
+    "due": "2026-04-07T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_11__20260414": {
+    "id": "bioe_210___weekly_hw_11__20260414",
+    "title": "BioE 210 \u2014 Weekly HW 11",
+    "course": "BioE 210",
+    "due": "2026-04-14T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_12__20260421": {
+    "id": "bioe_210___weekly_hw_12__20260421",
+    "title": "BioE 210 \u2014 Weekly HW 12",
+    "course": "BioE 210",
+    "due": "2026-04-21T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_13__20260428": {
+    "id": "bioe_210___weekly_hw_13__20260428",
+    "title": "BioE 210 \u2014 Weekly HW 13",
+    "course": "BioE 210",
+    "due": "2026-04-28T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_14__20260505": {
+    "id": "bioe_210___weekly_hw_14__20260505",
+    "title": "BioE 210 \u2014 Weekly HW 14",
+    "course": "BioE 210",
+    "due": "2026-05-05T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q14__quiz_for_lecture_14__20260225": {
+    "id": "q14__quiz_for_lecture_14__20260225",
+    "title": "Q14: Quiz for Lecture 14",
+    "course": "BioE 210",
+    "due": "2026-02-25T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q15__quiz_for_lecture_15__20260227": {
+    "id": "q15__quiz_for_lecture_15__20260227",
+    "title": "Q15: Quiz for Lecture 15",
+    "course": "BioE 210",
+    "due": "2026-02-27T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q16__quiz_for_lecture_16__20260302": {
+    "id": "q16__quiz_for_lecture_16__20260302",
+    "title": "Q16: Quiz for Lecture 16",
+    "course": "BioE 210",
+    "due": "2026-03-02T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q17__quiz_for_lecture_17__20260304": {
+    "id": "q17__quiz_for_lecture_17__20260304",
+    "title": "Q17: Quiz for Lecture 17",
+    "course": "BioE 210",
+    "due": "2026-03-04T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q18__quiz_for_lecture_18__20260306": {
+    "id": "q18__quiz_for_lecture_18__20260306",
+    "title": "Q18: Quiz for Lecture 18",
+    "course": "BioE 210",
+    "due": "2026-03-06T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q19__quiz_for_lecture_19__20260309": {
+    "id": "q19__quiz_for_lecture_19__20260309",
+    "title": "Q19: Quiz for Lecture 19",
+    "course": "BioE 210",
+    "due": "2026-03-09T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q20__quiz_for_lecture_20__20260311": {
+    "id": "q20__quiz_for_lecture_20__20260311",
+    "title": "Q20: Quiz for Lecture 20",
+    "course": "BioE 210",
+    "due": "2026-03-11T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q21__quiz_for_lecture_21__20260313": {
+    "id": "q21__quiz_for_lecture_21__20260313",
+    "title": "Q21: Quiz for Lecture 21",
+    "course": "BioE 210",
+    "due": "2026-03-13T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q22__quiz_for_lecture_22__20260323": {
+    "id": "q22__quiz_for_lecture_22__20260323",
+    "title": "Q22: Quiz for Lecture 22",
+    "course": "BioE 210",
+    "due": "2026-03-23T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q23__quiz_for_lecture_23__20260325": {
+    "id": "q23__quiz_for_lecture_23__20260325",
+    "title": "Q23: Quiz for Lecture 23",
+    "course": "BioE 210",
+    "due": "2026-03-25T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q24__quiz_for_lecture_24__20260330": {
+    "id": "q24__quiz_for_lecture_24__20260330",
+    "title": "Q24: Quiz for Lecture 24",
+    "course": "BioE 210",
+    "due": "2026-03-30T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q25__quiz_for_lecture_25__20260401": {
+    "id": "q25__quiz_for_lecture_25__20260401",
+    "title": "Q25: Quiz for Lecture 25",
+    "course": "BioE 210",
+    "due": "2026-04-01T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q26__quiz_for_lecture_26__20260403": {
+    "id": "q26__quiz_for_lecture_26__20260403",
+    "title": "Q26: Quiz for Lecture 26",
+    "course": "BioE 210",
+    "due": "2026-04-03T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q27__quiz_for_lecture_27__20260406": {
+    "id": "q27__quiz_for_lecture_27__20260406",
+    "title": "Q27: Quiz for Lecture 27",
+    "course": "BioE 210",
+    "due": "2026-04-06T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q28__quiz_for_lecture_28__20260408": {
+    "id": "q28__quiz_for_lecture_28__20260408",
+    "title": "Q28: Quiz for Lecture 28",
+    "course": "BioE 210",
+    "due": "2026-04-08T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q29__quiz_for_lecture_29__20260410": {
+    "id": "q29__quiz_for_lecture_29__20260410",
+    "title": "Q29: Quiz for Lecture 29",
+    "course": "BioE 210",
+    "due": "2026-04-10T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q30__quiz_for_lecture_30__20260413": {
+    "id": "q30__quiz_for_lecture_30__20260413",
+    "title": "Q30: Quiz for Lecture 30",
+    "course": "BioE 210",
+    "due": "2026-04-13T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q31__quiz_for_lecture_31__20260415": {
+    "id": "q31__quiz_for_lecture_31__20260415",
+    "title": "Q31: Quiz for Lecture 31",
+    "course": "BioE 210",
+    "due": "2026-04-15T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q32__quiz_for_lecture_32__20260417": {
+    "id": "q32__quiz_for_lecture_32__20260417",
+    "title": "Q32: Quiz for Lecture 32",
+    "course": "BioE 210",
+    "due": "2026-04-17T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q33__quiz_for_lecture_33__20260420": {
+    "id": "q33__quiz_for_lecture_33__20260420",
+    "title": "Q33: Quiz for Lecture 33",
+    "course": "BioE 210",
+    "due": "2026-04-20T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q34__quiz_for_lecture_34__20260422": {
+    "id": "q34__quiz_for_lecture_34__20260422",
+    "title": "Q34: Quiz for Lecture 34",
+    "course": "BioE 210",
+    "due": "2026-04-22T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q35__quiz_for_lecture_35__20260424": {
+    "id": "q35__quiz_for_lecture_35__20260424",
+    "title": "Q35: Quiz for Lecture 35",
+    "course": "BioE 210",
+    "due": "2026-04-24T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q36__quiz_for_lecture_36__20260427": {
+    "id": "q36__quiz_for_lecture_36__20260427",
+    "title": "Q36: Quiz for Lecture 36",
+    "course": "BioE 210",
+    "due": "2026-04-27T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q37__quiz_for_lecture_37__20260429": {
+    "id": "q37__quiz_for_lecture_37__20260429",
+    "title": "Q37: Quiz for Lecture 37",
+    "course": "BioE 210",
+    "due": "2026-04-29T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q38__quiz_for_lecture_38__20260504": {
+    "id": "q38__quiz_for_lecture_38__20260504",
+    "title": "Q38: Quiz for Lecture 38",
+    "course": "BioE 210",
+    "due": "2026-05-04T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q39__quiz_for_lecture_39__20260506": {
+    "id": "q39__quiz_for_lecture_39__20260506",
+    "title": "Q39: Quiz for Lecture 39",
+    "course": "BioE 210",
+    "due": "2026-05-06T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "hw5__homework_5__20260302": {
+    "id": "hw5__homework_5__20260302",
+    "title": "HW5: Homework 5",
+    "course": "BioE 210",
+    "due": "2026-03-02T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "hw6__homework_6__20260306": {
+    "id": "hw6__homework_6__20260306",
+    "title": "HW6: Homework 6",
+    "course": "BioE 210",
+    "due": "2026-03-06T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "hw7__homework_7__worksheet__20260313": {
+    "id": "hw7__homework_7__worksheet__20260313",
+    "title": "HW7: Homework 7: Worksheet",
+    "course": "BioE 210",
+    "due": "2026-03-13T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "hw8__homework_8__20260413": {
+    "id": "hw8__homework_8__20260413",
+    "title": "HW8: Homework 8",
+    "course": "BioE 210",
+    "due": "2026-04-13T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "hw9__homework_9__20260427": {
+    "id": "hw9__homework_9__20260427",
+    "title": "HW9: Homework 9",
+    "course": "BioE 210",
+    "due": "2026-04-27T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "hw10__homework_10__20260504": {
+    "id": "hw10__homework_10__20260504",
+    "title": "HW10: Homework 10",
+    "course": "BioE 210",
+    "due": "2026-05-04T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "cs_128___mp2__20260302": {
+    "id": "cs_128___mp2__20260302",
+    "title": "CS 128 \u2014 MP2",
+    "course": "CS 128",
+    "due": "2026-03-02T23:59:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "cs_128___mp3__20260317": {
+    "id": "cs_128___mp3__20260317",
+    "title": "CS 128 \u2014 MP3",
+    "course": "CS 128",
+    "due": "2026-03-17T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "cs_128___mp4__20260331": {
+    "id": "cs_128___mp4__20260331",
+    "title": "CS 128 \u2014 MP4",
+    "course": "CS 128",
+    "due": "2026-03-31T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "cs_128___mp5__20260414": {
+    "id": "cs_128___mp5__20260414",
+    "title": "CS 128 \u2014 MP5",
+    "course": "CS 128",
+    "due": "2026-04-14T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "cs_128___mp6__20260428": {
+    "id": "cs_128___mp6__20260428",
+    "title": "CS 128 \u2014 MP6",
+    "course": "CS 128",
+    "due": "2026-04-28T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__due_mar_3___20260303": {
+    "id": "pre_unit_hw__due_mar_3___20260303",
+    "title": "Pre-unit HW (due Mar 3)",
+    "course": "CS 173",
+    "due": "2026-03-03T23:59:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__due_mar_10___20260310": {
+    "id": "pre_unit_hw__due_mar_10___20260310",
+    "title": "Pre-unit HW (due Mar 10)",
+    "course": "CS 173",
+    "due": "2026-03-10T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__due_mar_17___20260317": {
+    "id": "pre_unit_hw__due_mar_17___20260317",
+    "title": "Pre-unit HW (due Mar 17)",
+    "course": "CS 173",
+    "due": "2026-03-17T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__due_mar_24___20260324": {
+    "id": "pre_unit_hw__due_mar_24___20260324",
+    "title": "Pre-unit HW (due Mar 24)",
+    "course": "CS 173",
+    "due": "2026-03-24T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__due_mar_31___20260331": {
+    "id": "pre_unit_hw__due_mar_31___20260331",
+    "title": "Pre-unit HW (due Mar 31)",
+    "course": "CS 173",
+    "due": "2026-03-31T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__due_apr_7___20260407": {
+    "id": "pre_unit_hw__due_apr_7___20260407",
+    "title": "Pre-unit HW (due Apr 7)",
+    "course": "CS 173",
+    "due": "2026-04-07T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__due_apr_14___20260414": {
+    "id": "pre_unit_hw__due_apr_14___20260414",
+    "title": "Pre-unit HW (due Apr 14)",
+    "course": "CS 173",
+    "due": "2026-04-14T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__due_apr_21___20260421": {
+    "id": "pre_unit_hw__due_apr_21___20260421",
+    "title": "Pre-unit HW (due Apr 21)",
+    "course": "CS 173",
+    "due": "2026-04-21T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__due_apr_28___20260428": {
+    "id": "pre_unit_hw__due_apr_28___20260428",
+    "title": "Pre-unit HW (due Apr 28)",
+    "course": "CS 173",
+    "due": "2026-04-28T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__due_may_5___20260505": {
+    "id": "pre_unit_hw__due_may_5___20260505",
+    "title": "Pre-unit HW (due May 5)",
+    "course": "CS 173",
+    "due": "2026-05-05T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___hw__due_mar_3___20260303": {
+    "id": "math_285___hw__due_mar_3___20260303",
+    "title": "Math 285 \u2014 HW (due Mar 3)",
+    "course": "Math 285",
+    "due": "2026-03-03T23:59:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___hw__due_mar_10___20260310": {
+    "id": "math_285___hw__due_mar_10___20260310",
+    "title": "Math 285 \u2014 HW (due Mar 10)",
+    "course": "Math 285",
+    "due": "2026-03-10T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___hw__due_mar_17___20260317": {
+    "id": "math_285___hw__due_mar_17___20260317",
+    "title": "Math 285 \u2014 HW (due Mar 17)",
+    "course": "Math 285",
+    "due": "2026-03-17T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___hw__due_mar_24___20260324": {
+    "id": "math_285___hw__due_mar_24___20260324",
+    "title": "Math 285 \u2014 HW (due Mar 24)",
+    "course": "Math 285",
+    "due": "2026-03-24T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___hw__due_mar_31___20260331": {
+    "id": "math_285___hw__due_mar_31___20260331",
+    "title": "Math 285 \u2014 HW (due Mar 31)",
+    "course": "Math 285",
+    "due": "2026-03-31T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___hw__due_apr_7___20260407": {
+    "id": "math_285___hw__due_apr_7___20260407",
+    "title": "Math 285 \u2014 HW (due Apr 7)",
+    "course": "Math 285",
+    "due": "2026-04-07T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___hw__due_apr_14___20260414": {
+    "id": "math_285___hw__due_apr_14___20260414",
+    "title": "Math 285 \u2014 HW (due Apr 14)",
+    "course": "Math 285",
+    "due": "2026-04-14T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___hw__due_apr_21___20260421": {
+    "id": "math_285___hw__due_apr_21___20260421",
+    "title": "Math 285 \u2014 HW (due Apr 21)",
+    "course": "Math 285",
+    "due": "2026-04-21T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___hw__due_apr_28___20260428": {
+    "id": "math_285___hw__due_apr_28___20260428",
+    "title": "Math 285 \u2014 HW (due Apr 28)",
+    "course": "Math 285",
+    "due": "2026-04-28T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___hw__due_may_5___20260505": {
+    "id": "math_285___hw__due_may_5___20260505",
+    "title": "Math 285 \u2014 HW (due May 5)",
+    "course": "Math 285",
+    "due": "2026-05-05T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_feb_25___20260227": {
+    "id": "math_285___quiz__lec_feb_25___20260227",
+    "title": "Math 285 \u2014 Quiz (Lec Feb 25)",
+    "course": "Math 285",
+    "due": "2026-02-27T08:00:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_feb_27___20260302": {
+    "id": "math_285___quiz__lec_feb_27___20260302",
+    "title": "Math 285 \u2014 Quiz (Lec Feb 27)",
+    "course": "Math 285",
+    "due": "2026-03-02T08:00:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_mar_02___20260304": {
+    "id": "math_285___quiz__lec_mar_02___20260304",
+    "title": "Math 285 \u2014 Quiz (Lec Mar 02)",
+    "course": "Math 285",
+    "due": "2026-03-04T08:00:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_mar_04___20260306": {
+    "id": "math_285___quiz__lec_mar_04___20260306",
+    "title": "Math 285 \u2014 Quiz (Lec Mar 04)",
+    "course": "Math 285",
+    "due": "2026-03-06T08:00:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_mar_06___20260309": {
+    "id": "math_285___quiz__lec_mar_06___20260309",
+    "title": "Math 285 \u2014 Quiz (Lec Mar 06)",
+    "course": "Math 285",
+    "due": "2026-03-09T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_mar_09___20260311": {
+    "id": "math_285___quiz__lec_mar_09___20260311",
+    "title": "Math 285 \u2014 Quiz (Lec Mar 09)",
+    "course": "Math 285",
+    "due": "2026-03-11T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_mar_11___20260313": {
+    "id": "math_285___quiz__lec_mar_11___20260313",
+    "title": "Math 285 \u2014 Quiz (Lec Mar 11)",
+    "course": "Math 285",
+    "due": "2026-03-13T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_mar_13___20260325": {
+    "id": "math_285___quiz__lec_mar_13___20260325",
+    "title": "Math 285 \u2014 Quiz (Lec Mar 13)",
+    "course": "Math 285",
+    "due": "2026-03-25T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_mar_25___20260327": {
+    "id": "math_285___quiz__lec_mar_25___20260327",
+    "title": "Math 285 \u2014 Quiz (Lec Mar 25)",
+    "course": "Math 285",
+    "due": "2026-03-27T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_mar_27___20260330": {
+    "id": "math_285___quiz__lec_mar_27___20260330",
+    "title": "Math 285 \u2014 Quiz (Lec Mar 27)",
+    "course": "Math 285",
+    "due": "2026-03-30T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_mar_30___20260401": {
+    "id": "math_285___quiz__lec_mar_30___20260401",
+    "title": "Math 285 \u2014 Quiz (Lec Mar 30)",
+    "course": "Math 285",
+    "due": "2026-04-01T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_01___20260403": {
+    "id": "math_285___quiz__lec_apr_01___20260403",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 01)",
+    "course": "Math 285",
+    "due": "2026-04-03T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_03___20260406": {
+    "id": "math_285___quiz__lec_apr_03___20260406",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 03)",
+    "course": "Math 285",
+    "due": "2026-04-06T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_06___20260408": {
+    "id": "math_285___quiz__lec_apr_06___20260408",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 06)",
+    "course": "Math 285",
+    "due": "2026-04-08T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_08___20260410": {
+    "id": "math_285___quiz__lec_apr_08___20260410",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 08)",
+    "course": "Math 285",
+    "due": "2026-04-10T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_10___20260413": {
+    "id": "math_285___quiz__lec_apr_10___20260413",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 10)",
+    "course": "Math 285",
+    "due": "2026-04-13T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_13___20260415": {
+    "id": "math_285___quiz__lec_apr_13___20260415",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 13)",
+    "course": "Math 285",
+    "due": "2026-04-15T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_15___20260417": {
+    "id": "math_285___quiz__lec_apr_15___20260417",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 15)",
+    "course": "Math 285",
+    "due": "2026-04-17T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_17___20260420": {
+    "id": "math_285___quiz__lec_apr_17___20260420",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 17)",
+    "course": "Math 285",
+    "due": "2026-04-20T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_20___20260422": {
+    "id": "math_285___quiz__lec_apr_20___20260422",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 20)",
+    "course": "Math 285",
+    "due": "2026-04-22T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_22___20260424": {
+    "id": "math_285___quiz__lec_apr_22___20260424",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 22)",
+    "course": "Math 285",
+    "due": "2026-04-24T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_24___20260427": {
+    "id": "math_285___quiz__lec_apr_24___20260427",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 24)",
+    "course": "Math 285",
+    "due": "2026-04-27T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_27___20260429": {
+    "id": "math_285___quiz__lec_apr_27___20260429",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 27)",
+    "course": "Math 285",
+    "due": "2026-04-29T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_29___20260501": {
+    "id": "math_285___quiz__lec_apr_29___20260501",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 29)",
+    "course": "Math 285",
+    "due": "2026-05-01T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_may_01___20260504": {
+    "id": "math_285___quiz__lec_may_01___20260504",
+    "title": "Math 285 \u2014 Quiz (Lec May 01)",
+    "course": "Math 285",
+    "due": "2026-05-04T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_may_04___20260506": {
+    "id": "math_285___quiz__lec_may_04___20260506",
+    "title": "Math 285 \u2014 Quiz (Lec May 04)",
+    "course": "Math 285",
+    "due": "2026-05-06T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_may_06___20260508": {
+    "id": "math_285___quiz__lec_may_06___20260508",
+    "title": "Math 285 \u2014 Quiz (Lec May 06)",
+    "course": "Math 285",
+    "due": "2026-05-08T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "math_285___quiz__lec_may_08___20260510": {
+    "id": "math_285___quiz__lec_may_08___20260510",
+    "title": "Math 285 \u2014 Quiz (Lec May 08)",
+    "course": "Math 285",
+    "due": "2026-05-10T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  }
+}
