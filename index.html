@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📚 DDL Dashboard</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f0f4ff;
+      min-height: 100vh;
+      padding: 24px 16px;
+    }
+
+    .container { max-width: 720px; margin: 0 auto; }
+
+    header {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 16px;
+      padding: 24px 28px;
+      color: white;
+      margin-bottom: 20px;
+    }
+    header h1 { font-size: 22px; margin-bottom: 4px; }
+    header p  { font-size: 13px; opacity: 0.8; }
+
+    .stats {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .stat {
+      flex: 1;
+      background: white;
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    }
+    .stat .num  { font-size: 28px; font-weight: 700; }
+    .stat .lbl  { font-size: 11px; color: #718096; margin-top: 2px; }
+    .stat.red   .num { color: #e53e3e; }
+    .stat.blue  .num { color: #667eea; }
+    .stat.green .num { color: #38a169; }
+
+    .section { margin-bottom: 24px; }
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #718096;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      padding: 0 4px;
+    }
+
+    .task {
+      background: white;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: opacity 0.3s, transform 0.3s;
+      border-left: 4px solid transparent;
+    }
+    .task.urgent   { border-left-color: #e53e3e; }
+    .task.soon     { border-left-color: #dd6b20; }
+    .task.week     { border-left-color: #d69e2e; }
+    .task.later    { border-left-color: #38a169; }
+    .task.done     { opacity: 0.4; }
+    .task.done .task-title { text-decoration: line-through; }
+
+    .task input[type=checkbox] {
+      width: 20px; height: 20px;
+      cursor: pointer;
+      accent-color: #667eea;
+      flex-shrink: 0;
+    }
+
+    .task-info { flex: 1; min-width: 0; }
+    .task-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: #2d3748;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .task-title a { color: inherit; text-decoration: none; }
+    .task-title a:hover { text-decoration: underline; }
+    .task-meta {
+      font-size: 12px;
+      color: #a0aec0;
+      margin-top: 3px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .badge {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-weight: 500;
+    }
+    .badge.canvas { background: #ebf8ff; color: #2b6cb0; }
+    .badge.pl     { background: #f0fff4; color: #276749; }
+
+    .urgency {
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .empty {
+      text-align: center;
+      color: #a0aec0;
+      padding: 32px;
+      font-size: 14px;
+    }
+
+    .refresh-btn {
+      display: block;
+      margin: 0 auto 20px;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 8px 20px;
+      font-size: 13px;
+      color: #667eea;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    .refresh-btn:hover { background: #f8f9ff; }
+
+    .last-updated {
+      text-align: center;
+      font-size: 12px;
+      color: #cbd5e0;
+      margin-bottom: 12px;
+    }
+
+    #show-done {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #718096;
+      cursor: pointer;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>📚 DDL Dashboard</h1>
+    <p>Canvas (BioE 210) + PrairieLearn · Auto-synced daily</p>
+  </header>
+
+  <div class="stats">
+    <div class="stat blue">  <div class="num" id="stat-total">–</div><div class="lbl">Total</div></div>
+    <div class="stat red">   <div class="num" id="stat-week">–</div> <div class="lbl">This week</div></div>
+    <div class="stat green"> <div class="num" id="stat-done">–</div> <div class="lbl">Done ✓</div></div>
+  </div>
+
+  <button class="refresh-btn" onclick="loadTasks()">🔄 Refresh</button>
+  <div class="last-updated" id="last-updated"></div>
+
+  <label id="show-done">
+    <input type="checkbox" id="toggle-done" onchange="renderTasks()"> Show completed tasks
+  </label>
+
+  <div id="app">
+    <div class="empty">Loading tasks…</div>
+  </div>
+
+</div>
+
+<script>
+// ── Repo config ───────────────────────────────────────────────────────────────
+// IMPORTANT: Change YOUR_GITHUB_USERNAME to your actual GitHub username!
+const TASKS_URL = "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/assignment-ddl-digest/main/tasks.json";
+
+let tasks = {};
+
+// ── Load tasks from GitHub ────────────────────────────────────────────────────
+async function loadTasks() {
+  document.getElementById("app").innerHTML = '<div class="empty">Loading…</div>';
+  try {
+    const r = await fetch(TASKS_URL + "?t=" + Date.now());
+    if (!r.ok) throw new Error("Failed to fetch tasks.json");
+    const remote = await r.json();
+
+    // Merge remote with local completed state
+    const local = getLocalState();
+    tasks = {};
+    for (const [id, task] of Object.entries(remote)) {
+      tasks[id] = {
+        ...task,
+        completed: local[id] ?? task.completed ?? false,
+      };
+    }
+
+    document.getElementById("last-updated").textContent =
+      "Last synced: " + new Date().toLocaleString();
+    renderTasks();
+  } catch (e) {
+    document.getElementById("app").innerHTML =
+      `<div class="empty">⚠️ Could not load tasks.<br><small>${e.message}</small></div>`;
+  }
+}
+
+// ── Local storage for completed state ────────────────────────────────────────
+function getLocalState() {
+  try { return JSON.parse(localStorage.getItem("ddl_completed") || "{}"); }
+  catch { return {}; }
+}
+function saveLocalState() {
+  const state = {};
+  for (const [id, t] of Object.entries(tasks)) state[id] = t.completed;
+  localStorage.setItem("ddl_completed", JSON.stringify(state));
+}
+
+// ── Toggle task ───────────────────────────────────────────────────────────────
+function toggle(id) {
+  if (tasks[id]) {
+    tasks[id].completed = !tasks[id].completed;
+    saveLocalState();
+    renderTasks();
+  }
+}
+
+// ── Urgency helpers ───────────────────────────────────────────────────────────
+function urgencyClass(due) {
+  const h = (new Date(due) - new Date()) / 3600000;
+  if (h < 24)  return "urgent";
+  if (h < 72)  return "soon";
+  if (h < 168) return "week";
+  return "later";
+}
+function urgencyLabel(due) {
+  const h = Math.floor((new Date(due) - new Date()) / 3600000);
+  if (h < 0)   return "⛔ Overdue";
+  if (h < 24)  return `⚠️ ${h}h left`;
+  const d = Math.floor(h / 24);
+  if (d === 1) return "🔴 Tomorrow";
+  if (d <= 3)  return `🟠 ${d} days`;
+  if (d <= 7)  return `🟡 ${d} days`;
+  return `🟢 ${d} days`;
+}
+function urgencyColor(due) {
+  const h = (new Date(due) - new Date()) / 3600000;
+  if (h < 24)  return "#e53e3e";
+  if (h < 72)  return "#dd6b20";
+  if (h < 168) return "#d69e2e";
+  return "#38a169";
+}
+
+// ── Render ────────────────────────────────────────────────────────────────────
+function renderTasks() {
+  const showDone = document.getElementById("toggle-done").checked;
+  const now      = new Date();
+  const weekEnd  = new Date(now.getTime() + 7 * 86400000);
+
+  const all      = Object.values(tasks).sort((a, b) => new Date(a.due) - new Date(b.due));
+  const pending  = all.filter(t => !t.completed && new Date(t.due) > now);
+  const done     = all.filter(t => t.completed);
+  const soon     = pending.filter(t => new Date(t.due) <= weekEnd);
+  const later    = pending.filter(t => new Date(t.due) >  weekEnd);
+
+  document.getElementById("stat-total").textContent = pending.length;
+  document.getElementById("stat-week").textContent  = soon.length;
+  document.getElementById("stat-done").textContent  = done.length;
+
+  function taskHTML(t) {
+    const uc   = urgencyClass(t.due);
+    const ul   = urgencyLabel(t.due);
+    const col  = urgencyColor(t.due);
+    const bc   = t.source === "Canvas" ? "canvas" : "pl";
+    const due  = new Date(t.due).toLocaleString("en-US", {month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"});
+    const titleHTML = t.url
+      ? `<a href="${t.url}" target="_blank">${t.title}</a>`
+      : t.title;
+    return `
+      <div class="task ${uc} ${t.completed ? 'done' : ''}">
+        <input type="checkbox" ${t.completed ? 'checked' : ''} onchange="toggle('${t.id}')">
+        <div class="task-info">
+          <div class="task-title">${titleHTML}</div>
+          <div class="task-meta">
+            <span class="badge ${bc}">${t.source}</span>
+            <span>${t.course}</span>
+            <span>· ${due}</span>
+          </div>
+        </div>
+        <div class="urgency" style="color:${col}">${ul}</div>
+      </div>`;
+  }
+
+  let html = "";
+
+  if (soon.length)
+    html += `<div class="section"><div class="section-title">🔥 Due This Week (${soon.length})</div>${soon.map(taskHTML).join("")}</div>`;
+  else
+    html += `<div class="section"><div class="section-title">🔥 Due This Week</div><div class="empty">🎉 Nothing due this week!</div></div>`;
+
+  if (later.length)
+    html += `<div class="section"><div class="section-title">📆 Later (${later.length})</div>${later.map(taskHTML).join("")}</div>`;
+
+  if (showDone && done.length)
+    html += `<div class="section"><div class="section-title">✅ Completed (${done.length})</div>${done.map(taskHTML).join("")}</div>`;
+
+  if (!pending.length && !done.length)
+    html = `<div class="empty">🎉 No assignments found yet.<br><small>Run the GitHub Action to sync.</small></div>`;
+
+  document.getElementById("app").innerHTML = html;
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+loadTasks();
+</script>
+</body>
+</html>
