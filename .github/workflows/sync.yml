@@ -1,1 +1,58 @@
+name: Assignment DDL Email Digest
 
+on:
+  schedule:
+    # Daily: every day at 8:00 AM Central (14:00 UTC)
+    - cron: "0 14 * * *"
+    # Weekly: every Monday at 8:00 AM Central (14:00 UTC)
+    # (the daily job also runs on Monday, so weekly gives the full overview)
+    - cron: "0 14 * * 1"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Email mode'
+        required: true
+        default: 'daily'
+        type: choice
+        options:
+          - daily
+          - weekly
+
+jobs:
+  send-daily:
+    # Runs every day EXCEPT Monday (Monday is handled by weekly job)
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.mode == 'daily' || github.event.schedule == '0 14 * * *' && github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests pytz
+      - name: Send daily email
+        env:
+          CANVAS_TOKEN:        ${{ secrets.CANVAS_TOKEN }}
+          PL_TOKEN:            ${{ secrets.PL_TOKEN }}
+          GMAIL_ADDRESS:       ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD:  ${{ secrets.GMAIL_APP_PASSWORD }}
+          TO_EMAIL:            ${{ secrets.TO_EMAIL }}
+        run: python sync_assignments.py daily
+
+  send-weekly:
+    # Runs every Monday
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.mode == 'weekly' || github.event.schedule == '0 14 * * 1' && github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests pytz
+      - name: Send weekly email
+        env:
+          CANVAS_TOKEN:        ${{ secrets.CANVAS_TOKEN }}
+          PL_TOKEN:            ${{ secrets.PL_TOKEN }}
+          GMAIL_ADDRESS:       ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD:  ${{ secrets.GMAIL_APP_PASSWORD }}
+          TO_EMAIL:            ${{ secrets.TO_EMAIL }}
+        run: python sync_assignments.py weekly
