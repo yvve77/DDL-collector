@@ -45,15 +45,24 @@ def all_assignments():
     tasks = []
 
     # ── BioE 210 (Canvas) ──────────────────────────────────────────────────────
-    # Weekly HW, due every Monday 11:59 PM
-    bioe_mondays = [
-        ct(2,24), ct(3,3), ct(3,10), ct(3,17), ct(3,24),
-        ct(3,31), ct(4,7), ct(4,14), ct(4,21), ct(4,28), ct(5,5),
+    # Weekly HW due every Monday 11:59 PM. HW1-4 already submitted.
+    # HW5 due Mar 3, HW6 due Mar 10, ... (next Monday from now)
+    bioe_hw_mondays = [
+        (5,  ct(3,3)),
+        (6,  ct(3,10)),
+        (7,  ct(3,17)),
+        (8,  ct(3,24)),
+        (9,  ct(3,31)),
+        (10, ct(4,7)),
+        (11, ct(4,14)),
+        (12, ct(4,21)),
+        (13, ct(4,28)),
+        (14, ct(5,5)),
     ]
-    for i, due in enumerate(bioe_mondays, 1):
-        tasks.append(make_assignment(f"BioE 210 — Weekly HW {i}", "BioE 210", due))
+    for num, due in bioe_hw_mondays:
+        tasks.append(make_assignment(f"BioE 210 — Weekly HW {num}", "BioE 210", due))
 
-    # ── BioE 210 Quizzes (from Canvas data) ───────────────────────────────────
+    # ── BioE 210 Quizzes & HWs (from Canvas data) ─────────────────────────────
     bioe_quizzes = [
         ("Q14: Quiz for Lecture 14", ct(2,25)),
         ("Q15: Quiz for Lecture 15", ct(2,27)),
@@ -83,32 +92,31 @@ def all_assignments():
         ("Q39: Quiz for Lecture 39", ct(5,6)),
     ]
     bioe_hws = [
-        ("HW5: Homework 5",          ct(3,2)),
-        ("HW6: Homework 6",          ct(3,6)),
+        ("HW5: Homework 5",            ct(3,2)),
+        ("HW6: Homework 6",            ct(3,6)),
         ("HW7: Homework 7: Worksheet", ct(3,13)),
-        ("HW8: Homework 8",          ct(4,13)),
-        ("HW9: Homework 9",          ct(4,27)),
-        ("HW10: Homework 10",        ct(5,4)),
+        ("HW8: Homework 8",            ct(4,13)),
+        ("HW9: Homework 9",            ct(4,27)),
+        ("HW10: Homework 10",          ct(5,4)),
     ]
     for title, due in bioe_quizzes + bioe_hws:
         tasks.append(make_assignment(title, "BioE 210", due))
 
-    # ── CS 128 Machine Problems (Canvas) ──────────────────────────────────────
-    # ~every 2 weeks, released Friday, due Monday two weeks later
+    # ── CS 128 Machine Problems (PrairieLearn) ─────────────────────────────────
     cs128_mps = [
         ("MP2", ct(3,2)),
-        ("MP3", ct(3,17)),   # estimated
-        ("MP4", ct(3,31)),   # estimated
-        ("MP5", ct(4,14)),   # estimated
-        ("MP6", ct(4,28)),   # estimated
+        ("MP3", ct(3,17)),
+        ("MP4", ct(3,31)),
+        ("MP5", ct(4,14)),
+        ("MP6", ct(4,28)),
     ]
     for name, due in cs128_mps:
-        tasks.append(make_assignment(f"CS 128 — {name}", "CS 128", due))
+        tasks.append(make_assignment(f"CS 128 — {name}", "CS 128", due,
+                     source="PrairieLearn", url="https://us.prairielearn.com"))
 
-    # ── CS 173 Pre-unit Homework (Canvas) ─────────────────────────────────────
-    # Released Thursday, due following Monday 11:59 PM
+    # ── CS 173 Pre-unit Homework (PrairieLearn) ────────────────────────────────
+    # Released Thursday, due following Monday 11:59 PM. Feb 24 already past.
     cs173_preunits = [
-        ("Pre-unit HW (due Feb 24)",  ct(2,24)),
         ("Pre-unit HW (due Mar 3)",   ct(3,3)),
         ("Pre-unit HW (due Mar 10)",  ct(3,10)),
         ("Pre-unit HW (due Mar 17)",  ct(3,17)),
@@ -121,9 +129,10 @@ def all_assignments():
         ("Pre-unit HW (due May 5)",   ct(5,5)),
     ]
     for title, due in cs173_preunits:
-        tasks.append(make_assignment(title, "CS 173", due))
+        tasks.append(make_assignment(title, "CS 173", due,
+                     source="PrairieLearn", url="https://us.prairielearn.com"))
 
-    # ── Math 285 (Canvas) ─────────────────────────────────────────────────────
+    # ── Math 285 (PrairieLearn) ────────────────────────────────────────────────
     # Weekly HW + per-lecture quizzes (MWF, due before next class)
     math285_hws = [
         ("Math 285 — HW (due Mar 3)",   ct(3,3)),
@@ -161,10 +170,12 @@ def all_assignments():
         else:
             due = CENTRAL_TZ.localize(datetime(2026, 5, 10, 23, 59))
         label = lecture_day.strftime("%b %d")
-        math285_quizzes.append(make_assignment(f"Math 285 — Quiz (Lec {label})", "Math 285", due))
+        math285_quizzes.append(make_assignment(f"Math 285 — Quiz (Lec {label})", "Math 285", due,
+                               source="PrairieLearn", url="https://us.prairielearn.com"))
 
     for title, due in math285_hws:
-        tasks.append(make_assignment(title, "Math 285", due))
+        tasks.append(make_assignment(title, "Math 285", due,
+                     source="PrairieLearn", url="https://us.prairielearn.com"))
     tasks.extend(math285_quizzes)
 
     return tasks
