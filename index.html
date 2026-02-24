@@ -3,323 +3,574 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📚 DDL Dashboard</title>
+  <title>DDL Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg:       #f4f3ef;
+      --surface:  #ffffff;
+      --border:   #e8e5df;
+      --text:     #1a1917;
+      --muted:    #8a8680;
+      --subtle:   #f0ede8;
+
+      --bioe-bg:    #fff8f0;  --bioe-border: #f6ad55;  --bioe-text: #92400e;  --bioe-accent: #ed8936;
+      --cs128-bg:   #eff8ff;  --cs128-border:#63b3ed;  --cs128-text: #1a4a7a;  --cs128-accent:#3182ce;
+      --cs173-bg:   #f0fdf4;  --cs173-border:#68d391;  --cs173-text: #14532d;  --cs173-accent:#38a169;
+      --math-bg:    #faf5ff;  --math-border: #b794f4;  --math-text:  #44337a;  --math-accent: #805ad5;
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #f0f4ff;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
       min-height: 100vh;
-      padding: 24px 16px;
+      padding: 32px 16px 64px;
+      color: var(--text);
     }
 
-    .container { max-width: 720px; margin: 0 auto; }
+    /* ── Layout ── */
+    .container { max-width: 860px; margin: 0 auto; }
 
-    header {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      border-radius: 16px;
-      padding: 24px 28px;
-      color: white;
-      margin-bottom: 20px;
-    }
-    header h1 { font-size: 22px; margin-bottom: 4px; }
-    header p  { font-size: 13px; opacity: 0.8; }
-
-    .stats {
+    /* ── Header ── */
+    .header {
       display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 20px;
     }
-    .stat {
-      flex: 1;
-      background: white;
-      border-radius: 12px;
-      padding: 14px;
-      text-align: center;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.07);
-    }
-    .stat .num  { font-size: 28px; font-weight: 700; }
-    .stat .lbl  { font-size: 11px; color: #718096; margin-top: 2px; }
-    .stat.red   .num { color: #e53e3e; }
-    .stat.blue  .num { color: #667eea; }
-    .stat.green .num { color: #38a169; }
-
-    .section { margin-bottom: 24px; }
-    .section-title {
-      font-size: 13px;
+    .header-left h1 {
+      font-size: 28px;
       font-weight: 600;
-      color: #718096;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 8px;
-      padding: 0 4px;
+      letter-spacing: -0.5px;
+      color: var(--text);
+    }
+    .header-left p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+    .header-right {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .sync-time {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .btn {
+      background: var(--text);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.8; }
+    .btn-ghost {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
     }
 
-    .task {
-      background: white;
+    /* ── Summary cards ── */
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .summary-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 14px 16px;
-      margin-bottom: 8px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+      padding: 16px;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .summary-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .summary-card.bioe::before  { background: var(--bioe-accent); }
+    .summary-card.cs128::before { background: var(--cs128-accent); }
+    .summary-card.cs173::before { background: var(--cs173-accent); }
+    .summary-card.math::before  { background: var(--math-accent); }
+    .summary-card:hover { border-color: #ccc; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .summary-card.active { box-shadow: 0 0 0 2px var(--text); }
+    .summary-card .sc-num {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .summary-card .sc-course {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+    .summary-card .sc-sub {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+    .bioe  .sc-num { color: var(--bioe-accent); }
+    .cs128 .sc-num { color: var(--cs128-accent); }
+    .cs173 .sc-num { color: var(--cs173-accent); }
+    .math  .sc-num { color: var(--math-accent); }
+
+    /* ── Filter bar ── */
+    .filter-bar {
       display: flex;
       align-items: center;
-      gap: 14px;
-      transition: opacity 0.3s, transform 0.3s;
-      border-left: 4px solid transparent;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 8px;
     }
-    .task.urgent   { border-left-color: #e53e3e; }
-    .task.soon     { border-left-color: #dd6b20; }
-    .task.week     { border-left-color: #d69e2e; }
-    .task.later    { border-left-color: #38a169; }
-    .task.done     { opacity: 0.4; }
+    .filter-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+    .chip {
+      padding: 5px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      transition: all 0.15s;
+      background: var(--surface);
+      border-color: var(--border);
+      color: var(--muted);
+    }
+    .chip.active-all  { background: var(--text); color: white; border-color: var(--text); }
+    .chip.active-bioe  { background: var(--bioe-bg);  color: var(--bioe-text);  border-color: var(--bioe-border); }
+    .chip.active-cs128 { background: var(--cs128-bg); color: var(--cs128-text); border-color: var(--cs128-border); }
+    .chip.active-cs173 { background: var(--cs173-bg); color: var(--cs173-text); border-color: var(--cs173-border); }
+    .chip.active-math  { background: var(--math-bg);  color: var(--math-text);  border-color: var(--math-border); }
+
+    .show-done-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .show-done-toggle input { cursor: pointer; accent-color: var(--text); }
+
+    /* ── Course sections ── */
+    .course-section {
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--surface);
+      transition: opacity 0.2s;
+    }
+    .course-section.hidden { display: none; }
+
+    .course-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      user-select: none;
+    }
+    .course-header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .course-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .bioe-section  .course-dot { background: var(--bioe-accent); }
+    .cs128-section .course-dot { background: var(--cs128-accent); }
+    .cs173-section .course-dot { background: var(--cs173-accent); }
+    .math-section  .course-dot { background: var(--math-accent); }
+
+    .course-name {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .course-count {
+      font-size: 12px;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+    }
+    .collapse-icon {
+      font-size: 12px;
+      color: var(--muted);
+      transition: transform 0.2s;
+    }
+    .course-section.collapsed .collapse-icon { transform: rotate(-90deg); }
+    .course-body { padding: 0; }
+    .course-section.collapsed .course-body { display: none; }
+
+    /* ── Task row ── */
+    .task {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 18px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.12s;
+    }
+    .task:last-child { border-bottom: none; }
+    .task:hover { background: var(--subtle); }
+    .task.done { opacity: 0.35; }
     .task.done .task-title { text-decoration: line-through; }
 
-    .task input[type=checkbox] {
-      width: 20px; height: 20px;
-      cursor: pointer;
-      accent-color: #667eea;
+    .task-check {
+      width: 18px; height: 18px;
       flex-shrink: 0;
+      cursor: pointer;
+      border-radius: 4px;
+      accent-color: var(--text);
     }
 
     .task-info { flex: 1; min-width: 0; }
     .task-title {
       font-size: 14px;
       font-weight: 500;
-      color: #2d3748;
+      color: var(--text);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .task-title a { color: inherit; text-decoration: none; }
+    .task-title a {
+      color: inherit;
+      text-decoration: none;
+    }
     .task-title a:hover { text-decoration: underline; }
-    .task-meta {
-      font-size: 12px;
-      color: #a0aec0;
-      margin-top: 3px;
+    .task-sub {
       display: flex;
-      gap: 8px;
       align-items: center;
+      gap: 8px;
+      margin-top: 3px;
     }
-
-    .badge {
+    .platform-badge {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 1px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .badge-canvas { background: #dbeafe; color: #1e40af; }
+    .badge-pl     { background: #dcfce7; color: #166534; }
+    .task-due {
+      font-family: 'DM Mono', monospace;
       font-size: 11px;
-      padding: 2px 8px;
-      border-radius: 9999px;
-      font-weight: 500;
+      color: var(--muted);
     }
-    .badge.canvas { background: #ebf8ff; color: #2b6cb0; }
-    .badge.pl     { background: #f0fff4; color: #276749; }
 
-    .urgency {
+    .task-urgency {
       font-size: 12px;
       font-weight: 600;
       white-space: nowrap;
       flex-shrink: 0;
+      padding: 3px 9px;
+      border-radius: 9999px;
+    }
+    .urg-critical { background: #fee2e2; color: #991b1b; }
+    .urg-soon     { background: #ffedd5; color: #9a3412; }
+    .urg-week     { background: #fef9c3; color: #854d0e; }
+    .urg-later    { background: #f0fdf4; color: #166534; }
+    .urg-overdue  { background: #f1f5f9; color: #475569; }
+
+    /* ── Empty states ── */
+    .empty-course {
+      padding: 24px 18px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
     }
 
-    .empty {
+    /* ── Loading ── */
+    .loading {
       text-align: center;
-      color: #a0aec0;
-      padding: 32px;
+      padding: 60px 20px;
+      color: var(--muted);
       font-size: 14px;
     }
-
-    .refresh-btn {
-      display: block;
-      margin: 0 auto 20px;
-      background: white;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 8px 20px;
-      font-size: 13px;
-      color: #667eea;
-      cursor: pointer;
-      font-weight: 500;
+    .loading-dot {
+      display: inline-block;
+      width: 6px; height: 6px;
+      background: var(--muted);
+      border-radius: 50%;
+      margin: 0 2px;
+      animation: bounce 1.2s infinite ease-in-out;
     }
-    .refresh-btn:hover { background: #f8f9ff; }
-
-    .last-updated {
-      text-align: center;
-      font-size: 12px;
-      color: #cbd5e0;
-      margin-bottom: 12px;
+    .loading-dot:nth-child(2) { animation-delay: 0.2s; }
+    .loading-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce {
+      0%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-6px); }
     }
 
-    #show-done {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      color: #718096;
-      cursor: pointer;
-      justify-content: center;
-      margin-bottom: 16px;
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .summary { grid-template-columns: repeat(2, 1fr); }
+      .header { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 <div class="container">
 
-  <header>
-    <h1>📚 DDL Dashboard</h1>
-    <p>Canvas (BioE 210) + PrairieLearn · Auto-synced daily</p>
-  </header>
-
-  <div class="stats">
-    <div class="stat blue">  <div class="num" id="stat-total">–</div><div class="lbl">Total</div></div>
-    <div class="stat red">   <div class="num" id="stat-week">–</div> <div class="lbl">This week</div></div>
-    <div class="stat green"> <div class="num" id="stat-done">–</div> <div class="lbl">Done ✓</div></div>
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <h1>DDL Dashboard</h1>
+      <p>Spring 2026 · BioE 210 · CS 128 · CS 173 · Math 285</p>
+    </div>
+    <div class="header-right">
+      <span class="sync-time" id="sync-time"></span>
+      <button class="btn btn-ghost" onclick="loadTasks()">↻ Refresh</button>
+    </div>
   </div>
 
-  <button class="refresh-btn" onclick="loadTasks()">🔄 Refresh</button>
-  <div class="last-updated" id="last-updated"></div>
+  <!-- Summary cards -->
+  <div class="summary" id="summary">
+    <div class="summary-card bioe"  onclick="filterCourse('BioE 210')">
+      <div class="sc-num" id="cnt-bioe">–</div>
+      <div class="sc-course">BioE 210</div>
+      <div class="sc-sub">Canvas</div>
+    </div>
+    <div class="summary-card cs128" onclick="filterCourse('CS 128')">
+      <div class="sc-num" id="cnt-cs128">–</div>
+      <div class="sc-course">CS 128</div>
+      <div class="sc-sub">PrairieLearn</div>
+    </div>
+    <div class="summary-card cs173" onclick="filterCourse('CS 173')">
+      <div class="sc-num" id="cnt-cs173">–</div>
+      <div class="sc-course">CS 173</div>
+      <div class="sc-sub">PrairieLearn</div>
+    </div>
+    <div class="summary-card math"  onclick="filterCourse('Math 285')">
+      <div class="sc-num" id="cnt-math">–</div>
+      <div class="sc-course">Math 285</div>
+      <div class="sc-sub">PrairieLearn</div>
+    </div>
+  </div>
 
-  <label id="show-done">
-    <input type="checkbox" id="toggle-done" onchange="renderTasks()"> Show completed tasks
-  </label>
+  <!-- Filter bar -->
+  <div class="filter-bar">
+    <div class="filter-chips" id="filter-chips">
+      <span class="chip active-all" onclick="filterCourse('all')">All courses</span>
+      <span class="chip" onclick="filterCourse('BioE 210')">BioE 210</span>
+      <span class="chip" onclick="filterCourse('CS 128')">CS 128</span>
+      <span class="chip" onclick="filterCourse('CS 173')">CS 173</span>
+      <span class="chip" onclick="filterCourse('Math 285')">Math 285</span>
+    </div>
+    <label class="show-done-toggle">
+      <input type="checkbox" id="toggle-done" onchange="renderTasks()">
+      Show completed
+    </label>
+  </div>
 
+  <!-- Main content -->
   <div id="app">
-    <div class="empty">Loading tasks…</div>
+    <div class="loading">
+      <div style="margin-bottom:12px;">Loading assignments</div>
+      <span class="loading-dot"></span>
+      <span class="loading-dot"></span>
+      <span class="loading-dot"></span>
+    </div>
   </div>
 
 </div>
 
 <script>
-// ── Repo config ───────────────────────────────────────────────────────────────
-// IMPORTANT: Change YOUR_GITHUB_USERNAME to your actual GitHub username!
 const TASKS_URL = "https://raw.githubusercontent.com/yvve77/DDL-collector/main/tasks.json";
 
-let tasks = {};
+const COURSES = [
+  { key: "BioE 210", cls: "bioe-section",  chipCls: "active-bioe",  cntId: "cnt-bioe"  },
+  { key: "CS 128",   cls: "cs128-section", chipCls: "active-cs128", cntId: "cnt-cs128" },
+  { key: "CS 173",   cls: "cs173-section", chipCls: "active-cs173", cntId: "cnt-cs173" },
+  { key: "Math 285", cls: "math-section",  chipCls: "active-math",  cntId: "cnt-math"  },
+];
 
-// ── Load tasks from GitHub ────────────────────────────────────────────────────
+let tasks = {};
+let activeFilter = "all";
+let collapsed = {};
+
+// ── Load ──────────────────────────────────────────────────────────────────────
 async function loadTasks() {
-  document.getElementById("app").innerHTML = '<div class="empty">Loading…</div>';
+  document.getElementById("app").innerHTML = `
+    <div class="loading">
+      <div style="margin-bottom:12px;">Loading assignments</div>
+      <span class="loading-dot"></span><span class="loading-dot"></span><span class="loading-dot"></span>
+    </div>`;
   try {
     const r = await fetch(TASKS_URL + "?t=" + Date.now());
-    if (!r.ok) throw new Error("Failed to fetch tasks.json");
+    if (!r.ok) throw new Error("HTTP " + r.status);
     const remote = await r.json();
-
-    // Merge remote with local completed state
-    const local = getLocalState();
+    const local  = getLocalState();
     tasks = {};
-    for (const [id, task] of Object.entries(remote)) {
-      tasks[id] = {
-        ...task,
-        completed: local[id] ?? task.completed ?? false,
-      };
+    for (const [id, t] of Object.entries(remote)) {
+      tasks[id] = { ...t, completed: local[id] ?? t.completed ?? false };
     }
-
-    document.getElementById("last-updated").textContent =
-      "Last synced: " + new Date().toLocaleString();
+    document.getElementById("sync-time").textContent =
+      "Synced " + new Date().toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"});
     renderTasks();
   } catch (e) {
     document.getElementById("app").innerHTML =
-      `<div class="empty">⚠️ Could not load tasks.<br><small>${e.message}</small></div>`;
+      `<div class="loading">⚠️ Could not load tasks.<br><small style="color:#aaa">${e.message}</small></div>`;
   }
 }
 
-// ── Local storage for completed state ────────────────────────────────────────
+// ── Local state ───────────────────────────────────────────────────────────────
 function getLocalState() {
   try { return JSON.parse(localStorage.getItem("ddl_completed") || "{}"); }
   catch { return {}; }
 }
 function saveLocalState() {
-  const state = {};
-  for (const [id, t] of Object.entries(tasks)) state[id] = t.completed;
-  localStorage.setItem("ddl_completed", JSON.stringify(state));
+  const s = {};
+  for (const [id, t] of Object.entries(tasks)) s[id] = t.completed;
+  localStorage.setItem("ddl_completed", JSON.stringify(s));
 }
 
-// ── Toggle task ───────────────────────────────────────────────────────────────
+// ── Toggle ────────────────────────────────────────────────────────────────────
 function toggle(id) {
-  if (tasks[id]) {
-    tasks[id].completed = !tasks[id].completed;
-    saveLocalState();
-    renderTasks();
-  }
+  if (!tasks[id]) return;
+  tasks[id].completed = !tasks[id].completed;
+  saveLocalState();
+  renderTasks();
+}
+function toggleCollapse(course) {
+  collapsed[course] = !collapsed[course];
+  renderTasks();
 }
 
-// ── Urgency helpers ───────────────────────────────────────────────────────────
-function urgencyClass(due) {
-  const h = (new Date(due) - new Date()) / 3600000;
-  if (h < 24)  return "urgent";
-  if (h < 72)  return "soon";
-  if (h < 168) return "week";
-  return "later";
+// ── Filter ────────────────────────────────────────────────────────────────────
+function filterCourse(course) {
+  activeFilter = course;
+  // Update chips
+  document.querySelectorAll(".chip").forEach(c => {
+    c.className = "chip";
+    if (course === "all" && c.textContent === "All courses") c.classList.add("active-all");
+    if (course === "BioE 210"  && c.textContent === "BioE 210")  c.classList.add("active-bioe");
+    if (course === "CS 128"    && c.textContent === "CS 128")    c.classList.add("active-cs128");
+    if (course === "CS 173"    && c.textContent === "CS 173")    c.classList.add("active-cs173");
+    if (course === "Math 285"  && c.textContent === "Math 285")  c.classList.add("active-math");
+  });
+  // Update summary card active state
+  document.querySelectorAll(".summary-card").forEach(c => c.classList.remove("active"));
+  if (course !== "all") {
+    const map = {"BioE 210":"bioe","CS 128":"cs128","CS 173":"cs173","Math 285":"math"};
+    document.querySelector(`.summary-card.${map[course]}`)?.classList.add("active");
+  }
+  renderTasks();
 }
-function urgencyLabel(due) {
-  const h = Math.floor((new Date(due) - new Date()) / 3600000);
-  if (h < 0)   return "⛔ Overdue";
-  if (h < 24)  return `⚠️ ${h}h left`;
+
+// ── Urgency ───────────────────────────────────────────────────────────────────
+function urgency(due) {
+  const h = (new Date(due) - new Date()) / 3600000;
+  if (h < 0)   return { cls: "urg-overdue", label: "⛔ Overdue" };
+  if (h < 24)  return { cls: "urg-critical", label: `⚠️ ${Math.floor(h)}h left` };
   const d = Math.floor(h / 24);
-  if (d === 1) return "🔴 Tomorrow";
-  if (d <= 3)  return `🟠 ${d} days`;
-  if (d <= 7)  return `🟡 ${d} days`;
-  return `🟢 ${d} days`;
+  if (d === 1) return { cls: "urg-critical", label: "🔴 Tomorrow" };
+  if (d <= 3)  return { cls: "urg-soon",     label: `${d} days` };
+  if (d <= 7)  return { cls: "urg-week",     label: `${d} days` };
+  return       { cls: "urg-later",    label: `${d} days` };
 }
-function urgencyColor(due) {
-  const h = (new Date(due) - new Date()) / 3600000;
-  if (h < 24)  return "#e53e3e";
-  if (h < 72)  return "#dd6b20";
-  if (h < 168) return "#d69e2e";
-  return "#38a169";
+
+// ── Task HTML ─────────────────────────────────────────────────────────────────
+function taskHTML(t) {
+  const urg  = urgency(t.due);
+  const due  = new Date(t.due).toLocaleString("en-US", {month:"short", day:"numeric", hour:"2-digit", minute:"2-digit"});
+  const plat = t.source === "Canvas"
+    ? `<span class="platform-badge badge-canvas">Canvas</span>`
+    : `<span class="platform-badge badge-pl">PrairieLearn</span>`;
+  const title = t.url
+    ? `<a href="${t.url}" target="_blank">${t.title}</a>`
+    : t.title;
+  return `
+    <div class="task ${t.completed ? 'done' : ''}">
+      <input type="checkbox" class="task-check" ${t.completed ? 'checked' : ''} onchange="toggle('${t.id}')">
+      <div class="task-info">
+        <div class="task-title">${title}</div>
+        <div class="task-sub">
+          ${plat}
+          <span class="task-due">${due}</span>
+        </div>
+      </div>
+      <span class="task-urgency ${urg.cls}">${urg.label}</span>
+    </div>`;
 }
 
 // ── Render ────────────────────────────────────────────────────────────────────
 function renderTasks() {
   const showDone = document.getElementById("toggle-done").checked;
-  const now      = new Date();
-  const weekEnd  = new Date(now.getTime() + 7 * 86400000);
+  const now = new Date();
+  const all = Object.values(tasks).sort((a, b) => new Date(a.due) - new Date(b.due));
 
-  const all      = Object.values(tasks).sort((a, b) => new Date(a.due) - new Date(b.due));
-  const pending  = all.filter(t => !t.completed && new Date(t.due) > now);
-  const done     = all.filter(t => t.completed);
-  const soon     = pending.filter(t => new Date(t.due) <= weekEnd);
-  const later    = pending.filter(t => new Date(t.due) >  weekEnd);
+  // Update counts
+  const countById = {"BioE 210": 0, "CS 128": 0, "CS 173": 0, "Math 285": 0};
+  all.filter(t => !t.completed && new Date(t.due) > now)
+     .forEach(t => { if (t.course in countById) countById[t.course]++; });
+  document.getElementById("cnt-bioe").textContent  = countById["BioE 210"];
+  document.getElementById("cnt-cs128").textContent = countById["CS 128"];
+  document.getElementById("cnt-cs173").textContent = countById["CS 173"];
+  document.getElementById("cnt-math").textContent  = countById["Math 285"];
 
-  document.getElementById("stat-total").textContent = pending.length;
-  document.getElementById("stat-week").textContent  = soon.length;
-  document.getElementById("stat-done").textContent  = done.length;
+  // Build per-course sections
+  let html = "";
+  for (const course of COURSES) {
+    // skip if filtered
+    if (activeFilter !== "all" && activeFilter !== course.key) continue;
 
-  function taskHTML(t) {
-    const uc   = urgencyClass(t.due);
-    const ul   = urgencyLabel(t.due);
-    const col  = urgencyColor(t.due);
-    const bc   = t.source === "Canvas" ? "canvas" : "pl";
-    const due  = new Date(t.due).toLocaleString("en-US", {month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"});
-    const titleHTML = t.url
-      ? `<a href="${t.url}" target="_blank">${t.title}</a>`
-      : t.title;
-    return `
-      <div class="task ${uc} ${t.completed ? 'done' : ''}">
-        <input type="checkbox" ${t.completed ? 'checked' : ''} onchange="toggle('${t.id}')">
-        <div class="task-info">
-          <div class="task-title">${titleHTML}</div>
-          <div class="task-meta">
-            <span class="badge ${bc}">${t.source}</span>
-            <span>${t.course}</span>
-            <span>· ${due}</span>
-          </div>
+    const pending = all.filter(t => t.course === course.key && !t.completed && new Date(t.due) > now);
+    const done    = all.filter(t => t.course === course.key && t.completed);
+    const shown   = showDone ? [...pending, ...done] : pending;
+
+    const isCollapsed = collapsed[course.key] ?? false;
+    const total = pending.length;
+
+    let body = "";
+    if (shown.length === 0) {
+      body = `<div class="empty-course">🎉 All done for ${course.key}!</div>`;
+    } else {
+      body = shown.map(taskHTML).join("");
+    }
+
+    html += `
+    <div class="course-section ${course.cls} ${isCollapsed ? 'collapsed' : ''}">
+      <div class="course-header" onclick="toggleCollapse('${course.key}')">
+        <div class="course-header-left">
+          <div class="course-dot"></div>
+          <span class="course-name">${course.key}</span>
+          <span class="course-count">${total} pending</span>
         </div>
-        <div class="urgency" style="color:${col}">${ul}</div>
-      </div>`;
+        <span class="collapse-icon">▾</span>
+      </div>
+      <div class="course-body">${body}</div>
+    </div>`;
   }
 
-  let html = "";
-
-  if (soon.length)
-    html += `<div class="section"><div class="section-title">🔥 Due This Week (${soon.length})</div>${soon.map(taskHTML).join("")}</div>`;
-  else
-    html += `<div class="section"><div class="section-title">🔥 Due This Week</div><div class="empty">🎉 Nothing due this week!</div></div>`;
-
-  if (later.length)
-    html += `<div class="section"><div class="section-title">📆 Later (${later.length})</div>${later.map(taskHTML).join("")}</div>`;
-
-  if (showDone && done.length)
-    html += `<div class="section"><div class="section-title">✅ Completed (${done.length})</div>${done.map(taskHTML).join("")}</div>`;
-
-  if (!pending.length && !done.length)
-    html = `<div class="empty">🎉 No assignments found yet.<br><small>Run the GitHub Action to sync.</small></div>`;
+  if (!html) {
+    html = `<div class="loading">🎉 No pending assignments!<br><small style="color:#aaa;margin-top:8px;display:block;">Run the GitHub Action to sync.</small></div>`;
+  }
 
   document.getElementById("app").innerHTML = html;
 }
