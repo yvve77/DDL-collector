@@ -519,6 +519,44 @@ function taskHTML(t) {
     </div>`;
 }
 
+// ── Course color dot for unified list ─────────────────────────────────────────
+function courseDot(course) {
+  const map = {
+    "BioE 210": "var(--bioe-accent)",
+    "CS 128":   "var(--cs128-accent)",
+    "CS 173":   "var(--cs173-accent)",
+    "Math 285": "var(--math-accent)",
+  };
+  const color = map[course] || "#aaa";
+  return `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;
+          background:${color};margin-right:5px;flex-shrink:0;"></span>`;
+}
+
+// ── Task HTML (unified list variant — shows course name with dot) ─────────────
+function taskHTMLUnified(t) {
+  const urg  = urgency(t.due);
+  const due  = new Date(t.due).toLocaleString("en-US", {month:"short", day:"numeric", hour:"2-digit", minute:"2-digit"});
+  const plat = t.source === "Canvas"
+    ? `<span class="platform-badge badge-canvas">Canvas</span>`
+    : `<span class="platform-badge badge-pl">PrairieLearn</span>`;
+  const title = t.url
+    ? `<a href="${t.url}" target="_blank">${t.title}</a>`
+    : t.title;
+  return `
+    <div class="task ${t.completed ? 'done' : ''}">
+      <input type="checkbox" class="task-check" ${t.completed ? 'checked' : ''} onchange="toggle('${t.id}')">
+      <div class="task-info">
+        <div class="task-title">${title}</div>
+        <div class="task-sub">
+          ${plat}
+          <span style="display:flex;align-items:center;">${courseDot(t.course)}<span class="task-due" style="color:#666;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;">${t.course}</span></span>
+          <span class="task-due">${due}</span>
+        </div>
+      </div>
+      <span class="task-urgency ${urg.cls}">${urg.label}</span>
+    </div>`;
+}
+
 // ── Render ────────────────────────────────────────────────────────────────────
 function renderTasks() {
   const showDone = document.getElementById("toggle-done").checked;
@@ -534,42 +572,53 @@ function renderTasks() {
   document.getElementById("cnt-cs173").textContent = countById["CS 173"];
   document.getElementById("cnt-math").textContent  = countById["Math 285"];
 
-  // Build per-course sections
   let html = "";
-  for (const course of COURSES) {
-    // skip if filtered
-    if (activeFilter !== "all" && activeFilter !== course.key) continue;
+
+  if (activeFilter === "all") {
+    // ── Unified view: sorted by due date ──────────────────────────────────────
+    const pending = all.filter(t => !t.completed && new Date(t.due) > now);
+    const done    = all.filter(t => t.completed);
+    const shown   = showDone ? [...pending, ...done] : pending;
+
+    if (shown.length === 0) {
+      html = `<div class="loading">🎉 All done!<br><small style="color:#aaa;margin-top:8px;display:block;">Nothing pending.</small></div>`;
+    } else {
+      html = `
+      <div class="course-section" style="border-radius:14px;overflow:hidden;border:1px solid var(--border);background:var(--surface);">
+        <div style="padding:12px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;">All Courses</span>
+          <span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);">${pending.length} pending</span>
+        </div>
+        <div>${shown.map(taskHTMLUnified).join("")}</div>
+      </div>`;
+    }
+
+  } else {
+    // ── Per-course view: show only selected course ────────────────────────────
+    const course = COURSES.find(c => c.key === activeFilter);
+    if (!course) return;
 
     const pending = all.filter(t => t.course === course.key && !t.completed && new Date(t.due) > now);
     const done    = all.filter(t => t.course === course.key && t.completed);
     const shown   = showDone ? [...pending, ...done] : pending;
 
     const isCollapsed = collapsed[course.key] ?? false;
-    const total = pending.length;
+    const body = shown.length === 0
+      ? `<div class="empty-course">🎉 All done for ${course.key}!</div>`
+      : shown.map(taskHTML).join("");
 
-    let body = "";
-    if (shown.length === 0) {
-      body = `<div class="empty-course">🎉 All done for ${course.key}!</div>`;
-    } else {
-      body = shown.map(taskHTML).join("");
-    }
-
-    html += `
+    html = `
     <div class="course-section ${course.cls} ${isCollapsed ? 'collapsed' : ''}">
       <div class="course-header" onclick="toggleCollapse('${course.key}')">
         <div class="course-header-left">
           <div class="course-dot"></div>
           <span class="course-name">${course.key}</span>
-          <span class="course-count">${total} pending</span>
+          <span class="course-count">${pending.length} pending</span>
         </div>
         <span class="collapse-icon">▾</span>
       </div>
       <div class="course-body">${body}</div>
     </div>`;
-  }
-
-  if (!html) {
-    html = `<div class="loading">🎉 No pending assignments!<br><small style="color:#aaa;margin-top:8px;display:block;">Run the GitHub Action to sync.</small></div>`;
   }
 
   document.getElementById("app").innerHTML = html;
