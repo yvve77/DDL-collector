@@ -871,5 +871,95 @@
     "source": "Canvas",
     "url": "https://canvas.illinois.edu",
     "completed": false
+  },
+  "bioe_210___weekly_hw_5__20260303": {
+    "id": "bioe_210___weekly_hw_5__20260303",
+    "title": "BioE 210 \u2014 Weekly HW 5",
+    "course": "BioE 210",
+    "due": "2026-03-03T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_6__20260310": {
+    "id": "bioe_210___weekly_hw_6__20260310",
+    "title": "BioE 210 \u2014 Weekly HW 6",
+    "course": "BioE 210",
+    "due": "2026-03-10T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_7__20260317": {
+    "id": "bioe_210___weekly_hw_7__20260317",
+    "title": "BioE 210 \u2014 Weekly HW 7",
+    "course": "BioE 210",
+    "due": "2026-03-17T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_8__20260324": {
+    "id": "bioe_210___weekly_hw_8__20260324",
+    "title": "BioE 210 \u2014 Weekly HW 8",
+    "course": "BioE 210",
+    "due": "2026-03-24T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_9__20260331": {
+    "id": "bioe_210___weekly_hw_9__20260331",
+    "title": "BioE 210 \u2014 Weekly HW 9",
+    "course": "BioE 210",
+    "due": "2026-03-31T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_10__20260407": {
+    "id": "bioe_210___weekly_hw_10__20260407",
+    "title": "BioE 210 \u2014 Weekly HW 10",
+    "course": "BioE 210",
+    "due": "2026-04-07T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_11__20260414": {
+    "id": "bioe_210___weekly_hw_11__20260414",
+    "title": "BioE 210 \u2014 Weekly HW 11",
+    "course": "BioE 210",
+    "due": "2026-04-14T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_12__20260421": {
+    "id": "bioe_210___weekly_hw_12__20260421",
+    "title": "BioE 210 \u2014 Weekly HW 12",
+    "course": "BioE 210",
+    "due": "2026-04-21T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_13__20260428": {
+    "id": "bioe_210___weekly_hw_13__20260428",
+    "title": "BioE 210 \u2014 Weekly HW 13",
+    "course": "BioE 210",
+    "due": "2026-04-28T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_14__20260505": {
+    "id": "bioe_210___weekly_hw_14__20260505",
+    "title": "BioE 210 \u2014 Weekly HW 14",
+    "course": "BioE 210",
+    "due": "2026-05-05T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
   }
 }
