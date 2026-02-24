@@ -575,21 +575,47 @@ function renderTasks() {
   let html = "";
 
   if (activeFilter === "all") {
-    // ── Unified view: sorted by due date ──────────────────────────────────────
+    // ── Unified view: sorted by due date, split into this week / later ────────
+    const weekEnd = new Date(now.getTime() + 7 * 86400000);
     const pending = all.filter(t => !t.completed && new Date(t.due) > now);
     const done    = all.filter(t => t.completed);
-    const shown   = showDone ? [...pending, ...done] : pending;
+    const soon    = pending.filter(t => new Date(t.due) <= weekEnd);
+    const later   = pending.filter(t => new Date(t.due) >  weekEnd);
 
-    if (shown.length === 0) {
+    if (pending.length === 0 && done.length === 0) {
       html = `<div class="loading">🎉 All done!<br><small style="color:#aaa;margin-top:8px;display:block;">Nothing pending.</small></div>`;
     } else {
+      function unifiedSection(label, icon, items, extraClass = "") {
+        if (items.length === 0) return `
+          <div style="padding:12px 18px;border-bottom:1px solid var(--border);">
+            <div style="font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;
+                        letter-spacing:0.06em;margin-bottom:10px;">${icon} ${label}</div>
+            <p style="font-size:13px;color:var(--muted);padding:8px 0 4px;">🎉 Nothing due this week!</p>
+          </div>`;
+        return `
+          <div style="${extraClass}">
+            <div style="padding:11px 18px 0;font-size:11px;font-weight:600;color:var(--muted);
+                        text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;">${icon} ${label}
+              <span style="font-family:'DM Mono',monospace;font-weight:400;margin-left:6px;">${items.length}</span>
+            </div>
+            ${items.map(taskHTMLUnified).join("")}
+          </div>`;
+      }
+
+      const doneSection = showDone && done.length ? `
+        <div>
+          <div style="padding:11px 18px 0;font-size:11px;font-weight:600;color:var(--muted);
+                      text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;">✅ Completed
+            <span style="font-family:'DM Mono',monospace;font-weight:400;margin-left:6px;">${done.length}</span>
+          </div>
+          ${done.map(taskHTMLUnified).join("")}
+        </div>` : "";
+
       html = `
-      <div class="course-section" style="border-radius:14px;overflow:hidden;border:1px solid var(--border);background:var(--surface);">
-        <div style="padding:12px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
-          <span style="font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;">All Courses</span>
-          <span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);">${pending.length} pending</span>
-        </div>
-        <div>${shown.map(taskHTMLUnified).join("")}</div>
+      <div style="border-radius:14px;overflow:hidden;border:1px solid var(--border);background:var(--surface);">
+        ${unifiedSection("Due This Week", "🔥", soon, "border-bottom:1px solid var(--border);")}
+        ${unifiedSection("Coming Up Later", "📆", later, later.length && showDone && done.length ? "border-bottom:1px solid var(--border);" : "")}
+        ${doneSection}
       </div>`;
     }
 
