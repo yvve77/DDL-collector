@@ -23,7 +23,7 @@ TASKS_FILE = "tasks.json"
 
 def ct(month, day, hour=23, minute=59):
     """Create a Central Time datetime for 2025."""
-    return CENTRAL_TZ.localize(datetime(2025, month, day, hour, minute))
+    return CENTRAL_TZ.localize(datetime(2026, month, day, hour, minute))
 
 def now_ct():
     return datetime.now(CENTRAL_TZ)
@@ -142,15 +142,15 @@ def all_assignments():
     math285_quizzes = []
     # MWF schedule: generate quiz due dates
     mwf_dates = []
-    start = datetime(2025, 2, 24)
-    end   = datetime(2025, 5, 9)
+    start = datetime(2026, 2, 24)
+    end   = datetime(2026, 5, 9)
     d = start
     while d <= end:
         if d.weekday() in (0, 2, 4):  # Mon, Wed, Fri
             mwf_dates.append(d)
         d += timedelta(days=1)
     # skip spring break: Mar 15-23
-    spring_break = {datetime(2025, 3, d) for d in range(15, 24)}
+    spring_break = {datetime(2026, 3, d) for d in range(15, 24)}
     mwf_dates = [d for d in mwf_dates if d not in spring_break]
 
     for i, lecture_day in enumerate(mwf_dates):
@@ -159,7 +159,7 @@ def all_assignments():
             next_class = mwf_dates[i + 1]
             due = CENTRAL_TZ.localize(datetime(next_class.year, next_class.month, next_class.day, 8, 0))
         else:
-            due = CENTRAL_TZ.localize(datetime(2025, 5, 10, 23, 59))
+            due = CENTRAL_TZ.localize(datetime(2026, 5, 10, 23, 59))
         label = lecture_day.strftime("%b %d")
         math285_quizzes.append(make_assignment(f"Math 285 — Quiz (Lec {label})", "Math 285", due))
 
