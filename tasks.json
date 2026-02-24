@@ -1,1 +1,551 @@
-{}
+{
+  "hw_5__20260303": {
+    "id": "hw_5__20260303",
+    "title": "HW 5",
+    "course": "BioE 210",
+    "due": "2026-03-03T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "hw_6__20260310": {
+    "id": "hw_6__20260310",
+    "title": "HW 6",
+    "course": "BioE 210",
+    "due": "2026-03-10T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "hw_7__20260317": {
+    "id": "hw_7__20260317",
+    "title": "HW 7",
+    "course": "BioE 210",
+    "due": "2026-03-17T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "hw_8__20260324": {
+    "id": "hw_8__20260324",
+    "title": "HW 8",
+    "course": "BioE 210",
+    "due": "2026-03-24T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "hw_9__20260331": {
+    "id": "hw_9__20260331",
+    "title": "HW 9",
+    "course": "BioE 210",
+    "due": "2026-03-31T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "hw_10__20260407": {
+    "id": "hw_10__20260407",
+    "title": "HW 10",
+    "course": "BioE 210",
+    "due": "2026-04-07T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "hw_11__20260414": {
+    "id": "hw_11__20260414",
+    "title": "HW 11",
+    "course": "BioE 210",
+    "due": "2026-04-14T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "hw_12__20260421": {
+    "id": "hw_12__20260421",
+    "title": "HW 12",
+    "course": "BioE 210",
+    "due": "2026-04-21T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "hw_13__20260428": {
+    "id": "hw_13__20260428",
+    "title": "HW 13",
+    "course": "BioE 210",
+    "due": "2026-04-28T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "hw_14__20260505": {
+    "id": "hw_14__20260505",
+    "title": "HW 14",
+    "course": "BioE 210",
+    "due": "2026-05-05T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "mp2__20260302": {
+    "id": "mp2__20260302",
+    "title": "MP2",
+    "course": "CS 128",
+    "due": "2026-03-02T23:59:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "mp3__20260317": {
+    "id": "mp3__20260317",
+    "title": "MP3",
+    "course": "CS 128",
+    "due": "2026-03-17T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "mp4__20260331": {
+    "id": "mp4__20260331",
+    "title": "MP4",
+    "course": "CS 128",
+    "due": "2026-03-31T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "mp5__20260414": {
+    "id": "mp5__20260414",
+    "title": "MP5",
+    "course": "CS 128",
+    "due": "2026-04-14T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "mp6__20260428": {
+    "id": "mp6__20260428",
+    "title": "MP6",
+    "course": "CS 128",
+    "due": "2026-04-28T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__20260303": {
+    "id": "pre_unit_hw__20260303",
+    "title": "Pre-unit HW",
+    "course": "CS 173",
+    "due": "2026-03-03T23:59:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__20260310": {
+    "id": "pre_unit_hw__20260310",
+    "title": "Pre-unit HW",
+    "course": "CS 173",
+    "due": "2026-03-10T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__20260317": {
+    "id": "pre_unit_hw__20260317",
+    "title": "Pre-unit HW",
+    "course": "CS 173",
+    "due": "2026-03-17T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__20260324": {
+    "id": "pre_unit_hw__20260324",
+    "title": "Pre-unit HW",
+    "course": "CS 173",
+    "due": "2026-03-24T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__20260331": {
+    "id": "pre_unit_hw__20260331",
+    "title": "Pre-unit HW",
+    "course": "CS 173",
+    "due": "2026-03-31T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__20260407": {
+    "id": "pre_unit_hw__20260407",
+    "title": "Pre-unit HW",
+    "course": "CS 173",
+    "due": "2026-04-07T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__20260414": {
+    "id": "pre_unit_hw__20260414",
+    "title": "Pre-unit HW",
+    "course": "CS 173",
+    "due": "2026-04-14T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__20260421": {
+    "id": "pre_unit_hw__20260421",
+    "title": "Pre-unit HW",
+    "course": "CS 173",
+    "due": "2026-04-21T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__20260428": {
+    "id": "pre_unit_hw__20260428",
+    "title": "Pre-unit HW",
+    "course": "CS 173",
+    "due": "2026-04-28T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__20260505": {
+    "id": "pre_unit_hw__20260505",
+    "title": "Pre-unit HW",
+    "course": "CS 173",
+    "due": "2026-05-05T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "weekly_hw__20260303": {
+    "id": "weekly_hw__20260303",
+    "title": "Weekly HW",
+    "course": "Math 285",
+    "due": "2026-03-03T23:59:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "weekly_hw__20260310": {
+    "id": "weekly_hw__20260310",
+    "title": "Weekly HW",
+    "course": "Math 285",
+    "due": "2026-03-10T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "weekly_hw__20260317": {
+    "id": "weekly_hw__20260317",
+    "title": "Weekly HW",
+    "course": "Math 285",
+    "due": "2026-03-17T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "weekly_hw__20260324": {
+    "id": "weekly_hw__20260324",
+    "title": "Weekly HW",
+    "course": "Math 285",
+    "due": "2026-03-24T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "weekly_hw__20260331": {
+    "id": "weekly_hw__20260331",
+    "title": "Weekly HW",
+    "course": "Math 285",
+    "due": "2026-03-31T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "weekly_hw__20260407": {
+    "id": "weekly_hw__20260407",
+    "title": "Weekly HW",
+    "course": "Math 285",
+    "due": "2026-04-07T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "weekly_hw__20260414": {
+    "id": "weekly_hw__20260414",
+    "title": "Weekly HW",
+    "course": "Math 285",
+    "due": "2026-04-14T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "weekly_hw__20260421": {
+    "id": "weekly_hw__20260421",
+    "title": "Weekly HW",
+    "course": "Math 285",
+    "due": "2026-04-21T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "weekly_hw__20260428": {
+    "id": "weekly_hw__20260428",
+    "title": "Weekly HW",
+    "course": "Math 285",
+    "due": "2026-04-28T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "weekly_hw__20260505": {
+    "id": "weekly_hw__20260505",
+    "title": "Weekly HW",
+    "course": "Math 285",
+    "due": "2026-05-05T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_14__20260225": {
+    "id": "quiz___lecture_14__20260225",
+    "title": "Quiz \u2014 Lecture 14",
+    "course": "Math 285",
+    "due": "2026-02-25T23:59:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_15__20260227": {
+    "id": "quiz___lecture_15__20260227",
+    "title": "Quiz \u2014 Lecture 15",
+    "course": "Math 285",
+    "due": "2026-02-27T23:59:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_16__20260302": {
+    "id": "quiz___lecture_16__20260302",
+    "title": "Quiz \u2014 Lecture 16",
+    "course": "Math 285",
+    "due": "2026-03-02T23:59:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_17__20260304": {
+    "id": "quiz___lecture_17__20260304",
+    "title": "Quiz \u2014 Lecture 17",
+    "course": "Math 285",
+    "due": "2026-03-04T23:59:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_18__20260306": {
+    "id": "quiz___lecture_18__20260306",
+    "title": "Quiz \u2014 Lecture 18",
+    "course": "Math 285",
+    "due": "2026-03-06T23:59:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_19__20260309": {
+    "id": "quiz___lecture_19__20260309",
+    "title": "Quiz \u2014 Lecture 19",
+    "course": "Math 285",
+    "due": "2026-03-09T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_20__20260311": {
+    "id": "quiz___lecture_20__20260311",
+    "title": "Quiz \u2014 Lecture 20",
+    "course": "Math 285",
+    "due": "2026-03-11T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_21__20260313": {
+    "id": "quiz___lecture_21__20260313",
+    "title": "Quiz \u2014 Lecture 21",
+    "course": "Math 285",
+    "due": "2026-03-13T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_22__20260323": {
+    "id": "quiz___lecture_22__20260323",
+    "title": "Quiz \u2014 Lecture 22",
+    "course": "Math 285",
+    "due": "2026-03-23T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_23__20260325": {
+    "id": "quiz___lecture_23__20260325",
+    "title": "Quiz \u2014 Lecture 23",
+    "course": "Math 285",
+    "due": "2026-03-25T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_24__20260330": {
+    "id": "quiz___lecture_24__20260330",
+    "title": "Quiz \u2014 Lecture 24",
+    "course": "Math 285",
+    "due": "2026-03-30T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_25__20260401": {
+    "id": "quiz___lecture_25__20260401",
+    "title": "Quiz \u2014 Lecture 25",
+    "course": "Math 285",
+    "due": "2026-04-01T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_26__20260403": {
+    "id": "quiz___lecture_26__20260403",
+    "title": "Quiz \u2014 Lecture 26",
+    "course": "Math 285",
+    "due": "2026-04-03T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_27__20260406": {
+    "id": "quiz___lecture_27__20260406",
+    "title": "Quiz \u2014 Lecture 27",
+    "course": "Math 285",
+    "due": "2026-04-06T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_28__20260408": {
+    "id": "quiz___lecture_28__20260408",
+    "title": "Quiz \u2014 Lecture 28",
+    "course": "Math 285",
+    "due": "2026-04-08T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_29__20260410": {
+    "id": "quiz___lecture_29__20260410",
+    "title": "Quiz \u2014 Lecture 29",
+    "course": "Math 285",
+    "due": "2026-04-10T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_30__20260413": {
+    "id": "quiz___lecture_30__20260413",
+    "title": "Quiz \u2014 Lecture 30",
+    "course": "Math 285",
+    "due": "2026-04-13T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_31__20260415": {
+    "id": "quiz___lecture_31__20260415",
+    "title": "Quiz \u2014 Lecture 31",
+    "course": "Math 285",
+    "due": "2026-04-15T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_32__20260417": {
+    "id": "quiz___lecture_32__20260417",
+    "title": "Quiz \u2014 Lecture 32",
+    "course": "Math 285",
+    "due": "2026-04-17T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_33__20260420": {
+    "id": "quiz___lecture_33__20260420",
+    "title": "Quiz \u2014 Lecture 33",
+    "course": "Math 285",
+    "due": "2026-04-20T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_34__20260422": {
+    "id": "quiz___lecture_34__20260422",
+    "title": "Quiz \u2014 Lecture 34",
+    "course": "Math 285",
+    "due": "2026-04-22T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_35__20260424": {
+    "id": "quiz___lecture_35__20260424",
+    "title": "Quiz \u2014 Lecture 35",
+    "course": "Math 285",
+    "due": "2026-04-24T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_36__20260427": {
+    "id": "quiz___lecture_36__20260427",
+    "title": "Quiz \u2014 Lecture 36",
+    "course": "Math 285",
+    "due": "2026-04-27T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_37__20260429": {
+    "id": "quiz___lecture_37__20260429",
+    "title": "Quiz \u2014 Lecture 37",
+    "course": "Math 285",
+    "due": "2026-04-29T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_38__20260504": {
+    "id": "quiz___lecture_38__20260504",
+    "title": "Quiz \u2014 Lecture 38",
+    "course": "Math 285",
+    "due": "2026-05-04T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_39__20260506": {
+    "id": "quiz___lecture_39__20260506",
+    "title": "Quiz \u2014 Lecture 39",
+    "course": "Math 285",
+    "due": "2026-05-06T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  }
+}
