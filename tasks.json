@@ -1,1 +1,893 @@
-{}
+{
+  "bioe_210___weekly_hw_1__20250224": {
+    "id": "bioe_210___weekly_hw_1__20250224",
+    "title": "BioE 210 \u2014 Weekly HW 1",
+    "course": "BioE 210",
+    "due": "2025-02-24T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_2__20250303": {
+    "id": "bioe_210___weekly_hw_2__20250303",
+    "title": "BioE 210 \u2014 Weekly HW 2",
+    "course": "BioE 210",
+    "due": "2025-03-03T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_3__20250310": {
+    "id": "bioe_210___weekly_hw_3__20250310",
+    "title": "BioE 210 \u2014 Weekly HW 3",
+    "course": "BioE 210",
+    "due": "2025-03-10T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_4__20250317": {
+    "id": "bioe_210___weekly_hw_4__20250317",
+    "title": "BioE 210 \u2014 Weekly HW 4",
+    "course": "BioE 210",
+    "due": "2025-03-17T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_5__20250324": {
+    "id": "bioe_210___weekly_hw_5__20250324",
+    "title": "BioE 210 \u2014 Weekly HW 5",
+    "course": "BioE 210",
+    "due": "2025-03-24T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_6__20250331": {
+    "id": "bioe_210___weekly_hw_6__20250331",
+    "title": "BioE 210 \u2014 Weekly HW 6",
+    "course": "BioE 210",
+    "due": "2025-03-31T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_7__20250407": {
+    "id": "bioe_210___weekly_hw_7__20250407",
+    "title": "BioE 210 \u2014 Weekly HW 7",
+    "course": "BioE 210",
+    "due": "2025-04-07T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_8__20250414": {
+    "id": "bioe_210___weekly_hw_8__20250414",
+    "title": "BioE 210 \u2014 Weekly HW 8",
+    "course": "BioE 210",
+    "due": "2025-04-14T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_9__20250421": {
+    "id": "bioe_210___weekly_hw_9__20250421",
+    "title": "BioE 210 \u2014 Weekly HW 9",
+    "course": "BioE 210",
+    "due": "2025-04-21T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_10__20250428": {
+    "id": "bioe_210___weekly_hw_10__20250428",
+    "title": "BioE 210 \u2014 Weekly HW 10",
+    "course": "BioE 210",
+    "due": "2025-04-28T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "bioe_210___weekly_hw_11__20250505": {
+    "id": "bioe_210___weekly_hw_11__20250505",
+    "title": "BioE 210 \u2014 Weekly HW 11",
+    "course": "BioE 210",
+    "due": "2025-05-05T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q14__quiz_for_lecture_14__20250225": {
+    "id": "q14__quiz_for_lecture_14__20250225",
+    "title": "Q14: Quiz for Lecture 14",
+    "course": "BioE 210",
+    "due": "2025-02-25T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q15__quiz_for_lecture_15__20250227": {
+    "id": "q15__quiz_for_lecture_15__20250227",
+    "title": "Q15: Quiz for Lecture 15",
+    "course": "BioE 210",
+    "due": "2025-02-27T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q16__quiz_for_lecture_16__20250302": {
+    "id": "q16__quiz_for_lecture_16__20250302",
+    "title": "Q16: Quiz for Lecture 16",
+    "course": "BioE 210",
+    "due": "2025-03-02T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q17__quiz_for_lecture_17__20250304": {
+    "id": "q17__quiz_for_lecture_17__20250304",
+    "title": "Q17: Quiz for Lecture 17",
+    "course": "BioE 210",
+    "due": "2025-03-04T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q18__quiz_for_lecture_18__20250306": {
+    "id": "q18__quiz_for_lecture_18__20250306",
+    "title": "Q18: Quiz for Lecture 18",
+    "course": "BioE 210",
+    "due": "2025-03-06T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q19__quiz_for_lecture_19__20250309": {
+    "id": "q19__quiz_for_lecture_19__20250309",
+    "title": "Q19: Quiz for Lecture 19",
+    "course": "BioE 210",
+    "due": "2025-03-09T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q20__quiz_for_lecture_20__20250311": {
+    "id": "q20__quiz_for_lecture_20__20250311",
+    "title": "Q20: Quiz for Lecture 20",
+    "course": "BioE 210",
+    "due": "2025-03-11T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q21__quiz_for_lecture_21__20250313": {
+    "id": "q21__quiz_for_lecture_21__20250313",
+    "title": "Q21: Quiz for Lecture 21",
+    "course": "BioE 210",
+    "due": "2025-03-13T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q22__quiz_for_lecture_22__20250323": {
+    "id": "q22__quiz_for_lecture_22__20250323",
+    "title": "Q22: Quiz for Lecture 22",
+    "course": "BioE 210",
+    "due": "2025-03-23T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q23__quiz_for_lecture_23__20250325": {
+    "id": "q23__quiz_for_lecture_23__20250325",
+    "title": "Q23: Quiz for Lecture 23",
+    "course": "BioE 210",
+    "due": "2025-03-25T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q24__quiz_for_lecture_24__20250330": {
+    "id": "q24__quiz_for_lecture_24__20250330",
+    "title": "Q24: Quiz for Lecture 24",
+    "course": "BioE 210",
+    "due": "2025-03-30T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q25__quiz_for_lecture_25__20250401": {
+    "id": "q25__quiz_for_lecture_25__20250401",
+    "title": "Q25: Quiz for Lecture 25",
+    "course": "BioE 210",
+    "due": "2025-04-01T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q26__quiz_for_lecture_26__20250403": {
+    "id": "q26__quiz_for_lecture_26__20250403",
+    "title": "Q26: Quiz for Lecture 26",
+    "course": "BioE 210",
+    "due": "2025-04-03T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q27__quiz_for_lecture_27__20250406": {
+    "id": "q27__quiz_for_lecture_27__20250406",
+    "title": "Q27: Quiz for Lecture 27",
+    "course": "BioE 210",
+    "due": "2025-04-06T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q28__quiz_for_lecture_28__20250408": {
+    "id": "q28__quiz_for_lecture_28__20250408",
+    "title": "Q28: Quiz for Lecture 28",
+    "course": "BioE 210",
+    "due": "2025-04-08T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q29__quiz_for_lecture_29__20250410": {
+    "id": "q29__quiz_for_lecture_29__20250410",
+    "title": "Q29: Quiz for Lecture 29",
+    "course": "BioE 210",
+    "due": "2025-04-10T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q30__quiz_for_lecture_30__20250413": {
+    "id": "q30__quiz_for_lecture_30__20250413",
+    "title": "Q30: Quiz for Lecture 30",
+    "course": "BioE 210",
+    "due": "2025-04-13T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q31__quiz_for_lecture_31__20250415": {
+    "id": "q31__quiz_for_lecture_31__20250415",
+    "title": "Q31: Quiz for Lecture 31",
+    "course": "BioE 210",
+    "due": "2025-04-15T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q32__quiz_for_lecture_32__20250417": {
+    "id": "q32__quiz_for_lecture_32__20250417",
+    "title": "Q32: Quiz for Lecture 32",
+    "course": "BioE 210",
+    "due": "2025-04-17T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q33__quiz_for_lecture_33__20250420": {
+    "id": "q33__quiz_for_lecture_33__20250420",
+    "title": "Q33: Quiz for Lecture 33",
+    "course": "BioE 210",
+    "due": "2025-04-20T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q34__quiz_for_lecture_34__20250422": {
+    "id": "q34__quiz_for_lecture_34__20250422",
+    "title": "Q34: Quiz for Lecture 34",
+    "course": "BioE 210",
+    "due": "2025-04-22T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q35__quiz_for_lecture_35__20250424": {
+    "id": "q35__quiz_for_lecture_35__20250424",
+    "title": "Q35: Quiz for Lecture 35",
+    "course": "BioE 210",
+    "due": "2025-04-24T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q36__quiz_for_lecture_36__20250427": {
+    "id": "q36__quiz_for_lecture_36__20250427",
+    "title": "Q36: Quiz for Lecture 36",
+    "course": "BioE 210",
+    "due": "2025-04-27T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q37__quiz_for_lecture_37__20250429": {
+    "id": "q37__quiz_for_lecture_37__20250429",
+    "title": "Q37: Quiz for Lecture 37",
+    "course": "BioE 210",
+    "due": "2025-04-29T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q38__quiz_for_lecture_38__20250504": {
+    "id": "q38__quiz_for_lecture_38__20250504",
+    "title": "Q38: Quiz for Lecture 38",
+    "course": "BioE 210",
+    "due": "2025-05-04T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "q39__quiz_for_lecture_39__20250506": {
+    "id": "q39__quiz_for_lecture_39__20250506",
+    "title": "Q39: Quiz for Lecture 39",
+    "course": "BioE 210",
+    "due": "2025-05-06T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "hw5__homework_5__20250302": {
+    "id": "hw5__homework_5__20250302",
+    "title": "HW5: Homework 5",
+    "course": "BioE 210",
+    "due": "2025-03-02T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "hw6__homework_6__20250306": {
+    "id": "hw6__homework_6__20250306",
+    "title": "HW6: Homework 6",
+    "course": "BioE 210",
+    "due": "2025-03-06T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "hw7__homework_7__worksheet__20250313": {
+    "id": "hw7__homework_7__worksheet__20250313",
+    "title": "HW7: Homework 7: Worksheet",
+    "course": "BioE 210",
+    "due": "2025-03-13T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "hw8__homework_8__20250413": {
+    "id": "hw8__homework_8__20250413",
+    "title": "HW8: Homework 8",
+    "course": "BioE 210",
+    "due": "2025-04-13T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "hw9__homework_9__20250427": {
+    "id": "hw9__homework_9__20250427",
+    "title": "HW9: Homework 9",
+    "course": "BioE 210",
+    "due": "2025-04-27T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "hw10__homework_10__20250504": {
+    "id": "hw10__homework_10__20250504",
+    "title": "HW10: Homework 10",
+    "course": "BioE 210",
+    "due": "2025-05-04T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "cs_128___mp2__20250302": {
+    "id": "cs_128___mp2__20250302",
+    "title": "CS 128 \u2014 MP2",
+    "course": "CS 128",
+    "due": "2025-03-02T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "cs_128___mp3__20250317": {
+    "id": "cs_128___mp3__20250317",
+    "title": "CS 128 \u2014 MP3",
+    "course": "CS 128",
+    "due": "2025-03-17T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "cs_128___mp4__20250331": {
+    "id": "cs_128___mp4__20250331",
+    "title": "CS 128 \u2014 MP4",
+    "course": "CS 128",
+    "due": "2025-03-31T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "cs_128___mp5__20250414": {
+    "id": "cs_128___mp5__20250414",
+    "title": "CS 128 \u2014 MP5",
+    "course": "CS 128",
+    "due": "2025-04-14T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "cs_128___mp6__20250428": {
+    "id": "cs_128___mp6__20250428",
+    "title": "CS 128 \u2014 MP6",
+    "course": "CS 128",
+    "due": "2025-04-28T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "pre_unit_hw__due_feb_24___20250224": {
+    "id": "pre_unit_hw__due_feb_24___20250224",
+    "title": "Pre-unit HW (due Feb 24)",
+    "course": "CS 173",
+    "due": "2025-02-24T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "pre_unit_hw__due_mar_3___20250303": {
+    "id": "pre_unit_hw__due_mar_3___20250303",
+    "title": "Pre-unit HW (due Mar 3)",
+    "course": "CS 173",
+    "due": "2025-03-03T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "pre_unit_hw__due_mar_10___20250310": {
+    "id": "pre_unit_hw__due_mar_10___20250310",
+    "title": "Pre-unit HW (due Mar 10)",
+    "course": "CS 173",
+    "due": "2025-03-10T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "pre_unit_hw__due_mar_17___20250317": {
+    "id": "pre_unit_hw__due_mar_17___20250317",
+    "title": "Pre-unit HW (due Mar 17)",
+    "course": "CS 173",
+    "due": "2025-03-17T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "pre_unit_hw__due_mar_24___20250324": {
+    "id": "pre_unit_hw__due_mar_24___20250324",
+    "title": "Pre-unit HW (due Mar 24)",
+    "course": "CS 173",
+    "due": "2025-03-24T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "pre_unit_hw__due_mar_31___20250331": {
+    "id": "pre_unit_hw__due_mar_31___20250331",
+    "title": "Pre-unit HW (due Mar 31)",
+    "course": "CS 173",
+    "due": "2025-03-31T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "pre_unit_hw__due_apr_7___20250407": {
+    "id": "pre_unit_hw__due_apr_7___20250407",
+    "title": "Pre-unit HW (due Apr 7)",
+    "course": "CS 173",
+    "due": "2025-04-07T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "pre_unit_hw__due_apr_14___20250414": {
+    "id": "pre_unit_hw__due_apr_14___20250414",
+    "title": "Pre-unit HW (due Apr 14)",
+    "course": "CS 173",
+    "due": "2025-04-14T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "pre_unit_hw__due_apr_21___20250421": {
+    "id": "pre_unit_hw__due_apr_21___20250421",
+    "title": "Pre-unit HW (due Apr 21)",
+    "course": "CS 173",
+    "due": "2025-04-21T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "pre_unit_hw__due_apr_28___20250428": {
+    "id": "pre_unit_hw__due_apr_28___20250428",
+    "title": "Pre-unit HW (due Apr 28)",
+    "course": "CS 173",
+    "due": "2025-04-28T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "pre_unit_hw__due_may_5___20250505": {
+    "id": "pre_unit_hw__due_may_5___20250505",
+    "title": "Pre-unit HW (due May 5)",
+    "course": "CS 173",
+    "due": "2025-05-05T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___hw__due_mar_3___20250303": {
+    "id": "math_285___hw__due_mar_3___20250303",
+    "title": "Math 285 \u2014 HW (due Mar 3)",
+    "course": "Math 285",
+    "due": "2025-03-03T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___hw__due_mar_10___20250310": {
+    "id": "math_285___hw__due_mar_10___20250310",
+    "title": "Math 285 \u2014 HW (due Mar 10)",
+    "course": "Math 285",
+    "due": "2025-03-10T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___hw__due_mar_17___20250317": {
+    "id": "math_285___hw__due_mar_17___20250317",
+    "title": "Math 285 \u2014 HW (due Mar 17)",
+    "course": "Math 285",
+    "due": "2025-03-17T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___hw__due_mar_24___20250324": {
+    "id": "math_285___hw__due_mar_24___20250324",
+    "title": "Math 285 \u2014 HW (due Mar 24)",
+    "course": "Math 285",
+    "due": "2025-03-24T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___hw__due_mar_31___20250331": {
+    "id": "math_285___hw__due_mar_31___20250331",
+    "title": "Math 285 \u2014 HW (due Mar 31)",
+    "course": "Math 285",
+    "due": "2025-03-31T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___hw__due_apr_7___20250407": {
+    "id": "math_285___hw__due_apr_7___20250407",
+    "title": "Math 285 \u2014 HW (due Apr 7)",
+    "course": "Math 285",
+    "due": "2025-04-07T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___hw__due_apr_14___20250414": {
+    "id": "math_285___hw__due_apr_14___20250414",
+    "title": "Math 285 \u2014 HW (due Apr 14)",
+    "course": "Math 285",
+    "due": "2025-04-14T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___hw__due_apr_21___20250421": {
+    "id": "math_285___hw__due_apr_21___20250421",
+    "title": "Math 285 \u2014 HW (due Apr 21)",
+    "course": "Math 285",
+    "due": "2025-04-21T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___hw__due_apr_28___20250428": {
+    "id": "math_285___hw__due_apr_28___20250428",
+    "title": "Math 285 \u2014 HW (due Apr 28)",
+    "course": "Math 285",
+    "due": "2025-04-28T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___hw__due_may_5___20250505": {
+    "id": "math_285___hw__due_may_5___20250505",
+    "title": "Math 285 \u2014 HW (due May 5)",
+    "course": "Math 285",
+    "due": "2025-05-05T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_feb_24___20250226": {
+    "id": "math_285___quiz__lec_feb_24___20250226",
+    "title": "Math 285 \u2014 Quiz (Lec Feb 24)",
+    "course": "Math 285",
+    "due": "2025-02-26T08:00:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_feb_26___20250228": {
+    "id": "math_285___quiz__lec_feb_26___20250228",
+    "title": "Math 285 \u2014 Quiz (Lec Feb 26)",
+    "course": "Math 285",
+    "due": "2025-02-28T08:00:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_feb_28___20250303": {
+    "id": "math_285___quiz__lec_feb_28___20250303",
+    "title": "Math 285 \u2014 Quiz (Lec Feb 28)",
+    "course": "Math 285",
+    "due": "2025-03-03T08:00:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_mar_03___20250305": {
+    "id": "math_285___quiz__lec_mar_03___20250305",
+    "title": "Math 285 \u2014 Quiz (Lec Mar 03)",
+    "course": "Math 285",
+    "due": "2025-03-05T08:00:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_mar_05___20250307": {
+    "id": "math_285___quiz__lec_mar_05___20250307",
+    "title": "Math 285 \u2014 Quiz (Lec Mar 05)",
+    "course": "Math 285",
+    "due": "2025-03-07T08:00:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_mar_07___20250310": {
+    "id": "math_285___quiz__lec_mar_07___20250310",
+    "title": "Math 285 \u2014 Quiz (Lec Mar 07)",
+    "course": "Math 285",
+    "due": "2025-03-10T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_mar_10___20250312": {
+    "id": "math_285___quiz__lec_mar_10___20250312",
+    "title": "Math 285 \u2014 Quiz (Lec Mar 10)",
+    "course": "Math 285",
+    "due": "2025-03-12T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_mar_12___20250314": {
+    "id": "math_285___quiz__lec_mar_12___20250314",
+    "title": "Math 285 \u2014 Quiz (Lec Mar 12)",
+    "course": "Math 285",
+    "due": "2025-03-14T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_mar_14___20250324": {
+    "id": "math_285___quiz__lec_mar_14___20250324",
+    "title": "Math 285 \u2014 Quiz (Lec Mar 14)",
+    "course": "Math 285",
+    "due": "2025-03-24T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_mar_24___20250326": {
+    "id": "math_285___quiz__lec_mar_24___20250326",
+    "title": "Math 285 \u2014 Quiz (Lec Mar 24)",
+    "course": "Math 285",
+    "due": "2025-03-26T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_mar_26___20250328": {
+    "id": "math_285___quiz__lec_mar_26___20250328",
+    "title": "Math 285 \u2014 Quiz (Lec Mar 26)",
+    "course": "Math 285",
+    "due": "2025-03-28T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_mar_28___20250331": {
+    "id": "math_285___quiz__lec_mar_28___20250331",
+    "title": "Math 285 \u2014 Quiz (Lec Mar 28)",
+    "course": "Math 285",
+    "due": "2025-03-31T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_mar_31___20250402": {
+    "id": "math_285___quiz__lec_mar_31___20250402",
+    "title": "Math 285 \u2014 Quiz (Lec Mar 31)",
+    "course": "Math 285",
+    "due": "2025-04-02T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_02___20250404": {
+    "id": "math_285___quiz__lec_apr_02___20250404",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 02)",
+    "course": "Math 285",
+    "due": "2025-04-04T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_04___20250407": {
+    "id": "math_285___quiz__lec_apr_04___20250407",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 04)",
+    "course": "Math 285",
+    "due": "2025-04-07T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_07___20250409": {
+    "id": "math_285___quiz__lec_apr_07___20250409",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 07)",
+    "course": "Math 285",
+    "due": "2025-04-09T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_09___20250411": {
+    "id": "math_285___quiz__lec_apr_09___20250411",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 09)",
+    "course": "Math 285",
+    "due": "2025-04-11T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_11___20250414": {
+    "id": "math_285___quiz__lec_apr_11___20250414",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 11)",
+    "course": "Math 285",
+    "due": "2025-04-14T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_14___20250416": {
+    "id": "math_285___quiz__lec_apr_14___20250416",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 14)",
+    "course": "Math 285",
+    "due": "2025-04-16T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_16___20250418": {
+    "id": "math_285___quiz__lec_apr_16___20250418",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 16)",
+    "course": "Math 285",
+    "due": "2025-04-18T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_18___20250421": {
+    "id": "math_285___quiz__lec_apr_18___20250421",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 18)",
+    "course": "Math 285",
+    "due": "2025-04-21T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_21___20250423": {
+    "id": "math_285___quiz__lec_apr_21___20250423",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 21)",
+    "course": "Math 285",
+    "due": "2025-04-23T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_23___20250425": {
+    "id": "math_285___quiz__lec_apr_23___20250425",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 23)",
+    "course": "Math 285",
+    "due": "2025-04-25T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_25___20250428": {
+    "id": "math_285___quiz__lec_apr_25___20250428",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 25)",
+    "course": "Math 285",
+    "due": "2025-04-28T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_28___20250430": {
+    "id": "math_285___quiz__lec_apr_28___20250430",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 28)",
+    "course": "Math 285",
+    "due": "2025-04-30T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_apr_30___20250502": {
+    "id": "math_285___quiz__lec_apr_30___20250502",
+    "title": "Math 285 \u2014 Quiz (Lec Apr 30)",
+    "course": "Math 285",
+    "due": "2025-05-02T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_may_02___20250505": {
+    "id": "math_285___quiz__lec_may_02___20250505",
+    "title": "Math 285 \u2014 Quiz (Lec May 02)",
+    "course": "Math 285",
+    "due": "2025-05-05T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_may_05___20250507": {
+    "id": "math_285___quiz__lec_may_05___20250507",
+    "title": "Math 285 \u2014 Quiz (Lec May 05)",
+    "course": "Math 285",
+    "due": "2025-05-07T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_may_07___20250509": {
+    "id": "math_285___quiz__lec_may_07___20250509",
+    "title": "Math 285 \u2014 Quiz (Lec May 07)",
+    "course": "Math 285",
+    "due": "2025-05-09T08:00:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "math_285___quiz__lec_may_09___20250510": {
+    "id": "math_285___quiz__lec_may_09___20250510",
+    "title": "Math 285 \u2014 Quiz (Lec May 09)",
+    "course": "Math 285",
+    "due": "2025-05-10T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  }
+}
