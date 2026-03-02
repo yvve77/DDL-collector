@@ -55,13 +55,19 @@ def pl(title, course, due):
 def all_assignments():
     tasks = []
 
-    # ── BioE 210 — Canvas — Weekly HW only, HW1-4 already done ───────────────
+    # ── BioE 210 — Canvas — Weekly HW, due Monday 9:30 AM. HW1–4 already done ─
     for num, due in [
-        (5,  ct(3,3)),  (6,  ct(3,10)), (7,  ct(3,17)), (8,  ct(3,24)),
-        (9,  ct(3,31)), (10, ct(4,7)),  (11, ct(4,14)), (12, ct(4,21)),
-        (13, ct(4,28)), (14, ct(5,5)),
+        (5,  ct(3,10,  9,30)),
+        (6,  ct(3,17,  9,30)),
+        (7,  ct(3,24,  9,30)),
+        (8,  ct(3,31,  9,30)),
+        (9,  ct(4,7,   9,30)),
+        (10, ct(4,14,  9,30)),
+        (11, ct(4,21,  9,30)),
+        (12, ct(4,28,  9,30)),
+        (13, ct(5,5,   9,30)),
     ]:
-        tasks.append(canvas(f"HW {num}", "BioE 210", due))
+        tasks.append(canvas(f"Homework {num}", "BioE 210", due))
 
     # ── CS 128 — PrairieLearn — Machine Problems every ~2 weeks ──────────────
     for name, due in [
@@ -78,14 +84,17 @@ def all_assignments():
         tasks.append(pl("Pre-unit HW", "CS 173", due))
 
     # ── Math 285 — PrairieLearn — Weekly HW + per-lecture Quiz ───────────────
-    for due in [
-        ct(3,3),  ct(3,10), ct(3,17), ct(3,24), ct(3,31),
-        ct(4,7),  ct(4,14), ct(4,21), ct(4,28), ct(5,5),
+    for title, due in [
+        ("HW5: Homework 5",            ct(3,2)),
+        ("HW6: Homework 6",            ct(3,6)),
+        ("HW7: Homework 7: Worksheet", ct(3,13)),
+        ("HW8: Homework 8",            ct(4,13)),
+        ("HW9: Homework 9",            ct(4,27)),
+        ("HW10: Homework 10",          ct(5,4)),
     ]:
-        tasks.append(pl("Weekly HW", "Math 285", due))
+        tasks.append(pl(title, "Math 285", due))
 
     for title, due in [
-        ("Quiz — Lecture 14", ct(2,25)), ("Quiz — Lecture 15", ct(2,27)),
         ("Quiz — Lecture 16", ct(3,2)),  ("Quiz — Lecture 17", ct(3,4)),
         ("Quiz — Lecture 18", ct(3,6)),  ("Quiz — Lecture 19", ct(3,9)),
         ("Quiz — Lecture 20", ct(3,11)), ("Quiz — Lecture 21", ct(3,13)),
@@ -201,7 +210,7 @@ def build_html(pending, is_monday):
           <span style="font-size:22px;">📅</span>
           <div>
             <div style="font-weight:700;color:#c53030;font-size:14px;">今天是周一！</div>
-            <div style="color:#742a2a;font-size:13px;margin-top:2px;">BioE 210 Weekly HW 今天截止，记得提交！</div>
+            <div style="color:#742a2a;font-size:13px;margin-top:2px;">BioE 210 Homework due today at 9:30 AM — don't forget!</div>
           </div>
         </div>"""
 
