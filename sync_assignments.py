@@ -76,10 +76,11 @@ def all_assignments():
     ]:
         tasks.append(pl(name, "CS 128", due))
 
-    # ── CS 173 — PrairieLearn — Pre-unit HW, due every Monday ────────────────
+    # ── CS 173 — PrairieLearn — Pre-unit HW, due every Tuesday 8:00 AM ────────
     for due in [
-        ct(3,3),  ct(3,10), ct(3,17), ct(3,24), ct(3,31),
-        ct(4,7),  ct(4,14), ct(4,21), ct(4,28), ct(5,5),
+        ct(3,3,  8,0), ct(3,10, 8,0), ct(3,18, 8,0), ct(3,25, 8,0),
+        ct(4,1,  8,0), ct(4,8,  8,0), ct(4,15, 8,0), ct(4,22, 8,0),
+        ct(4,29, 8,0), ct(5,6,  8,0),
     ]:
         tasks.append(pl("Pre-unit HW", "CS 173", due))
 
