@@ -327,6 +327,130 @@
       40% { transform: translateY(-6px); }
     }
 
+    /* ── Add task button ── */
+    .btn-add {
+      background: var(--text);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.15s;
+    }
+    .btn-add:hover { opacity: 0.8; }
+
+    /* ── Modal overlay ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 28px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      animation: modalIn 0.18s ease;
+    }
+    @keyframes modalIn {
+      from { transform: translateY(12px); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+    .modal h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+    .form-group {
+      margin-bottom: 14px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--surface);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .form-group input:focus, .form-group select:focus {
+      border-color: #888;
+    }
+    .modal-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .btn-cancel {
+      flex: 1;
+      background: var(--subtle);
+      color: var(--text);
+      border: none;
+      border-radius: 8px;
+      padding: 9px;
+      font-size: 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .btn-save {
+      flex: 2;
+      background: var(--text);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 9px;
+      font-size: 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .btn-save:hover { opacity: 0.85; }
+
+    /* custom task delete button */
+    .task-delete {
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 14px;
+      padding: 2px 4px;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.15s, color 0.15s;
+      flex-shrink: 0;
+    }
+    .task:hover .task-delete { opacity: 1; }
+    .task-delete:hover { color: #e53e3e; }
+
     /* ── Responsive ── */
     @media (max-width: 600px) {
       .summary { grid-template-columns: repeat(2, 1fr); }
@@ -345,6 +469,8 @@
     </div>
     <div class="header-right">
       <span class="sync-time" id="sync-time"></span>
+      <span id="token-status" style="font-size:12px;"></span>
+      <button class="btn btn-ghost" onclick="promptToken()">🔑 Token</button>
       <button class="btn btn-ghost" onclick="loadTasks()">↻ Refresh</button>
     </div>
   </div>
@@ -382,10 +508,55 @@
       <span class="chip" onclick="filterCourse('CS 173')">CS 173</span>
       <span class="chip" onclick="filterCourse('Math 285')">Math 285</span>
     </div>
-    <label class="show-done-toggle">
-      <input type="checkbox" id="toggle-done" onchange="renderTasks()">
-      Show completed
-    </label>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <label class="show-done-toggle">
+        <input type="checkbox" id="toggle-done" onchange="renderTasks()">
+        Show completed
+      </label>
+      <button class="btn-add" onclick="openModal()">＋ Add DDL</button>
+    </div>
+  </div>
+
+  <!-- Token Modal -->
+  <div class="modal-overlay" id="token-modal" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="modal">
+      <h2>🔑 GitHub Token</h2>
+      <p style="font-size:13px;color:#718096;margin-bottom:16px;line-height:1.6;">
+        A token lets the dashboard write your checkmarks back to the repo, so completed tasks are excluded from future emails.<br><br>
+        Generate one at <a href="https://github.com/settings/tokens/new?scopes=repo&description=DDL+Dashboard" target="_blank" style="color:#5a67d8;">GitHub → Settings → Tokens</a> with <strong>repo</strong> scope.
+      </p>
+      <div class="form-group">
+        <label>Personal Access Token</label>
+        <input type="password" id="token-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+      </div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="document.getElementById('token-modal').classList.remove('open')">Cancel</button>
+        <button class="btn-save" onclick="saveTokenFromModal()">Save Token</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add DDL Modal -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
+    <div class="modal">
+      <h2>＋ Add Custom DDL</h2>
+      <div class="form-group">
+        <label>Task name</label>
+        <input type="text" id="input-title" placeholder="e.g. STAT 400 Homework 3">
+      </div>
+      <div class="form-group">
+        <label>Course (optional)</label>
+        <input type="text" id="input-course" placeholder="e.g. STAT 400">
+      </div>
+      <div class="form-group">
+        <label>Due date & time</label>
+        <input type="datetime-local" id="input-due">
+      </div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+        <button class="btn-save"   onclick="saveCustomTask()">Add Task</button>
+      </div>
+    </div>
   </div>
 
   <!-- Main content -->
@@ -401,6 +572,7 @@
 </div>
 
 <script>
+const REPO_API  = "https://api.github.com/repos/yvve77/DDL-collector/contents/tasks.json";
 const TASKS_URL = "https://raw.githubusercontent.com/yvve77/DDL-collector/main/tasks.json";
 
 const COURSES = [
@@ -413,6 +585,31 @@ const COURSES = [
 let tasks = {};
 let activeFilter = "all";
 let collapsed = {};
+let fileSha = "";
+
+// ── GitHub Token ──────────────────────────────────────────────────────────────
+function getToken() { return localStorage.getItem("gh_token") || ""; }
+function saveToken(t) { localStorage.setItem("gh_token", t.trim()); }
+function promptToken() { document.getElementById("token-modal").classList.add("open"); }
+function saveTokenFromModal() {
+  const val = document.getElementById("token-input").value.trim();
+  if (!val) return;
+  saveToken(val);
+  document.getElementById("token-modal").classList.remove("open");
+  updateTokenStatus();
+}
+function clearToken() {
+  localStorage.removeItem("gh_token");
+  updateTokenStatus();
+}
+function updateTokenStatus() {
+  const el = document.getElementById("token-status");
+  if (getToken()) {
+    el.innerHTML = '<span style="color:#38a169;">✓ Token saved</span> · <a href="#" onclick="clearToken();return false;" style="color:#a0aec0;font-size:11px;">remove</a>';
+  } else {
+    el.innerHTML = '<span style="color:#e53e3e;">No token</span> · <a href="#" onclick="promptToken();return false;" style="color:#5a67d8;font-size:11px;">set token</a>';
+  }
+}
 
 // ── Load ──────────────────────────────────────────────────────────────────────
 async function loadTasks() {
@@ -421,41 +618,76 @@ async function loadTasks() {
       <div style="margin-bottom:12px;">Loading assignments</div>
       <span class="loading-dot"></span><span class="loading-dot"></span><span class="loading-dot"></span>
     </div>`;
+  updateTokenStatus();
   try {
-    const r = await fetch(TASKS_URL + "?t=" + Date.now());
+    const token = getToken();
+    const headers = { "Accept": "application/vnd.github+json" };
+    if (token) headers["Authorization"] = "Bearer " + token;
+    const r = await fetch(REPO_API + "?t=" + Date.now(), { headers });
     if (!r.ok) throw new Error("HTTP " + r.status);
-    const remote = await r.json();
-    const local  = getLocalState();
+    const meta = await r.json();
+    fileSha = meta.sha;
+    const remote = JSON.parse(atob(meta.content.replace(/\n/g, "")));
     tasks = {};
     for (const [id, t] of Object.entries(remote)) {
-      tasks[id] = { ...t, completed: local[id] ?? t.completed ?? false };
+      tasks[id] = { ...t };
     }
     document.getElementById("sync-time").textContent =
       "Synced " + new Date().toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"});
-    renderTasks();
+    mergeAndRender();
   } catch (e) {
     document.getElementById("app").innerHTML =
       `<div class="loading">⚠️ Could not load tasks.<br><small style="color:#aaa">${e.message}</small></div>`;
   }
 }
 
-// ── Local state ───────────────────────────────────────────────────────────────
+// ── Write back to GitHub ──────────────────────────────────────────────────────
+async function saveToGitHub() {
+  const token = getToken();
+  if (!token || !fileSha) return;
+  const toSave = {};
+  for (const [id, t] of Object.entries(tasks)) {
+    if (!t.custom) toSave[id] = t;
+  }
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(toSave, null, 2))));
+  try {
+    const r = await fetch(REPO_API, {
+      method: "PUT",
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Accept": "application/vnd.github+json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        message: "chore: update completed tasks [skip ci]",
+        content,
+        sha: fileSha,
+      }),
+    });
+    if (r.ok) {
+      const data = await r.json();
+      fileSha = data.content.sha;
+      document.getElementById("sync-time").textContent =
+        "Saved " + new Date().toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"});
+    } else if (r.status === 401) {
+      document.getElementById("token-status").innerHTML =
+        '<span style="color:#e53e3e;">⚠️ Token invalid — <a href="#" onclick="promptToken();return false;">update</a></span>';
+    }
+  } catch (e) { console.error("GitHub write error:", e); }
+}
+
+// ── Local state (custom tasks only) ──────────────────────────────────────────
 function getLocalState() {
   try { return JSON.parse(localStorage.getItem("ddl_completed") || "{}"); }
   catch { return {}; }
-}
-function saveLocalState() {
-  const s = {};
-  for (const [id, t] of Object.entries(tasks)) s[id] = t.completed;
-  localStorage.setItem("ddl_completed", JSON.stringify(s));
 }
 
 // ── Toggle ────────────────────────────────────────────────────────────────────
 function toggle(id) {
   if (!tasks[id]) return;
   tasks[id].completed = !tasks[id].completed;
-  saveLocalState();
   renderTasks();
+  saveToGitHub();
 }
 function toggleCollapse(course) {
   collapsed[course] = !collapsed[course];
@@ -536,12 +768,21 @@ function courseDot(course) {
 function taskHTMLUnified(t) {
   const urg  = urgency(t.due);
   const due  = new Date(t.due).toLocaleString("en-US", {month:"short", day:"numeric", hour:"2-digit", minute:"2-digit"});
-  const plat = t.source === "Canvas"
-    ? `<span class="platform-badge badge-canvas">Canvas</span>`
-    : `<span class="platform-badge badge-pl">PrairieLearn</span>`;
+  const isCustom = !!t.custom;
+  const plat = isCustom
+    ? `<span class="platform-badge" style="background:#f3f0ff;color:#5b21b6;">Custom</span>`
+    : t.source === "Canvas"
+      ? `<span class="platform-badge badge-canvas">Canvas</span>`
+      : `<span class="platform-badge badge-pl">PrairieLearn</span>`;
   const title = t.url
     ? `<a href="${t.url}" target="_blank">${t.title}</a>`
     : t.title;
+  const deleteBtn = isCustom
+    ? `<button class="task-delete" onclick="deleteCustomTask('${t.id}')" title="Delete">✕</button>`
+    : "";
+  const dot = isCustom
+    ? `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#7c3aed;margin-right:5px;flex-shrink:0;"></span>`
+    : courseDot(t.course);
   return `
     <div class="task ${t.completed ? 'done' : ''}">
       <input type="checkbox" class="task-check" ${t.completed ? 'checked' : ''} onchange="toggle('${t.id}')">
@@ -549,11 +790,12 @@ function taskHTMLUnified(t) {
         <div class="task-title">${title}</div>
         <div class="task-sub">
           ${plat}
-          <span style="display:flex;align-items:center;">${courseDot(t.course)}<span class="task-due" style="color:#666;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;">${t.course}</span></span>
+          <span style="display:flex;align-items:center;">${dot}<span class="task-due" style="color:#666;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;">${t.course}</span></span>
           <span class="task-due">${due}</span>
         </div>
       </div>
       <span class="task-urgency ${urg.cls}">${urg.label}</span>
+      ${deleteBtn}
     </div>`;
 }
 
@@ -648,6 +890,70 @@ function renderTasks() {
   }
 
   document.getElementById("app").innerHTML = html;
+}
+
+// ── Custom tasks (localStorage only) ─────────────────────────────────────────
+function loadCustomTasks() {
+  try { return JSON.parse(localStorage.getItem("ddl_custom") || "{}"); }
+  catch { return {}; }
+}
+function saveCustomTasks(custom) {
+  localStorage.setItem("ddl_custom", JSON.stringify(custom));
+}
+
+function openModal() {
+  // Default to tomorrow 11:59 PM
+  const d = new Date();
+  d.setDate(d.getDate() + 1);
+  d.setHours(23, 59, 0, 0);
+  const pad = n => String(n).padStart(2, "0");
+  document.getElementById("input-due").value =
+    `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+  document.getElementById("input-title").value = "";
+  document.getElementById("input-course").value = "";
+  document.getElementById("modal-overlay").classList.add("open");
+  setTimeout(() => document.getElementById("input-title").focus(), 100);
+}
+function closeModal() {
+  document.getElementById("modal-overlay").classList.remove("open");
+}
+function closeModalOutside(e) {
+  if (e.target === document.getElementById("modal-overlay")) closeModal();
+}
+
+function saveCustomTask() {
+  const title  = document.getElementById("input-title").value.trim();
+  const course = document.getElementById("input-course").value.trim() || "Custom";
+  const dueVal = document.getElementById("input-due").value;
+  if (!title)  { document.getElementById("input-title").focus(); return; }
+  if (!dueVal) { document.getElementById("input-due").focus();   return; }
+
+  const due = new Date(dueVal).toISOString();
+  const id  = "custom__" + Date.now();
+  const custom = loadCustomTasks();
+  custom[id] = { id, title, course, due, source: "Custom", url: "", completed: false, custom: true };
+  saveCustomTasks(custom);
+  closeModal();
+  mergeAndRender();
+}
+
+function deleteCustomTask(id) {
+  const custom = loadCustomTasks();
+  delete custom[id];
+  saveCustomTasks(custom);
+  mergeAndRender();
+}
+
+function mergeAndRender() {
+  const custom = loadCustomTasks();
+  // custom tasks go into the global tasks object with a flag
+  for (const [id, t] of Object.entries(tasks)) {
+    if (t.custom) delete tasks[id];
+  }
+  for (const [id, t] of Object.entries(custom)) {
+    tasks[id] = t;
+  }
+  renderTasks();
 }
 
 // ── Init ──────────────────────────────────────────────────────────────────────
