@@ -79,56 +79,56 @@ def all_assignments():
     # ── CS 128 — PrairieLearn — Daily Lessons, due assigned day +2 at 17:00 ──
     # Mon→Wed, Tue→Thu, Wed→Fri, Thu→Sat, Fri→Sun. Spring break excluded.
     for title, due in [
-        ("Daily Lesson 01", ct(2,25,17,0)),  # Mon Feb 23
-        ("Daily Lesson 02", ct(2,26,17,0)),  # Tue Feb 24
-        ("Daily Lesson 03", ct(2,27,17,0)),  # Wed Feb 25
-        ("Daily Lesson 04", ct(2,28,17,0)),  # Thu Feb 26
-        ("Daily Lesson 05", ct(3,1,17,0)),   # Fri Feb 27
-        ("Daily Lesson 06", ct(3,4,17,0)),   # Mon Mar 02
-        ("Daily Lesson 07", ct(3,5,17,0)),   # Tue Mar 03
-        ("Daily Lesson 08", ct(3,6,17,0)),   # Wed Mar 04
-        ("Daily Lesson 09", ct(3,7,17,0)),   # Thu Mar 05
-        ("Daily Lesson 10", ct(3,8,17,0)),   # Fri Mar 06
-        ("Daily Lesson 11", ct(3,11,17,0)),  # Mon Mar 09
-        ("Daily Lesson 12", ct(3,12,17,0)),  # Tue Mar 10
-        ("Daily Lesson 13", ct(3,13,17,0)),  # Wed Mar 11
-        ("Daily Lesson 14", ct(3,14,17,0)),  # Thu Mar 12
-        ("Daily Lesson 15", ct(3,15,17,0)),  # Fri Mar 13
-        ("Daily Lesson 16", ct(3,25,17,0)),  # Mon Mar 23
-        ("Daily Lesson 17", ct(3,26,17,0)),  # Tue Mar 24
-        ("Daily Lesson 18", ct(3,27,17,0)),  # Wed Mar 25
-        ("Daily Lesson 19", ct(3,28,17,0)),  # Thu Mar 26
-        ("Daily Lesson 20", ct(3,29,17,0)),  # Fri Mar 27
-        ("Daily Lesson 21", ct(4,1,17,0)),   # Mon Mar 30
-        ("Daily Lesson 22", ct(4,2,17,0)),   # Tue Mar 31
-        ("Daily Lesson 23", ct(4,3,17,0)),   # Wed Apr 01
-        ("Daily Lesson 24", ct(4,4,17,0)),   # Thu Apr 02
-        ("Daily Lesson 25", ct(4,5,17,0)),   # Fri Apr 03
-        ("Daily Lesson 26", ct(4,8,17,0)),   # Mon Apr 06
-        ("Daily Lesson 27", ct(4,9,17,0)),   # Tue Apr 07
-        ("Daily Lesson 28", ct(4,10,17,0)),  # Wed Apr 08
-        ("Daily Lesson 29", ct(4,11,17,0)),  # Thu Apr 09
-        ("Daily Lesson 30", ct(4,12,17,0)),  # Fri Apr 10
-        ("Daily Lesson 31", ct(4,15,17,0)),  # Mon Apr 13
-        ("Daily Lesson 32", ct(4,16,17,0)),  # Tue Apr 14
-        ("Daily Lesson 33", ct(4,17,17,0)),  # Wed Apr 15
-        ("Daily Lesson 34", ct(4,18,17,0)),  # Thu Apr 16
-        ("Daily Lesson 35", ct(4,19,17,0)),  # Fri Apr 17
-        ("Daily Lesson 36", ct(4,22,17,0)),  # Mon Apr 20
-        ("Daily Lesson 37", ct(4,23,17,0)),  # Tue Apr 21
-        ("Daily Lesson 38", ct(4,24,17,0)),  # Wed Apr 22
-        ("Daily Lesson 39", ct(4,25,17,0)),  # Thu Apr 23
-        ("Daily Lesson 40", ct(4,26,17,0)),  # Fri Apr 24
-        ("Daily Lesson 41", ct(4,29,17,0)),  # Mon Apr 27
-        ("Daily Lesson 42", ct(4,30,17,0)),  # Tue Apr 28
-        ("Daily Lesson 43", ct(5,1,17,0)),   # Wed Apr 29
-        ("Daily Lesson 44", ct(5,2,17,0)),   # Thu Apr 30
-        ("Daily Lesson 45", ct(5,3,17,0)),   # Fri May 01
-        ("Daily Lesson 46", ct(5,6,17,0)),   # Mon May 04
-        ("Daily Lesson 47", ct(5,7,17,0)),   # Tue May 05
-        ("Daily Lesson 48", ct(5,8,17,0)),   # Wed May 06
-        ("Daily Lesson 49", ct(5,9,17,0)),   # Thu May 07
-        ("Daily Lesson 50", ct(5,10,17,0)),  # Fri May 08
+        ("Daily Lesson — Feb 23", ct(2,25,17,0)),
+        ("Daily Lesson — Feb 24", ct(2,26,17,0)),
+        ("Daily Lesson — Feb 25", ct(2,27,17,0)),
+        ("Daily Lesson — Feb 26", ct(2,28,17,0)),
+        ("Daily Lesson — Feb 27", ct(3,1,17,0)),
+        ("Daily Lesson — Mar 02", ct(3,4,17,0)),
+        ("Daily Lesson — Mar 03", ct(3,5,17,0)),
+        ("Daily Lesson — Mar 04", ct(3,6,17,0)),
+        ("Daily Lesson — Mar 05", ct(3,7,17,0)),
+        ("Daily Lesson — Mar 06", ct(3,8,17,0)),
+        ("Daily Lesson — Mar 09", ct(3,11,17,0)),
+        ("Daily Lesson — Mar 10", ct(3,12,17,0)),
+        ("Daily Lesson — Mar 11", ct(3,13,17,0)),
+        ("Daily Lesson — Mar 12", ct(3,14,17,0)),
+        ("Daily Lesson — Mar 13", ct(3,15,17,0)),
+        ("Daily Lesson — Mar 23", ct(3,25,17,0)),
+        ("Daily Lesson — Mar 24", ct(3,26,17,0)),
+        ("Daily Lesson — Mar 25", ct(3,27,17,0)),
+        ("Daily Lesson — Mar 26", ct(3,28,17,0)),
+        ("Daily Lesson — Mar 27", ct(3,29,17,0)),
+        ("Daily Lesson — Mar 30", ct(4,1,17,0)),
+        ("Daily Lesson — Mar 31", ct(4,2,17,0)),
+        ("Daily Lesson — Apr 01", ct(4,3,17,0)),
+        ("Daily Lesson — Apr 02", ct(4,4,17,0)),
+        ("Daily Lesson — Apr 03", ct(4,5,17,0)),
+        ("Daily Lesson — Apr 06", ct(4,8,17,0)),
+        ("Daily Lesson — Apr 07", ct(4,9,17,0)),
+        ("Daily Lesson — Apr 08", ct(4,10,17,0)),
+        ("Daily Lesson — Apr 09", ct(4,11,17,0)),
+        ("Daily Lesson — Apr 10", ct(4,12,17,0)),
+        ("Daily Lesson — Apr 13", ct(4,15,17,0)),
+        ("Daily Lesson — Apr 14", ct(4,16,17,0)),
+        ("Daily Lesson — Apr 15", ct(4,17,17,0)),
+        ("Daily Lesson — Apr 16", ct(4,18,17,0)),
+        ("Daily Lesson — Apr 17", ct(4,19,17,0)),
+        ("Daily Lesson — Apr 20", ct(4,22,17,0)),
+        ("Daily Lesson — Apr 21", ct(4,23,17,0)),
+        ("Daily Lesson — Apr 22", ct(4,24,17,0)),
+        ("Daily Lesson — Apr 23", ct(4,25,17,0)),
+        ("Daily Lesson — Apr 24", ct(4,26,17,0)),
+        ("Daily Lesson — Apr 27", ct(4,29,17,0)),
+        ("Daily Lesson — Apr 28", ct(4,30,17,0)),
+        ("Daily Lesson — Apr 29", ct(5,1,17,0)),
+        ("Daily Lesson — Apr 30", ct(5,2,17,0)),
+        ("Daily Lesson — May 01", ct(5,3,17,0)),
+        ("Daily Lesson — May 04", ct(5,6,17,0)),
+        ("Daily Lesson — May 05", ct(5,7,17,0)),
+        ("Daily Lesson — May 06", ct(5,8,17,0)),
+        ("Daily Lesson — May 07", ct(5,9,17,0)),
+        ("Daily Lesson — May 08", ct(5,10,17,0)),
     ]:
         tasks.append(pl(title, "CS 128", due))
 
