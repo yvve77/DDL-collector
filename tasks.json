@@ -204,7 +204,7 @@
     "due": "2026-03-07T17:00:00-06:00",
     "source": "PrairieLearn",
     "url": "https://us.prairielearn.com",
-    "completed": false
+    "completed": true
   },
   "daily_lesson___mar_06__20260308": {
     "id": "daily_lesson___mar_06__20260308",
@@ -744,7 +744,7 @@
     "due": "2026-03-06T23:59:00-06:00",
     "source": "PrairieLearn",
     "url": "https://us.prairielearn.com",
-    "completed": false
+    "completed": true
   },
   "quiz___lecture_19__20260309": {
     "id": "quiz___lecture_19__20260309",
