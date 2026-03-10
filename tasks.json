@@ -591,7 +591,7 @@
     "due": "2026-03-10T08:00:00-05:00",
     "source": "PrairieLearn",
     "url": "https://us.prairielearn.com",
-    "completed": false
+    "completed": true
   },
   "pre_unit_hw__20260318": {
     "id": "pre_unit_hw__20260318",
