@@ -690,7 +690,7 @@
     "due": "2026-03-13T23:59:00-05:00",
     "source": "PrairieLearn",
     "url": "https://us.prairielearn.com",
-    "completed": false
+    "completed": true
   },
   "hw8__homework_8__20260413": {
     "id": "hw8__homework_8__20260413",
