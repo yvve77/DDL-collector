@@ -870,7 +870,7 @@
     "due": "2026-03-25T23:59:00-05:00",
     "source": "Canvas",
     "url": "https://canvas.illinois.edu",
-    "completed": false
+    "completed": true
   },
   "module_2___discussion__20260325": {
     "id": "module_2___discussion__20260325",
