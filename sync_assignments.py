@@ -24,6 +24,8 @@ COURSE_COLORS = {
     "CS 128":   {"bg": "#ebf8ff", "text": "#2b6cb0"},
     "CS 173":   {"bg": "#f0fff4", "text": "#276749"},
     "Math 285": {"bg": "#faf5ff", "text": "#6b46c1"},
+    "HK 110":   {"bg": "#fff0f6", "text": "#97266d"},
+    "LEAD 140": {"bg": "#fffbeb", "text": "#92400e"},
 }
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
@@ -55,24 +57,23 @@ def pl(title, course, due):
 def all_assignments():
     tasks = []
 
-    # ── BioE 210 — Canvas — Weekly HW, due Monday 9:30 AM. HW1–4 already done ─
+    # ── BioE 210 — Canvas — Weekly HW 9:30 AM. HW1–5 done, HW6 from Mar 30 ───
     for num, due in [
-        (5,  ct(3,10,  9,30)),
-        (6,  ct(3,17,  9,30)),
-        (7,  ct(3,24,  9,30)),
-        (8,  ct(3,31,  9,30)),
-        (9,  ct(4,7,   9,30)),
-        (10, ct(4,14,  9,30)),
-        (11, ct(4,21,  9,30)),
-        (12, ct(4,28,  9,30)),
-        (13, ct(5,5,   9,30)),
+        (6,  ct(3,30,  9,30)),
+        (7,  ct(4,6,   9,30)),
+        (8,  ct(4,13,  9,30)),
+        (9,  ct(4,20,  9,30)),
+        (10, ct(4,27,  9,30)),
+        (11, ct(5,4,   9,30)),
     ]:
         tasks.append(canvas(f"Homework {num}", "BioE 210", due))
 
-    # ── CS 128 — PrairieLearn — Machine Problems every ~2 weeks ──────────────
+    # ── CS 128 — PrairieLearn — Machine Problems ──────────────────────────────
+    # MP2/MP3 already past. MP4 due Apr 7, MP5/MP6 estimated.
     for name, due in [
-        ("MP2", ct(3,2)),  ("MP3", ct(3,17)), ("MP4", ct(3,31)),
-        ("MP5", ct(4,14)), ("MP6", ct(4,28)),
+        ("MP4", ct(4,7)),
+        ("MP5", ct(4,21)),
+        ("MP6", ct(5,5)),
     ]:
         tasks.append(pl(name, "CS 128", due))
 
@@ -134,9 +135,8 @@ def all_assignments():
 
     # ── CS 173 — PrairieLearn — Pre-unit HW, due every Tuesday 8:00 AM ────────
     for due in [
-        ct(3,3,  8,0), ct(3,10, 8,0), ct(3,18, 8,0), ct(3,25, 8,0),
-        ct(4,1,  8,0), ct(4,8,  8,0), ct(4,15, 8,0), ct(4,22, 8,0),
-        ct(4,29, 8,0), ct(5,6,  8,0),
+        ct(3,24, 8,0), ct(3,31, 8,0), ct(4,7,  8,0), ct(4,14, 8,0),
+        ct(4,21, 8,0), ct(4,28, 8,0), ct(5,5,  8,0),
     ]:
         tasks.append(pl("Pre-unit HW", "CS 173", due))
 
@@ -166,6 +166,76 @@ def all_assignments():
         ("Quiz - Lecture 38", ct(5,4)),  ("Quiz - Lecture 39", ct(5,6)),
     ]:
         tasks.append(pl(title, "Math 285", due))
+
+    # ── HK 110 — Canvas ───────────────────────────────────────────────────────
+    # Discussion: remind Wednesday (start of week), Quiz+Assignment: remind Friday
+    for title, due in [
+        # Module 1 & 2 (week Mar 23-29) — Wed Mar 25 / Fri Mar 27
+        ("Module 1 - Discussion",                         ct(3,25)),
+        ("Module 2 - Discussion",                         ct(3,25)),
+        ("Module 1 - Quiz",                               ct(3,27)),
+        ("Module 1 - Assignment: Design a Study",         ct(3,27)),
+        ("Module 2 - Quiz",                               ct(3,27)),
+        ("Module 2 - Assignment: Nutrition Label Review", ct(3,27)),
+        # Module 3 (week Mar 30 - Apr 5) — Wed Apr 1 / Fri Apr 3
+        ("Module 3 - Discussion",                         ct(4,1)),
+        ("Module 3 - Quiz",                               ct(4,3)),
+        ("Module 3 - Assignment: Research an STD/STI",    ct(4,3)),
+        # Module 4 (week Apr 6-12) — Wed Apr 8 / Fri Apr 10
+        ("Module 4 - Discussion",                         ct(4,8)),
+        ("Module 4 - Quiz",                               ct(4,10)),
+        ("Module 4 - Assignment: Ethics and Gene Manipulation", ct(4,10)),
+        ("Module 4 - Midterm",                            ct(4,10)),
+        # Module 5 (week Apr 13-19) — Wed Apr 15 / Fri Apr 17
+        ("Module 5 - Discussion",                         ct(4,15)),
+        ("Module 5 - Quiz",                               ct(4,17)),
+        ("Module 5 - Assignment: Alcohol and Tobacco Infographic", ct(4,17)),
+        # Module 6 (week Apr 20-26) — Wed Apr 22 / Fri Apr 24
+        ("Module 6 - Discussion",                         ct(4,22)),
+        ("Module 6 - Quiz",                               ct(4,24)),
+        ("Module 6 - Assignment: Alternative Therapy Investigation", ct(4,24)),
+        # Module 7 (week Apr 27 - May 3) — Wed Apr 29 / Fri May 1
+        ("Module 7 - Discussion",                         ct(4,29)),
+        ("Module 7 - Quiz",                               ct(5,1)),
+        ("Module 7 - Assignment: Life Expectancy in the US", ct(5,1)),
+        # Module 8 (week Apr 27 - May 6) — Wed Apr 29 / Fri May 1
+        ("Module 8 - Discussion",                         ct(4,29)),
+        ("Module 8 - Quiz",                               ct(5,1)),
+        ("Module 8 - Assignment: Environmental Issue",    ct(5,1)),
+        # Final Exam (May 11)
+        ("Final Exam",                                    ct(5,11)),
+    ]:
+        tasks.append(canvas(title, "HK 110", due))
+
+    # ── LEAD 140 — Canvas — Remind Friday of each week ───────────────────────
+    for title, due in [
+        # Week 1 (Mar 23-29) — Fri Mar 27
+        ("Week 1 - Learning Check",                       ct(3,27)),
+        ("Week 1 - Activity: Personal Goals",             ct(3,27)),
+        # Week 2 (Mar 30 - Apr 5) — Fri Apr 3
+        ("Week 2 - Learning Check",                       ct(4,3)),
+        ("Week 2 - Activity: Core Values",                ct(4,3)),
+        ("Week 2 - Activity: Who Am I?",                  ct(4,3)),
+        # Week 3 (Apr 6-12) — Fri Apr 10
+        ("Week 3 - Team Project Part 1: Introductions",   ct(4,10)),
+        ("Week 3 - Learning Check",                       ct(4,10)),
+        ("Week 3 - Activity: Emotional Intelligence",     ct(4,10)),
+        # Week 4 (Apr 13-19) — Fri Apr 17
+        ("Week 4 - Learning Check",                       ct(4,17)),
+        ("Week 4 - Team Project Part 2: Team Contract",   ct(4,17)),
+        ("Week 4 - Activity: Practical Applications",     ct(4,17)),
+        # Week 5 (Apr 20-26) — Fri Apr 24
+        ("Week 5 - Learning Check",                       ct(4,24)),
+        ("Week 5 - Activity: Diagnosing Team Effectiveness", ct(4,24)),
+        ("Week 5 - Activity: Team Contributions",         ct(4,24)),
+        # Week 6 (Apr 27 - May 3) — Fri May 1
+        ("Week 6 - Learning Check",                       ct(5,1)),
+        ("Week 6 - Team Project Part 3: Team Report",     ct(5,1)),
+        ("Week 6 - Team Project Part 4: Individual Reflection", ct(5,1)),
+        # Week 7 (May 4-10) — Fri May 8
+        ("Week 7 - Final Reflection Paper",               ct(5,8)),
+    ]:
+        tasks.append(canvas(title, "LEAD 140", due))
 
     return tasks
 
@@ -329,7 +399,7 @@ def build_html(pending, is_monday):
 
   <div style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:14px 32px;
               display:flex;justify-content:space-between;align-items:center;">
-    <span style="font-size:12px;color:#a0aec0;">Auto-synced {today.strftime('%b %d %H:%M %Z')}</span>
+    <span style="font-size:12px;color:#a0aec0;">Spring 2026 · BioE 210 · CS 128 · CS 173 · Math 285 · HK 110 · LEAD 140</span>
     <a href="{DASH_URL}" style="background:#5a67d8;color:white;text-decoration:none;
        padding:7px 16px;border-radius:8px;font-size:12px;font-weight:600;letter-spacing:0.02em;">
       ✅ Open Dashboard →

@@ -19,6 +19,8 @@
       --cs128-bg:   #eff8ff;  --cs128-border:#63b3ed;  --cs128-text: #1a4a7a;  --cs128-accent:#3182ce;
       --cs173-bg:   #f0fdf4;  --cs173-border:#68d391;  --cs173-text: #14532d;  --cs173-accent:#38a169;
       --math-bg:    #faf5ff;  --math-border: #b794f4;  --math-text:  #44337a;  --math-accent: #805ad5;
+      --hk-bg:      #fff0f6;  --hk-border:   #f687b3;  --hk-text:    #97266d;  --hk-accent:   #d53f8c;
+      --lead-bg:    #fffbeb;  --lead-border:  #f6e05e;  --lead-text:  #92400e;  --lead-accent: #d97706;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -86,7 +88,7 @@
     /* ── Summary cards ── */
     .summary {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 10px;
       margin-bottom: 28px;
     }
@@ -206,6 +208,8 @@
     .cs128-section .course-dot { background: var(--cs128-accent); }
     .cs173-section .course-dot { background: var(--cs173-accent); }
     .math-section  .course-dot { background: var(--math-accent); }
+    .hk-section    .course-dot { background: var(--hk-accent); }
+    .lead-section  .course-dot { background: var(--lead-accent); }
 
     .course-name {
       font-size: 14px;
@@ -497,6 +501,16 @@
       <div class="sc-course">Math 285</div>
       <div class="sc-sub">PrairieLearn</div>
     </div>
+    <div class="summary-card" style="--card-accent:var(--hk-accent);" onclick="filterCourse('HK 110')">
+      <div class="sc-num" id="cnt-hk" style="color:var(--hk-accent);">–</div>
+      <div class="sc-course">HK 110</div>
+      <div class="sc-sub">Canvas</div>
+    </div>
+    <div class="summary-card" style="--card-accent:var(--lead-accent);" onclick="filterCourse('LEAD 140')">
+      <div class="sc-num" id="cnt-lead" style="color:var(--lead-accent);">–</div>
+      <div class="sc-course">LEAD 140</div>
+      <div class="sc-sub">Canvas</div>
+    </div>
   </div>
 
   <!-- Filter bar -->
@@ -507,6 +521,8 @@
       <span class="chip" onclick="filterCourse('CS 128')">CS 128</span>
       <span class="chip" onclick="filterCourse('CS 173')">CS 173</span>
       <span class="chip" onclick="filterCourse('Math 285')">Math 285</span>
+      <span class="chip" onclick="filterCourse('HK 110')">HK 110</span>
+      <span class="chip" onclick="filterCourse('LEAD 140')">LEAD 140</span>
     </div>
     <div style="display:flex;align-items:center;gap:10px;">
       <label class="show-done-toggle">
@@ -580,6 +596,8 @@ const COURSES = [
   { key: "CS 128",   cls: "cs128-section", chipCls: "active-cs128", cntId: "cnt-cs128" },
   { key: "CS 173",   cls: "cs173-section", chipCls: "active-cs173", cntId: "cnt-cs173" },
   { key: "Math 285", cls: "math-section",  chipCls: "active-math",  cntId: "cnt-math"  },
+  { key: "HK 110",   cls: "hk-section",   chipCls: "active-hk",    cntId: "cnt-hk"    },
+  { key: "LEAD 140", cls: "lead-section",  chipCls: "active-lead",  cntId: "cnt-lead"  },
 ];
 
 let tasks = {};
@@ -644,7 +662,11 @@ async function loadTasks() {
 // ── Write back to GitHub ──────────────────────────────────────────────────────
 async function saveToGitHub() {
   const token = getToken();
-  if (!token || !fileSha) return;
+  if (!token || !fileSha) {
+    showSaveStatus("⚠️ No token — changes not saved to repo", "#e53e3e");
+    return;
+  }
+  showSaveStatus("Saving…", "#a0aec0");
   const toSave = {};
   for (const [id, t] of Object.entries(tasks)) {
     if (!t.custom) toSave[id] = t;
@@ -667,13 +689,29 @@ async function saveToGitHub() {
     if (r.ok) {
       const data = await r.json();
       fileSha = data.content.sha;
-      document.getElementById("sync-time").textContent =
-        "Saved " + new Date().toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"});
-    } else if (r.status === 401) {
-      document.getElementById("token-status").innerHTML =
-        '<span style="color:#e53e3e;">⚠️ Token invalid — <a href="#" onclick="promptToken();return false;">update</a></span>';
+      showSaveStatus("✓ Saved to repo", "#38a169");
+    } else {
+      const err = await r.json();
+      if (r.status === 401) {
+        showSaveStatus("⚠️ Token invalid", "#e53e3e");
+        document.getElementById("token-status").innerHTML =
+          '<span style="color:#e53e3e;">⚠️ Token invalid — <a href="#" onclick="promptToken();return false;">update</a></span>';
+      } else if (r.status === 409) {
+        showSaveStatus("⚠️ Conflict — refreshing…", "#dd6b20");
+        await loadTasks();  // re-fetch and retry
+      } else {
+        showSaveStatus("⚠️ Save failed: " + err.message, "#e53e3e");
+      }
     }
-  } catch (e) { console.error("GitHub write error:", e); }
+  } catch (e) {
+    showSaveStatus("⚠️ Save error: " + e.message, "#e53e3e");
+  }
+}
+
+function showSaveStatus(msg, color) {
+  const el = document.getElementById("sync-time");
+  el.textContent = msg;
+  el.style.color = color;
 }
 
 // ── Local state (custom tasks only) ──────────────────────────────────────────
@@ -806,13 +844,15 @@ function renderTasks() {
   const all = Object.values(tasks).sort((a, b) => new Date(a.due) - new Date(b.due));
 
   // Update counts
-  const countById = {"BioE 210": 0, "CS 128": 0, "CS 173": 0, "Math 285": 0};
+  const countById = {"BioE 210": 0, "CS 128": 0, "CS 173": 0, "Math 285": 0, "HK 110": 0, "LEAD 140": 0};
   all.filter(t => !t.completed && new Date(t.due) > now)
      .forEach(t => { if (t.course in countById) countById[t.course]++; });
   document.getElementById("cnt-bioe").textContent  = countById["BioE 210"];
   document.getElementById("cnt-cs128").textContent = countById["CS 128"];
   document.getElementById("cnt-cs173").textContent = countById["CS 173"];
   document.getElementById("cnt-math").textContent  = countById["Math 285"];
+  document.getElementById("cnt-hk").textContent    = countById["HK 110"];
+  document.getElementById("cnt-lead").textContent  = countById["LEAD 140"];
 
   let html = "";
 
