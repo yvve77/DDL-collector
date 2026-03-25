@@ -717,7 +717,7 @@
     "due": "2026-03-25T23:59:00-05:00",
     "source": "PrairieLearn",
     "url": "https://us.prairielearn.com",
-    "completed": false
+    "completed": true
   },
   "quiz___lecture_24__20260330": {
     "id": "quiz___lecture_24__20260330",
