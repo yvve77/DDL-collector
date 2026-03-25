@@ -1,3 +1,1262 @@
 {
-  
+  "homework_6__20260330": {
+    "id": "homework_6__20260330",
+    "title": "Homework 6",
+    "course": "BioE 210",
+    "due": "2026-03-30T09:30:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "homework_7__20260406": {
+    "id": "homework_7__20260406",
+    "title": "Homework 7",
+    "course": "BioE 210",
+    "due": "2026-04-06T09:30:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "homework_8__20260413": {
+    "id": "homework_8__20260413",
+    "title": "Homework 8",
+    "course": "BioE 210",
+    "due": "2026-04-13T09:30:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "homework_9__20260420": {
+    "id": "homework_9__20260420",
+    "title": "Homework 9",
+    "course": "BioE 210",
+    "due": "2026-04-20T09:30:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "homework_10__20260427": {
+    "id": "homework_10__20260427",
+    "title": "Homework 10",
+    "course": "BioE 210",
+    "due": "2026-04-27T09:30:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "homework_11__20260504": {
+    "id": "homework_11__20260504",
+    "title": "Homework 11",
+    "course": "BioE 210",
+    "due": "2026-05-04T09:30:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "mp4__20260407": {
+    "id": "mp4__20260407",
+    "title": "MP4",
+    "course": "CS 128",
+    "due": "2026-04-07T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "mp5__20260421": {
+    "id": "mp5__20260421",
+    "title": "MP5",
+    "course": "CS 128",
+    "due": "2026-04-21T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "mp6__20260505": {
+    "id": "mp6__20260505",
+    "title": "MP6",
+    "course": "CS 128",
+    "due": "2026-05-05T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___feb_23__20260225": {
+    "id": "daily_lesson___feb_23__20260225",
+    "title": "Daily Lesson - Feb 23",
+    "course": "CS 128",
+    "due": "2026-02-25T17:00:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___feb_24__20260226": {
+    "id": "daily_lesson___feb_24__20260226",
+    "title": "Daily Lesson - Feb 24",
+    "course": "CS 128",
+    "due": "2026-02-26T17:00:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___feb_25__20260227": {
+    "id": "daily_lesson___feb_25__20260227",
+    "title": "Daily Lesson - Feb 25",
+    "course": "CS 128",
+    "due": "2026-02-27T17:00:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___feb_26__20260228": {
+    "id": "daily_lesson___feb_26__20260228",
+    "title": "Daily Lesson - Feb 26",
+    "course": "CS 128",
+    "due": "2026-02-28T17:00:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___feb_27__20260301": {
+    "id": "daily_lesson___feb_27__20260301",
+    "title": "Daily Lesson - Feb 27",
+    "course": "CS 128",
+    "due": "2026-03-01T17:00:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___mar_02__20260304": {
+    "id": "daily_lesson___mar_02__20260304",
+    "title": "Daily Lesson - Mar 02",
+    "course": "CS 128",
+    "due": "2026-03-04T17:00:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___mar_03__20260305": {
+    "id": "daily_lesson___mar_03__20260305",
+    "title": "Daily Lesson - Mar 03",
+    "course": "CS 128",
+    "due": "2026-03-05T17:00:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___mar_04__20260306": {
+    "id": "daily_lesson___mar_04__20260306",
+    "title": "Daily Lesson - Mar 04",
+    "course": "CS 128",
+    "due": "2026-03-06T17:00:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___mar_05__20260307": {
+    "id": "daily_lesson___mar_05__20260307",
+    "title": "Daily Lesson - Mar 05",
+    "course": "CS 128",
+    "due": "2026-03-07T17:00:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___mar_06__20260308": {
+    "id": "daily_lesson___mar_06__20260308",
+    "title": "Daily Lesson - Mar 06",
+    "course": "CS 128",
+    "due": "2026-03-08T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___mar_09__20260311": {
+    "id": "daily_lesson___mar_09__20260311",
+    "title": "Daily Lesson - Mar 09",
+    "course": "CS 128",
+    "due": "2026-03-11T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___mar_10__20260312": {
+    "id": "daily_lesson___mar_10__20260312",
+    "title": "Daily Lesson - Mar 10",
+    "course": "CS 128",
+    "due": "2026-03-12T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___mar_11__20260313": {
+    "id": "daily_lesson___mar_11__20260313",
+    "title": "Daily Lesson - Mar 11",
+    "course": "CS 128",
+    "due": "2026-03-13T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___mar_12__20260314": {
+    "id": "daily_lesson___mar_12__20260314",
+    "title": "Daily Lesson - Mar 12",
+    "course": "CS 128",
+    "due": "2026-03-14T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___mar_13__20260315": {
+    "id": "daily_lesson___mar_13__20260315",
+    "title": "Daily Lesson - Mar 13",
+    "course": "CS 128",
+    "due": "2026-03-15T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___mar_23__20260325": {
+    "id": "daily_lesson___mar_23__20260325",
+    "title": "Daily Lesson - Mar 23",
+    "course": "CS 128",
+    "due": "2026-03-25T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___mar_24__20260326": {
+    "id": "daily_lesson___mar_24__20260326",
+    "title": "Daily Lesson - Mar 24",
+    "course": "CS 128",
+    "due": "2026-03-26T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___mar_25__20260327": {
+    "id": "daily_lesson___mar_25__20260327",
+    "title": "Daily Lesson - Mar 25",
+    "course": "CS 128",
+    "due": "2026-03-27T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___mar_26__20260328": {
+    "id": "daily_lesson___mar_26__20260328",
+    "title": "Daily Lesson - Mar 26",
+    "course": "CS 128",
+    "due": "2026-03-28T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___mar_27__20260329": {
+    "id": "daily_lesson___mar_27__20260329",
+    "title": "Daily Lesson - Mar 27",
+    "course": "CS 128",
+    "due": "2026-03-29T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___mar_30__20260401": {
+    "id": "daily_lesson___mar_30__20260401",
+    "title": "Daily Lesson - Mar 30",
+    "course": "CS 128",
+    "due": "2026-04-01T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___mar_31__20260402": {
+    "id": "daily_lesson___mar_31__20260402",
+    "title": "Daily Lesson - Mar 31",
+    "course": "CS 128",
+    "due": "2026-04-02T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_01__20260403": {
+    "id": "daily_lesson___apr_01__20260403",
+    "title": "Daily Lesson - Apr 01",
+    "course": "CS 128",
+    "due": "2026-04-03T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_02__20260404": {
+    "id": "daily_lesson___apr_02__20260404",
+    "title": "Daily Lesson - Apr 02",
+    "course": "CS 128",
+    "due": "2026-04-04T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_03__20260405": {
+    "id": "daily_lesson___apr_03__20260405",
+    "title": "Daily Lesson - Apr 03",
+    "course": "CS 128",
+    "due": "2026-04-05T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_06__20260408": {
+    "id": "daily_lesson___apr_06__20260408",
+    "title": "Daily Lesson - Apr 06",
+    "course": "CS 128",
+    "due": "2026-04-08T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_07__20260409": {
+    "id": "daily_lesson___apr_07__20260409",
+    "title": "Daily Lesson - Apr 07",
+    "course": "CS 128",
+    "due": "2026-04-09T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_08__20260410": {
+    "id": "daily_lesson___apr_08__20260410",
+    "title": "Daily Lesson - Apr 08",
+    "course": "CS 128",
+    "due": "2026-04-10T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_09__20260411": {
+    "id": "daily_lesson___apr_09__20260411",
+    "title": "Daily Lesson - Apr 09",
+    "course": "CS 128",
+    "due": "2026-04-11T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_10__20260412": {
+    "id": "daily_lesson___apr_10__20260412",
+    "title": "Daily Lesson - Apr 10",
+    "course": "CS 128",
+    "due": "2026-04-12T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_13__20260415": {
+    "id": "daily_lesson___apr_13__20260415",
+    "title": "Daily Lesson - Apr 13",
+    "course": "CS 128",
+    "due": "2026-04-15T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_14__20260416": {
+    "id": "daily_lesson___apr_14__20260416",
+    "title": "Daily Lesson - Apr 14",
+    "course": "CS 128",
+    "due": "2026-04-16T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_15__20260417": {
+    "id": "daily_lesson___apr_15__20260417",
+    "title": "Daily Lesson - Apr 15",
+    "course": "CS 128",
+    "due": "2026-04-17T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_16__20260418": {
+    "id": "daily_lesson___apr_16__20260418",
+    "title": "Daily Lesson - Apr 16",
+    "course": "CS 128",
+    "due": "2026-04-18T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_17__20260419": {
+    "id": "daily_lesson___apr_17__20260419",
+    "title": "Daily Lesson - Apr 17",
+    "course": "CS 128",
+    "due": "2026-04-19T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_20__20260422": {
+    "id": "daily_lesson___apr_20__20260422",
+    "title": "Daily Lesson - Apr 20",
+    "course": "CS 128",
+    "due": "2026-04-22T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_21__20260423": {
+    "id": "daily_lesson___apr_21__20260423",
+    "title": "Daily Lesson - Apr 21",
+    "course": "CS 128",
+    "due": "2026-04-23T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_22__20260424": {
+    "id": "daily_lesson___apr_22__20260424",
+    "title": "Daily Lesson - Apr 22",
+    "course": "CS 128",
+    "due": "2026-04-24T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_23__20260425": {
+    "id": "daily_lesson___apr_23__20260425",
+    "title": "Daily Lesson - Apr 23",
+    "course": "CS 128",
+    "due": "2026-04-25T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_24__20260426": {
+    "id": "daily_lesson___apr_24__20260426",
+    "title": "Daily Lesson - Apr 24",
+    "course": "CS 128",
+    "due": "2026-04-26T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_27__20260429": {
+    "id": "daily_lesson___apr_27__20260429",
+    "title": "Daily Lesson - Apr 27",
+    "course": "CS 128",
+    "due": "2026-04-29T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_28__20260430": {
+    "id": "daily_lesson___apr_28__20260430",
+    "title": "Daily Lesson - Apr 28",
+    "course": "CS 128",
+    "due": "2026-04-30T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_29__20260501": {
+    "id": "daily_lesson___apr_29__20260501",
+    "title": "Daily Lesson - Apr 29",
+    "course": "CS 128",
+    "due": "2026-05-01T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___apr_30__20260502": {
+    "id": "daily_lesson___apr_30__20260502",
+    "title": "Daily Lesson - Apr 30",
+    "course": "CS 128",
+    "due": "2026-05-02T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___may_01__20260503": {
+    "id": "daily_lesson___may_01__20260503",
+    "title": "Daily Lesson - May 01",
+    "course": "CS 128",
+    "due": "2026-05-03T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___may_04__20260506": {
+    "id": "daily_lesson___may_04__20260506",
+    "title": "Daily Lesson - May 04",
+    "course": "CS 128",
+    "due": "2026-05-06T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___may_05__20260507": {
+    "id": "daily_lesson___may_05__20260507",
+    "title": "Daily Lesson - May 05",
+    "course": "CS 128",
+    "due": "2026-05-07T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___may_06__20260508": {
+    "id": "daily_lesson___may_06__20260508",
+    "title": "Daily Lesson - May 06",
+    "course": "CS 128",
+    "due": "2026-05-08T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___may_07__20260509": {
+    "id": "daily_lesson___may_07__20260509",
+    "title": "Daily Lesson - May 07",
+    "course": "CS 128",
+    "due": "2026-05-09T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "daily_lesson___may_08__20260510": {
+    "id": "daily_lesson___may_08__20260510",
+    "title": "Daily Lesson - May 08",
+    "course": "CS 128",
+    "due": "2026-05-10T17:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__20260324": {
+    "id": "pre_unit_hw__20260324",
+    "title": "Pre-unit HW",
+    "course": "CS 173",
+    "due": "2026-03-24T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__20260331": {
+    "id": "pre_unit_hw__20260331",
+    "title": "Pre-unit HW",
+    "course": "CS 173",
+    "due": "2026-03-31T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__20260407": {
+    "id": "pre_unit_hw__20260407",
+    "title": "Pre-unit HW",
+    "course": "CS 173",
+    "due": "2026-04-07T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__20260414": {
+    "id": "pre_unit_hw__20260414",
+    "title": "Pre-unit HW",
+    "course": "CS 173",
+    "due": "2026-04-14T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__20260421": {
+    "id": "pre_unit_hw__20260421",
+    "title": "Pre-unit HW",
+    "course": "CS 173",
+    "due": "2026-04-21T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__20260428": {
+    "id": "pre_unit_hw__20260428",
+    "title": "Pre-unit HW",
+    "course": "CS 173",
+    "due": "2026-04-28T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "pre_unit_hw__20260505": {
+    "id": "pre_unit_hw__20260505",
+    "title": "Pre-unit HW",
+    "course": "CS 173",
+    "due": "2026-05-05T08:00:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "hw5__homework_5__20260302": {
+    "id": "hw5__homework_5__20260302",
+    "title": "HW5: Homework 5",
+    "course": "Math 285",
+    "due": "2026-03-02T23:59:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "hw6__homework_6__20260306": {
+    "id": "hw6__homework_6__20260306",
+    "title": "HW6: Homework 6",
+    "course": "Math 285",
+    "due": "2026-03-06T23:59:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "hw7__homework_7__worksheet__20260313": {
+    "id": "hw7__homework_7__worksheet__20260313",
+    "title": "HW7: Homework 7: Worksheet",
+    "course": "Math 285",
+    "due": "2026-03-13T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "hw8__homework_8__20260413": {
+    "id": "hw8__homework_8__20260413",
+    "title": "HW8: Homework 8",
+    "course": "Math 285",
+    "due": "2026-04-13T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "hw9__homework_9__20260427": {
+    "id": "hw9__homework_9__20260427",
+    "title": "HW9: Homework 9",
+    "course": "Math 285",
+    "due": "2026-04-27T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "hw10__homework_10__20260504": {
+    "id": "hw10__homework_10__20260504",
+    "title": "HW10: Homework 10",
+    "course": "Math 285",
+    "due": "2026-05-04T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_16__20260302": {
+    "id": "quiz___lecture_16__20260302",
+    "title": "Quiz - Lecture 16",
+    "course": "Math 285",
+    "due": "2026-03-02T23:59:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_17__20260304": {
+    "id": "quiz___lecture_17__20260304",
+    "title": "Quiz - Lecture 17",
+    "course": "Math 285",
+    "due": "2026-03-04T23:59:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_18__20260306": {
+    "id": "quiz___lecture_18__20260306",
+    "title": "Quiz - Lecture 18",
+    "course": "Math 285",
+    "due": "2026-03-06T23:59:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_19__20260309": {
+    "id": "quiz___lecture_19__20260309",
+    "title": "Quiz - Lecture 19",
+    "course": "Math 285",
+    "due": "2026-03-09T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_20__20260311": {
+    "id": "quiz___lecture_20__20260311",
+    "title": "Quiz - Lecture 20",
+    "course": "Math 285",
+    "due": "2026-03-11T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_21__20260313": {
+    "id": "quiz___lecture_21__20260313",
+    "title": "Quiz - Lecture 21",
+    "course": "Math 285",
+    "due": "2026-03-13T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_22__20260323": {
+    "id": "quiz___lecture_22__20260323",
+    "title": "Quiz - Lecture 22",
+    "course": "Math 285",
+    "due": "2026-03-23T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_23__20260325": {
+    "id": "quiz___lecture_23__20260325",
+    "title": "Quiz - Lecture 23",
+    "course": "Math 285",
+    "due": "2026-03-25T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_24__20260330": {
+    "id": "quiz___lecture_24__20260330",
+    "title": "Quiz - Lecture 24",
+    "course": "Math 285",
+    "due": "2026-03-30T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_25__20260401": {
+    "id": "quiz___lecture_25__20260401",
+    "title": "Quiz - Lecture 25",
+    "course": "Math 285",
+    "due": "2026-04-01T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_26__20260403": {
+    "id": "quiz___lecture_26__20260403",
+    "title": "Quiz - Lecture 26",
+    "course": "Math 285",
+    "due": "2026-04-03T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_27__20260406": {
+    "id": "quiz___lecture_27__20260406",
+    "title": "Quiz - Lecture 27",
+    "course": "Math 285",
+    "due": "2026-04-06T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_28__20260408": {
+    "id": "quiz___lecture_28__20260408",
+    "title": "Quiz - Lecture 28",
+    "course": "Math 285",
+    "due": "2026-04-08T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_29__20260410": {
+    "id": "quiz___lecture_29__20260410",
+    "title": "Quiz - Lecture 29",
+    "course": "Math 285",
+    "due": "2026-04-10T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_30__20260413": {
+    "id": "quiz___lecture_30__20260413",
+    "title": "Quiz - Lecture 30",
+    "course": "Math 285",
+    "due": "2026-04-13T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_31__20260415": {
+    "id": "quiz___lecture_31__20260415",
+    "title": "Quiz - Lecture 31",
+    "course": "Math 285",
+    "due": "2026-04-15T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_32__20260417": {
+    "id": "quiz___lecture_32__20260417",
+    "title": "Quiz - Lecture 32",
+    "course": "Math 285",
+    "due": "2026-04-17T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_33__20260420": {
+    "id": "quiz___lecture_33__20260420",
+    "title": "Quiz - Lecture 33",
+    "course": "Math 285",
+    "due": "2026-04-20T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_34__20260422": {
+    "id": "quiz___lecture_34__20260422",
+    "title": "Quiz - Lecture 34",
+    "course": "Math 285",
+    "due": "2026-04-22T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_35__20260424": {
+    "id": "quiz___lecture_35__20260424",
+    "title": "Quiz - Lecture 35",
+    "course": "Math 285",
+    "due": "2026-04-24T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_36__20260427": {
+    "id": "quiz___lecture_36__20260427",
+    "title": "Quiz - Lecture 36",
+    "course": "Math 285",
+    "due": "2026-04-27T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_37__20260429": {
+    "id": "quiz___lecture_37__20260429",
+    "title": "Quiz - Lecture 37",
+    "course": "Math 285",
+    "due": "2026-04-29T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_38__20260504": {
+    "id": "quiz___lecture_38__20260504",
+    "title": "Quiz - Lecture 38",
+    "course": "Math 285",
+    "due": "2026-05-04T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "quiz___lecture_39__20260506": {
+    "id": "quiz___lecture_39__20260506",
+    "title": "Quiz - Lecture 39",
+    "course": "Math 285",
+    "due": "2026-05-06T23:59:00-05:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "completed": false
+  },
+  "module_1___discussion__20260325": {
+    "id": "module_1___discussion__20260325",
+    "title": "Module 1 - Discussion",
+    "course": "HK 110",
+    "due": "2026-03-25T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_2___discussion__20260325": {
+    "id": "module_2___discussion__20260325",
+    "title": "Module 2 - Discussion",
+    "course": "HK 110",
+    "due": "2026-03-25T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_1___quiz__20260327": {
+    "id": "module_1___quiz__20260327",
+    "title": "Module 1 - Quiz",
+    "course": "HK 110",
+    "due": "2026-03-27T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_1___assignment__design_a_study__20260327": {
+    "id": "module_1___assignment__design_a_study__20260327",
+    "title": "Module 1 - Assignment: Design a Study",
+    "course": "HK 110",
+    "due": "2026-03-27T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_2___quiz__20260327": {
+    "id": "module_2___quiz__20260327",
+    "title": "Module 2 - Quiz",
+    "course": "HK 110",
+    "due": "2026-03-27T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_2___assignment__nutrition_label_review__20260327": {
+    "id": "module_2___assignment__nutrition_label_review__20260327",
+    "title": "Module 2 - Assignment: Nutrition Label Review",
+    "course": "HK 110",
+    "due": "2026-03-27T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_3___discussion__20260401": {
+    "id": "module_3___discussion__20260401",
+    "title": "Module 3 - Discussion",
+    "course": "HK 110",
+    "due": "2026-04-01T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_3___quiz__20260403": {
+    "id": "module_3___quiz__20260403",
+    "title": "Module 3 - Quiz",
+    "course": "HK 110",
+    "due": "2026-04-03T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_3___assignment__research_an_std_sti__20260403": {
+    "id": "module_3___assignment__research_an_std_sti__20260403",
+    "title": "Module 3 - Assignment: Research an STD/STI",
+    "course": "HK 110",
+    "due": "2026-04-03T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_4___discussion__20260408": {
+    "id": "module_4___discussion__20260408",
+    "title": "Module 4 - Discussion",
+    "course": "HK 110",
+    "due": "2026-04-08T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_4___quiz__20260410": {
+    "id": "module_4___quiz__20260410",
+    "title": "Module 4 - Quiz",
+    "course": "HK 110",
+    "due": "2026-04-10T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_4___assignment__ethics_and_gene_manipulation__20260410": {
+    "id": "module_4___assignment__ethics_and_gene_manipulation__20260410",
+    "title": "Module 4 - Assignment: Ethics and Gene Manipulation",
+    "course": "HK 110",
+    "due": "2026-04-10T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_4___midterm__20260410": {
+    "id": "module_4___midterm__20260410",
+    "title": "Module 4 - Midterm",
+    "course": "HK 110",
+    "due": "2026-04-10T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_5___discussion__20260415": {
+    "id": "module_5___discussion__20260415",
+    "title": "Module 5 - Discussion",
+    "course": "HK 110",
+    "due": "2026-04-15T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_5___quiz__20260417": {
+    "id": "module_5___quiz__20260417",
+    "title": "Module 5 - Quiz",
+    "course": "HK 110",
+    "due": "2026-04-17T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_5___assignment__alcohol_and_tobacco_infographic__20260417": {
+    "id": "module_5___assignment__alcohol_and_tobacco_infographic__20260417",
+    "title": "Module 5 - Assignment: Alcohol and Tobacco Infographic",
+    "course": "HK 110",
+    "due": "2026-04-17T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_6___discussion__20260422": {
+    "id": "module_6___discussion__20260422",
+    "title": "Module 6 - Discussion",
+    "course": "HK 110",
+    "due": "2026-04-22T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_6___quiz__20260424": {
+    "id": "module_6___quiz__20260424",
+    "title": "Module 6 - Quiz",
+    "course": "HK 110",
+    "due": "2026-04-24T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_6___assignment__alternative_therapy_investigation__20260424": {
+    "id": "module_6___assignment__alternative_therapy_investigation__20260424",
+    "title": "Module 6 - Assignment: Alternative Therapy Investigation",
+    "course": "HK 110",
+    "due": "2026-04-24T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_7___discussion__20260429": {
+    "id": "module_7___discussion__20260429",
+    "title": "Module 7 - Discussion",
+    "course": "HK 110",
+    "due": "2026-04-29T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_7___quiz__20260501": {
+    "id": "module_7___quiz__20260501",
+    "title": "Module 7 - Quiz",
+    "course": "HK 110",
+    "due": "2026-05-01T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_7___assignment__life_expectancy_in_the_us__20260501": {
+    "id": "module_7___assignment__life_expectancy_in_the_us__20260501",
+    "title": "Module 7 - Assignment: Life Expectancy in the US",
+    "course": "HK 110",
+    "due": "2026-05-01T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_8___discussion__20260429": {
+    "id": "module_8___discussion__20260429",
+    "title": "Module 8 - Discussion",
+    "course": "HK 110",
+    "due": "2026-04-29T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_8___quiz__20260501": {
+    "id": "module_8___quiz__20260501",
+    "title": "Module 8 - Quiz",
+    "course": "HK 110",
+    "due": "2026-05-01T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "module_8___assignment__environmental_issue__20260501": {
+    "id": "module_8___assignment__environmental_issue__20260501",
+    "title": "Module 8 - Assignment: Environmental Issue",
+    "course": "HK 110",
+    "due": "2026-05-01T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "final_exam__20260511": {
+    "id": "final_exam__20260511",
+    "title": "Final Exam",
+    "course": "HK 110",
+    "due": "2026-05-11T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "week_1___learning_check__20260327": {
+    "id": "week_1___learning_check__20260327",
+    "title": "Week 1 - Learning Check",
+    "course": "LEAD 140",
+    "due": "2026-03-27T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "week_1___activity__personal_goals__20260327": {
+    "id": "week_1___activity__personal_goals__20260327",
+    "title": "Week 1 - Activity: Personal Goals",
+    "course": "LEAD 140",
+    "due": "2026-03-27T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "week_2___learning_check__20260403": {
+    "id": "week_2___learning_check__20260403",
+    "title": "Week 2 - Learning Check",
+    "course": "LEAD 140",
+    "due": "2026-04-03T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "week_2___activity__core_values__20260403": {
+    "id": "week_2___activity__core_values__20260403",
+    "title": "Week 2 - Activity: Core Values",
+    "course": "LEAD 140",
+    "due": "2026-04-03T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "week_2___activity__who_am_i___20260403": {
+    "id": "week_2___activity__who_am_i___20260403",
+    "title": "Week 2 - Activity: Who Am I?",
+    "course": "LEAD 140",
+    "due": "2026-04-03T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "week_3___team_project_part_1__introductions__20260410": {
+    "id": "week_3___team_project_part_1__introductions__20260410",
+    "title": "Week 3 - Team Project Part 1: Introductions",
+    "course": "LEAD 140",
+    "due": "2026-04-10T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "week_3___learning_check__20260410": {
+    "id": "week_3___learning_check__20260410",
+    "title": "Week 3 - Learning Check",
+    "course": "LEAD 140",
+    "due": "2026-04-10T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "week_3___activity__emotional_intelligence__20260410": {
+    "id": "week_3___activity__emotional_intelligence__20260410",
+    "title": "Week 3 - Activity: Emotional Intelligence",
+    "course": "LEAD 140",
+    "due": "2026-04-10T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "week_4___learning_check__20260417": {
+    "id": "week_4___learning_check__20260417",
+    "title": "Week 4 - Learning Check",
+    "course": "LEAD 140",
+    "due": "2026-04-17T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "week_4___team_project_part_2__team_contract__20260417": {
+    "id": "week_4___team_project_part_2__team_contract__20260417",
+    "title": "Week 4 - Team Project Part 2: Team Contract",
+    "course": "LEAD 140",
+    "due": "2026-04-17T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "week_4___activity__practical_applications__20260417": {
+    "id": "week_4___activity__practical_applications__20260417",
+    "title": "Week 4 - Activity: Practical Applications",
+    "course": "LEAD 140",
+    "due": "2026-04-17T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "week_5___learning_check__20260424": {
+    "id": "week_5___learning_check__20260424",
+    "title": "Week 5 - Learning Check",
+    "course": "LEAD 140",
+    "due": "2026-04-24T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "week_5___activity__diagnosing_team_effectiveness__20260424": {
+    "id": "week_5___activity__diagnosing_team_effectiveness__20260424",
+    "title": "Week 5 - Activity: Diagnosing Team Effectiveness",
+    "course": "LEAD 140",
+    "due": "2026-04-24T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "week_5___activity__team_contributions__20260424": {
+    "id": "week_5___activity__team_contributions__20260424",
+    "title": "Week 5 - Activity: Team Contributions",
+    "course": "LEAD 140",
+    "due": "2026-04-24T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "week_6___learning_check__20260501": {
+    "id": "week_6___learning_check__20260501",
+    "title": "Week 6 - Learning Check",
+    "course": "LEAD 140",
+    "due": "2026-05-01T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "week_6___team_project_part_3__team_report__20260501": {
+    "id": "week_6___team_project_part_3__team_report__20260501",
+    "title": "Week 6 - Team Project Part 3: Team Report",
+    "course": "LEAD 140",
+    "due": "2026-05-01T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "week_6___team_project_part_4__individual_reflection__20260501": {
+    "id": "week_6___team_project_part_4__individual_reflection__20260501",
+    "title": "Week 6 - Team Project Part 4: Individual Reflection",
+    "course": "LEAD 140",
+    "due": "2026-05-01T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  },
+  "week_7___final_reflection_paper__20260508": {
+    "id": "week_7___final_reflection_paper__20260508",
+    "title": "Week 7 - Final Reflection Paper",
+    "course": "LEAD 140",
+    "due": "2026-05-08T23:59:00-05:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "completed": false
+  }
 }
