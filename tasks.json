@@ -888,7 +888,7 @@
     "due": "2026-03-27T23:59:00-05:00",
     "source": "Canvas",
     "url": "https://canvas.illinois.edu",
-    "completed": false
+    "completed": true
   },
   "module_1___assignment__design_a_study__20260327": {
     "id": "module_1___assignment__design_a_study__20260327",
