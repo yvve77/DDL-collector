@@ -294,7 +294,7 @@
     "due": "2026-04-04T17:00:00-05:00",
     "source": "PrairieLearn",
     "url": "https://us.prairielearn.com",
-    "completed": false
+    "completed": true
   },
   "daily_lesson___apr_03__20260405": {
     "id": "daily_lesson___apr_03__20260405",
