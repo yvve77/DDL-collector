@@ -933,7 +933,7 @@
     "due": "2026-04-03T23:59:00-05:00",
     "source": "Canvas",
     "url": "https://canvas.illinois.edu",
-    "completed": false
+    "completed": true
   },
   "module_3___assignment__research_an_std_sti__20260403": {
     "id": "module_3___assignment__research_an_std_sti__20260403",
