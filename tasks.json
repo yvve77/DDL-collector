@@ -330,7 +330,7 @@
     "due": "2026-04-10T17:00:00-05:00",
     "source": "PrairieLearn",
     "url": "https://us.prairielearn.com",
-    "completed": false
+    "completed": true
   },
   "daily_lesson___apr_09__20260411": {
     "id": "daily_lesson___apr_09__20260411",
