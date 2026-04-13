@@ -780,7 +780,7 @@
     "due": "2026-04-13T23:59:00-05:00",
     "source": "PrairieLearn",
     "url": "https://us.prairielearn.com",
-    "completed": false
+    "completed": true
   },
   "quiz___lecture_31__20260415": {
     "id": "quiz___lecture_31__20260415",
