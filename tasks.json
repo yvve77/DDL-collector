@@ -384,7 +384,7 @@
     "due": "2026-04-18T17:00:00-05:00",
     "source": "PrairieLearn",
     "url": "https://us.prairielearn.com",
-    "completed": false
+    "completed": true
   },
   "daily_lesson___apr_17__20260419": {
     "id": "daily_lesson___apr_17__20260419",
