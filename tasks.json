@@ -69,7 +69,7 @@
     "due": "2026-04-21T23:59:00-05:00",
     "source": "PrairieLearn",
     "url": "https://us.prairielearn.com",
-    "completed": false
+    "completed": true
   },
   "mp6__20260505": {
     "id": "mp6__20260505",
