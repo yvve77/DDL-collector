@@ -636,7 +636,7 @@
     "due": "2026-04-27T23:59:00-05:00",
     "source": "PrairieLearn",
     "url": "https://us.prairielearn.com",
-    "completed": false
+    "completed": true
   },
   "hw10__homework_10__20260504": {
     "id": "hw10__homework_10__20260504",
