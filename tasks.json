@@ -456,7 +456,7 @@
     "due": "2026-04-30T17:00:00-05:00",
     "source": "PrairieLearn",
     "url": "https://us.prairielearn.com",
-    "completed": false
+    "completed": true
   },
   "daily_lesson___apr_29__20260501": {
     "id": "daily_lesson___apr_29__20260501",
