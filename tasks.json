@@ -1041,7 +1041,7 @@
     "due": "2026-04-29T23:59:00-05:00",
     "source": "Canvas",
     "url": "https://canvas.illinois.edu",
-    "completed": false
+    "completed": true
   },
   "module_7___quiz__20260501": {
     "id": "module_7___quiz__20260501",
