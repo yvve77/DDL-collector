@@ -501,7 +501,7 @@
     "due": "2026-05-07T17:00:00-05:00",
     "source": "PrairieLearn",
     "url": "https://us.prairielearn.com",
-    "completed": false
+    "completed": true
   },
   "daily_lesson___may_06__20260508": {
     "id": "daily_lesson___may_06__20260508",
