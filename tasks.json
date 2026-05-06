@@ -861,7 +861,7 @@
     "due": "2026-05-06T23:59:00-05:00",
     "source": "PrairieLearn",
     "url": "https://us.prairielearn.com",
-    "completed": false
+    "completed": true
   },
   "module_1___discussion__20260325": {
     "id": "module_1___discussion__20260325",
