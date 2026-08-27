@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Assignment DDL Digest
-All assignments hardcoded. Sends daily HTML email, skips completed tasks.
+Assignment DDL Digest — Fall 2026
+Courses: CS 361, CS 225, BIOE 206, BIOE 310, DANC 340
 """
 
 import os, json, re, smtplib
@@ -20,12 +20,11 @@ TASKS_FILE = "tasks.json"
 DASH_URL   = "https://yvve77.github.io/DDL-collector"
 
 COURSE_COLORS = {
-    "BioE 210": {"bg": "#fff5eb", "text": "#c05621"},
-    "CS 128":   {"bg": "#ebf8ff", "text": "#2b6cb0"},
-    "CS 173":   {"bg": "#f0fff4", "text": "#276749"},
-    "Math 285": {"bg": "#faf5ff", "text": "#6b46c1"},
-    "HK 110":   {"bg": "#fff0f6", "text": "#97266d"},
-    "LEAD 140": {"bg": "#fffbeb", "text": "#92400e"},
+    "CS 361":   {"bg": "#ebf8ff", "text": "#2b6cb0"},
+    "CS 225":   {"bg": "#f0fff4", "text": "#276749"},
+    "BIOE 206": {"bg": "#fff5eb", "text": "#c05621"},
+    "BIOE 310": {"bg": "#faf5ff", "text": "#6b46c1"},
+    "DANC 340": {"bg": "#fff0f6", "text": "#97266d"},
 }
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
@@ -42,7 +41,7 @@ def parse_iso(s):
 
 def task_id(title, due):
     safe = re.sub(r"[^a-z0-9]", "_", title.lower())
-    return f"{safe}__{due.strftime('%Y%m%d')}"
+    return f"{safe}__{due.strftime('%Y%m%d_%H%M')}"
 
 def canvas(title, course, due):
     return {"title": title, "course": course, "due": due,
@@ -52,190 +51,172 @@ def pl(title, course, due):
     return {"title": title, "course": course, "due": due,
             "source": "PrairieLearn", "url": "https://us.prairielearn.com"}
 
+def gs(title, course, due):
+    return {"title": title, "course": course, "due": due,
+            "source": "Gradescope", "url": "https://www.gradescope.com"}
+
+def next_weekday(d):
+    d = d + timedelta(days=1)
+    while d.weekday() >= 5:
+        d = d + timedelta(days=1)
+    return d
+
 # ── All assignments ────────────────────────────────────────────────────────────
 
 def all_assignments():
     tasks = []
 
-    # ── BioE 210 — Canvas — Weekly HW 9:30 AM. HW1–5 done, HW6 from Mar 30 ───
+    fall_break = set()
+    d = datetime(2026, 11, 21)
+    while d <= datetime(2026, 11, 29):
+        fall_break.add(d.date())
+        d += timedelta(days=1)
+
+    # ── CS 361 — PrairieLearn / Gradescope ────────────────────────────────────
+    # Homeworks (Gradescope, typed PDF)
+    for title, due in [
+        ("HW 1",  ct(9,3)),
+        ("HW 2",  ct(9,10)),
+        ("HW 3",  ct(9,17)),
+        ("HW 4",  ct(9,25)),
+        ("HW 5",  ct(10,2)),
+        ("HW 6",  ct(10,15)),
+        ("HW 7",  ct(10,23)),
+        ("HW 8",  ct(10,30)),
+        ("HW 9",  ct(11,12)),
+        ("HW 10", ct(12,1)),
+    ]:
+        tasks.append(gs(title, "CS 361", due))
+
+    # Quizzes (PrairieTest)
+    for title, due in [
+        ("Orientation Quiz", ct(8,25)),
+        ("Quiz 1",  ct(9,1)),
+        ("Quiz 2",  ct(9,3)),
+        ("Quiz 3",  ct(9,17)),
+        ("Quiz 4",  ct(10,1)),
+        ("Quiz 5",  ct(10,15)),
+        ("Quiz 6",  ct(10,29)),
+        ("Quiz 7",  ct(11,17)),
+    ]:
+        tasks.append(pl(title, "CS 361", due))
+
+    # Group Discussions (Canvas)
     for num, due in [
-        (6,  ct(3,30,  9,30)),
-        (7,  ct(4,6,   9,30)),
-        (8,  ct(4,13,  9,30)),
-        (9,  ct(4,20,  9,30)),
-        (10, ct(4,27,  9,30)),
-        (11, ct(5,4,   9,30)),
+        (1,  ct(9,2)),  (2,  ct(9,9)),  (3,  ct(9,16)), (4,  ct(9,23)),
+        (5,  ct(10,1)), (6,  ct(10,14)),(7,  ct(10,21)),(8,  ct(10,28)),
+        (9,  ct(11,11)),(10, ct(11,30)),
     ]:
-        tasks.append(canvas(f"Homework {num}", "BioE 210", due))
+        tasks.append(canvas(f"Group Discussion {num}", "CS 361", due))
 
-    # ── CS 128 — PrairieLearn — Machine Problems ──────────────────────────────
-    # MP2/MP3 already past. MP4 due Apr 7, MP5/MP6 estimated.
-    for name, due in [
-        ("MP4", ct(4,7)),
-        ("MP5", ct(4,21)),
-        ("MP6", ct(5,5)),
-    ]:
-        tasks.append(pl(name, "CS 128", due))
-
-    # ── CS 128 — PrairieLearn — Daily Lessons, due assigned day +2 at 17:00 ──
-    # Mon→Wed, Tue→Thu, Wed→Fri, Thu→Sat, Fri→Sun. Spring break excluded.
+    # Examlets & Finals
     for title, due in [
-        ("Daily Lesson - Feb 23", ct(2,25,17,0)),
-        ("Daily Lesson - Feb 24", ct(2,26,17,0)),
-        ("Daily Lesson - Feb 25", ct(2,27,17,0)),
-        ("Daily Lesson - Feb 26", ct(2,28,17,0)),
-        ("Daily Lesson - Feb 27", ct(3,1,17,0)),
-        ("Daily Lesson - Mar 02", ct(3,4,17,0)),
-        ("Daily Lesson - Mar 03", ct(3,5,17,0)),
-        ("Daily Lesson - Mar 04", ct(3,6,17,0)),
-        ("Daily Lesson - Mar 05", ct(3,7,17,0)),
-        ("Daily Lesson - Mar 06", ct(3,8,17,0)),
-        ("Daily Lesson - Mar 09", ct(3,11,17,0)),
-        ("Daily Lesson - Mar 10", ct(3,12,17,0)),
-        ("Daily Lesson - Mar 11", ct(3,13,17,0)),
-        ("Daily Lesson - Mar 12", ct(3,14,17,0)),
-        ("Daily Lesson - Mar 13", ct(3,15,17,0)),
-        ("Daily Lesson - Mar 23", ct(3,25,17,0)),
-        ("Daily Lesson - Mar 24", ct(3,26,17,0)),
-        ("Daily Lesson - Mar 25", ct(3,27,17,0)),
-        ("Daily Lesson - Mar 26", ct(3,28,17,0)),
-        ("Daily Lesson - Mar 27", ct(3,29,17,0)),
-        ("Daily Lesson - Mar 30", ct(4,1,17,0)),
-        ("Daily Lesson - Mar 31", ct(4,2,17,0)),
-        ("Daily Lesson - Apr 01", ct(4,3,17,0)),
-        ("Daily Lesson - Apr 02", ct(4,4,17,0)),
-        ("Daily Lesson - Apr 03", ct(4,5,17,0)),
-        ("Daily Lesson - Apr 06", ct(4,8,17,0)),
-        ("Daily Lesson - Apr 07", ct(4,9,17,0)),
-        ("Daily Lesson - Apr 08", ct(4,10,17,0)),
-        ("Daily Lesson - Apr 09", ct(4,11,17,0)),
-        ("Daily Lesson - Apr 10", ct(4,12,17,0)),
-        ("Daily Lesson - Apr 13", ct(4,15,17,0)),
-        ("Daily Lesson - Apr 14", ct(4,16,17,0)),
-        ("Daily Lesson - Apr 15", ct(4,17,17,0)),
-        ("Daily Lesson - Apr 16", ct(4,18,17,0)),
-        ("Daily Lesson - Apr 17", ct(4,19,17,0)),
-        ("Daily Lesson - Apr 20", ct(4,22,17,0)),
-        ("Daily Lesson - Apr 21", ct(4,23,17,0)),
-        ("Daily Lesson - Apr 22", ct(4,24,17,0)),
-        ("Daily Lesson - Apr 23", ct(4,25,17,0)),
-        ("Daily Lesson - Apr 24", ct(4,26,17,0)),
-        ("Daily Lesson - Apr 27", ct(4,29,17,0)),
-        ("Daily Lesson - Apr 28", ct(4,30,17,0)),
-        ("Daily Lesson - Apr 29", ct(5,1,17,0)),
-        ("Daily Lesson - Apr 30", ct(5,2,17,0)),
-        ("Daily Lesson - May 01", ct(5,3,17,0)),
-        ("Daily Lesson - May 04", ct(5,6,17,0)),
-        ("Daily Lesson - May 05", ct(5,7,17,0)),
-        ("Daily Lesson - May 06", ct(5,8,17,0)),
-        ("Daily Lesson - May 07", ct(5,9,17,0)),
-        ("Daily Lesson - May 08", ct(5,10,17,0)),
+        ("Examlet 1 (CBTF)",     ct(9,29,  23,59)),
+        ("Examlet 2 (in-class)", ct(10,8,  23,59)),
+        ("Examlet 3 (CBTF)",     ct(11,3,  23,59)),
+        ("Examlet 4 (in-class)", ct(11,19, 23,59)),
+        ("Examlet 5 + Replacement Exam", ct(12,15, 10,0)),
+        ("Project",              ct(12,3)),
     ]:
-        tasks.append(pl(title, "CS 128", due))
+        tasks.append(pl(title, "CS 361", due))
 
-    # ── CS 173 — PrairieLearn — Pre-unit HW, due every Tuesday 8:00 AM ────────
-    for due in [
-        ct(3,24, 8,0), ct(3,31, 8,0), ct(4,7,  8,0), ct(4,14, 8,0),
-        ct(4,21, 8,0), ct(4,28, 8,0), ct(5,5,  8,0),
-    ]:
-        tasks.append(pl("Pre-unit HW", "CS 173", due))
+    # ── CS 225 — PrairieLearn ─────────────────────────────────────────────────
+    # POTD: every weekday 8/24-12/9, due next weekday 17:00
+    start_potd = datetime(2026, 8, 24)
+    end_potd   = datetime(2026, 12, 9)
+    d = start_potd
+    while d <= end_potd:
+        if d.weekday() < 5 and d.date() not in fall_break:
+            nd = next_weekday(d)
+            due = CENTRAL_TZ.localize(datetime(nd.year, nd.month, nd.day, 17, 0))
+            tasks.append(pl(f"POTD - {d.strftime('%b %d')}", "CS 225", due))
+        d += timedelta(days=1)
 
-    # ── Math 285 — PrairieLearn — Weekly HW + per-lecture Quiz ───────────────
+    # Labs: every Sunday 23:59 starting 8/30
+    d = datetime(2026, 8, 30)
+    while d <= datetime(2026, 12, 6):
+        if d.weekday() == 6 and d.date() not in fall_break:
+            week_start = d - timedelta(days=6)
+            due = CENTRAL_TZ.localize(datetime(d.year, d.month, d.day, 23, 59))
+            tasks.append(pl(f"Lab - Week of {week_start.strftime('%b %d')}", "CS 225", due))
+        d += timedelta(days=1)
+
+    # MPs: estimated every ~2 weeks from week 3, due Sunday 23:59
     for title, due in [
-        ("HW5: Homework 5",            ct(3,2)),
-        ("HW6: Homework 6",            ct(3,6)),
-        ("HW7: Homework 7: Worksheet", ct(3,13)),
-        ("HW8: Homework 8",            ct(4,13)),
-        ("HW9: Homework 9",            ct(4,27)),
-        ("HW10: Homework 10",          ct(5,4)),
+        ("MP 1", ct(9,13)),
+        ("MP 2", ct(9,27)),
+        ("MP 3", ct(10,11)),
+        ("MP 4", ct(10,25)),
+        ("MP 5", ct(11,8)),
+        ("MP 6", ct(11,22)),
+        ("MP 7", ct(12,6)),
     ]:
-        tasks.append(pl(title, "Math 285", due))
+        tasks.append(pl(title, "CS 225", due))
 
+    # Exams (CBTF)
     for title, due in [
-        ("Quiz - Lecture 16", ct(3,2)),  ("Quiz - Lecture 17", ct(3,4)),
-        ("Quiz - Lecture 18", ct(3,6)),  ("Quiz - Lecture 19", ct(3,9)),
-        ("Quiz - Lecture 20", ct(3,11)), ("Quiz - Lecture 21", ct(3,13)),
-        ("Quiz - Lecture 22", ct(3,23)), ("Quiz - Lecture 23", ct(3,25)),
-        ("Quiz - Lecture 24", ct(3,30)), ("Quiz - Lecture 25", ct(4,1)),
-        ("Quiz - Lecture 26", ct(4,3)),  ("Quiz - Lecture 27", ct(4,6)),
-        ("Quiz - Lecture 28", ct(4,8)),  ("Quiz - Lecture 29", ct(4,10)),
-        ("Quiz - Lecture 30", ct(4,13)), ("Quiz - Lecture 31", ct(4,15)),
-        ("Quiz - Lecture 32", ct(4,17)), ("Quiz - Lecture 33", ct(4,20)),
-        ("Quiz - Lecture 34", ct(4,22)), ("Quiz - Lecture 35", ct(4,24)),
-        ("Quiz - Lecture 36", ct(4,27)), ("Quiz - Lecture 37", ct(4,29)),
-        ("Quiz - Lecture 38", ct(5,4)),  ("Quiz - Lecture 39", ct(5,6)),
+        ("Exam 0",       ct(9,4,  23,59)),
+        ("Exam 1",       ct(9,18, 23,59)),
+        ("Exam 2",       ct(10,2, 23,59)),
+        ("Exam 3",       ct(10,23,23,59)),
+        ("Exam 4",       ct(11,13,23,59)),
+        ("Exam 5",       ct(12,4, 23,59)),
+        ("Retake Exam",  ct(12,8, 23,59)),
+        ("Final Exam",   ct(12,17,23,59)),
     ]:
-        tasks.append(pl(title, "Math 285", due))
+        tasks.append(pl(title, "CS 225", due))
 
-    # ── HK 110 — Canvas ───────────────────────────────────────────────────────
-    # Discussion: remind Wednesday (start of week), Quiz+Assignment: remind Friday
-    for title, due in [
-        # Module 1 & 2 (week Mar 23-29) — Wed Mar 25 / Fri Mar 27
-        ("Module 1 - Discussion",                         ct(3,25)),
-        ("Module 2 - Discussion",                         ct(3,25)),
-        ("Module 1 - Quiz",                               ct(3,27)),
-        ("Module 1 - Assignment: Design a Study",         ct(3,27)),
-        ("Module 2 - Quiz",                               ct(3,27)),
-        ("Module 2 - Assignment: Nutrition Label Review", ct(3,27)),
-        # Module 3 (week Mar 30 - Apr 5) — Wed Apr 1 / Fri Apr 3
-        ("Module 3 - Discussion",                         ct(4,1)),
-        ("Module 3 - Quiz",                               ct(4,3)),
-        ("Module 3 - Assignment: Research an STD/STI",    ct(4,3)),
-        # Module 4 (week Apr 6-12) — Wed Apr 8 / Fri Apr 10
-        ("Module 4 - Discussion",                         ct(4,8)),
-        ("Module 4 - Quiz",                               ct(4,10)),
-        ("Module 4 - Assignment: Ethics and Gene Manipulation", ct(4,10)),
-        ("Module 4 - Midterm",                            ct(4,10)),
-        # Module 5 (week Apr 13-19) — Wed Apr 15 / Fri Apr 17
-        ("Module 5 - Discussion",                         ct(4,15)),
-        ("Module 5 - Quiz",                               ct(4,17)),
-        ("Module 5 - Assignment: Alcohol and Tobacco Infographic", ct(4,17)),
-        # Module 6 (week Apr 20-26) — Wed Apr 22 / Fri Apr 24
-        ("Module 6 - Discussion",                         ct(4,22)),
-        ("Module 6 - Quiz",                               ct(4,24)),
-        ("Module 6 - Assignment: Alternative Therapy Investigation", ct(4,24)),
-        # Module 7 (week Apr 27 - May 3) — Wed Apr 29 / Fri May 1
-        ("Module 7 - Discussion",                         ct(4,29)),
-        ("Module 7 - Quiz",                               ct(5,1)),
-        ("Module 7 - Assignment: Life Expectancy in the US", ct(5,1)),
-        # Module 8 (week Apr 27 - May 6) — Wed Apr 29 / Fri May 1
-        ("Module 8 - Discussion",                         ct(4,29)),
-        ("Module 8 - Quiz",                               ct(5,1)),
-        ("Module 8 - Assignment: Environmental Issue",    ct(5,1)),
-        # Final Exam (May 11)
-        ("Final Exam",                                    ct(5,11)),
-    ]:
-        tasks.append(canvas(title, "HK 110", due))
+    # ── BIOE 206 — Canvas ─────────────────────────────────────────────────────
+    # HW every Thursday 23:59, from 8/27, skip fall break
+    d = datetime(2026, 8, 27)
+    hw_num = 1
+    while d <= datetime(2026, 11, 19):
+        if d.weekday() == 3 and d.date() not in fall_break:
+            due = CENTRAL_TZ.localize(datetime(d.year, d.month, d.day, 23, 59))
+            tasks.append(canvas(f"HW {hw_num}", "BIOE 206", due))
+            hw_num += 1
+        d += timedelta(days=1)
 
-    # ── LEAD 140 — Canvas — Remind Friday of each week ───────────────────────
+    # Estimated exams
     for title, due in [
-        # Week 1 (Mar 23-29) — Fri Mar 27
-        ("Week 1 - Learning Check",                       ct(3,27)),
-        ("Week 1 - Activity: Personal Goals",             ct(3,27)),
-        # Week 2 (Mar 30 - Apr 5) — Fri Apr 3
-        ("Week 2 - Learning Check",                       ct(4,3)),
-        ("Week 2 - Activity: Core Values",                ct(4,3)),
-        ("Week 2 - Activity: Who Am I?",                  ct(4,3)),
-        # Week 3 (Apr 6-12) — Fri Apr 10
-        ("Week 3 - Team Project Part 1: Introductions",   ct(4,10)),
-        ("Week 3 - Learning Check",                       ct(4,10)),
-        ("Week 3 - Activity: Emotional Intelligence",     ct(4,10)),
-        # Week 4 (Apr 13-19) — Fri Apr 17
-        ("Week 4 - Learning Check",                       ct(4,17)),
-        ("Week 4 - Team Project Part 2: Team Contract",   ct(4,17)),
-        ("Week 4 - Activity: Practical Applications",     ct(4,17)),
-        # Week 5 (Apr 20-26) — Fri Apr 24
-        ("Week 5 - Learning Check",                       ct(4,24)),
-        ("Week 5 - Activity: Diagnosing Team Effectiveness", ct(4,24)),
-        ("Week 5 - Activity: Team Contributions",         ct(4,24)),
-        # Week 6 (Apr 27 - May 3) — Fri May 1
-        ("Week 6 - Learning Check",                       ct(5,1)),
-        ("Week 6 - Team Project Part 3: Team Report",     ct(5,1)),
-        ("Week 6 - Team Project Part 4: Individual Reflection", ct(5,1)),
-        # Week 7 (May 4-10) — Fri May 8
-        ("Week 7 - Final Reflection Paper",               ct(5,8)),
+        ("Midterm 1 (est.)", ct(10,1)),
+        ("Midterm 2 (est.)", ct(11,5)),
+        ("Midterm 3 (est.)", ct(12,3)),
+        ("Final Exam",       ct(12,11, 16,30)),
     ]:
-        tasks.append(canvas(title, "LEAD 140", due))
+        tasks.append(canvas(title, "BIOE 206", due))
+
+    # ── BIOE 310 — (platform TBD, using Canvas for now) ──────────────────────
+    for title, due in [
+        ("Midterm 1 (est.)", ct(10,9,  23,59)),
+        ("Midterm 2 (est.)", ct(11,13, 23,59)),
+        ("Final Exam (est.)", ct(12,17, 23,59)),
+    ]:
+        tasks.append(canvas(title, "BIOE 310", due))
+
+    # ── DANC 340 — Canvas ─────────────────────────────────────────────────────
+    for title, due in [
+        # Glossaries
+        ("Module 1 Glossary",  ct(8,30)),
+        ("Module 2 Glossary",  ct(9,13)),
+        ("Module 3 Glossary",  ct(9,27)),
+        ("Module 4 Glossary",  ct(10,11)),
+        ("Module 5 Glossary",  ct(10,25)),
+        ("Module 6 Glossary",  ct(11,8)),
+        ("Module 7 Glossary",  ct(11,22)),
+        ("Module 8 Glossary",  ct(12,6)),
+        # Embodied Exercises + Quizzes
+        ("EE 1 + Module 1 Quiz",                ct(9,6)),
+        ("EE 2: Dance Manual + Module 2 Quiz",  ct(9,20)),
+        ("EE 3: Playlist Lineage + Module 3 Quiz", ct(10,18)),
+        ("EE 4: Dance Floor Connections + Module 5 Quiz", ct(11,1)),
+        # Projects
+        ("Project 1: Interview + Module 3 Quiz", ct(10,4)),
+        ("Project 2: Mapping + Module 6 Quiz",   ct(11,15)),
+        ("Project 3: Final Synthesis (Draft) + Module 7 Quiz", ct(11,29)),
+        ("Project 3: Final Synthesis + Module 8 Quiz",         ct(12,13)),
+    ]:
+        tasks.append(canvas(title, "DANC 340", due))
 
     return tasks
 
@@ -288,37 +269,31 @@ def make_table(items):
         due = parse_iso(a["due"])
         uc, ul = urgency_info(due)
         cc = COURSE_COLORS.get(a["course"], {"bg": "#f7fafc", "text": "#4a5568"})
-        sb = "#ebf8ff" if a["source"] == "Canvas" else "#f0fff4"
-        sc = "#2b6cb0" if a["source"] == "Canvas" else "#276749"
+        sb = "#ebf8ff" if a["source"] == "Canvas" else "#f0fff4" if a["source"] == "PrairieLearn" else "#fef9c3"
+        sc = "#2b6cb0" if a["source"] == "Canvas" else "#276749" if a["source"] == "PrairieLearn" else "#854d0e"
         rows += f"""
         <tr>
           <td style="padding:11px 14px;border-bottom:1px solid #edf2f7;">
             <a href="{a['url']}" style="color:#2d3748;text-decoration:none;font-weight:500;font-size:14px;">{a['title']}</a>
           </td>
           <td style="padding:11px 14px;border-bottom:1px solid #edf2f7;">
-            <span style="background:{cc['bg']};color:{cc['text']};padding:3px 9px;
-                         border-radius:9999px;font-size:12px;font-weight:500;white-space:nowrap;">{a['course']}</span>
+            <span style="background:{cc['bg']};color:{cc['text']};padding:3px 9px;border-radius:9999px;font-size:12px;font-weight:500;white-space:nowrap;">{a['course']}</span>
           </td>
-          <td style="padding:11px 14px;border-bottom:1px solid #edf2f7;
-                     font-weight:600;color:{uc};font-size:13px;white-space:nowrap;">{ul}</td>
-          <td style="padding:11px 14px;border-bottom:1px solid #edf2f7;
-                     color:#718096;font-size:13px;white-space:nowrap;">{due.strftime('%b %d, %I:%M %p')}</td>
+          <td style="padding:11px 14px;border-bottom:1px solid #edf2f7;font-weight:600;color:{uc};font-size:13px;white-space:nowrap;">{ul}</td>
+          <td style="padding:11px 14px;border-bottom:1px solid #edf2f7;color:#718096;font-size:13px;white-space:nowrap;">{due.strftime('%b %d, %I:%M %p')}</td>
           <td style="padding:11px 14px;border-bottom:1px solid #edf2f7;">
-            <span style="background:{sb};color:{sc};padding:3px 9px;
-                         border-radius:9999px;font-size:11px;">{a['source']}</span>
+            <span style="background:{sb};color:{sc};padding:3px 9px;border-radius:9999px;font-size:11px;">{a['source']}</span>
           </td>
         </tr>"""
     return f"""
     <table style="width:100%;border-collapse:collapse;">
-      <thead>
-        <tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0;">
-          <th style="padding:10px 14px;text-align:left;color:#718096;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">Assignment</th>
-          <th style="padding:10px 14px;text-align:left;color:#718096;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">Course</th>
-          <th style="padding:10px 14px;text-align:left;color:#718096;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">Urgency</th>
-          <th style="padding:10px 14px;text-align:left;color:#718096;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">Due</th>
-          <th style="padding:10px 14px;text-align:left;color:#718096;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">Platform</th>
-        </tr>
-      </thead>
+      <thead><tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0;">
+        <th style="padding:10px 14px;text-align:left;color:#718096;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">Assignment</th>
+        <th style="padding:10px 14px;text-align:left;color:#718096;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">Course</th>
+        <th style="padding:10px 14px;text-align:left;color:#718096;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">Urgency</th>
+        <th style="padding:10px 14px;text-align:left;color:#718096;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">Due</th>
+        <th style="padding:10px 14px;text-align:left;color:#718096;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">Platform</th>
+      </tr></thead>
       <tbody>{rows}</tbody>
     </table>"""
 
@@ -328,18 +303,6 @@ def build_html(pending, is_monday):
     soon     = [a for a in pending if parse_iso(a["due"]) <= week_end]
     later    = [a for a in pending if parse_iso(a["due"]) >  week_end]
     urgent   = [a for a in pending if (parse_iso(a["due"]) - today).total_seconds() < 86400]
-
-    banner = ""
-    if is_monday:
-        banner = """
-        <div style="background:#fff5f5;border:1px solid #fed7d7;border-radius:10px;
-                    padding:14px 18px;margin-bottom:24px;display:flex;align-items:center;gap:12px;">
-          <span style="font-size:22px;">📅</span>
-          <div>
-            <div style="font-weight:700;color:#c53030;font-size:14px;">今天是周一！</div>
-            <div style="color:#742a2a;font-size:13px;margin-top:2px;">BioE 210 Homework due today at 9:30 AM — don't forget!</div>
-          </div>
-        </div>"""
 
     course_counts = {}
     for a in pending:
@@ -353,11 +316,8 @@ def build_html(pending, is_monday):
         n = len(items)
         return f"""
         <div style="margin-bottom:28px;">
-          <h2 style="color:#2d3748;font-size:14px;font-weight:700;margin:0 0 12px;
-                     padding-bottom:8px;border-bottom:2px solid #edf2f7;display:flex;
-                     align-items:center;gap:6px;">
-            {icon} {title}
-            <span style="color:#a0aec0;font-size:13px;font-weight:400;margin-left:4px;">({n})</span>
+          <h2 style="color:#2d3748;font-size:14px;font-weight:700;margin:0 0 12px;padding-bottom:8px;border-bottom:2px solid #edf2f7;">
+            {icon} {title} <span style="color:#a0aec0;font-size:13px;font-weight:400;margin-left:4px;">({n})</span>
           </h2>
           {make_table(items)}
         </div>"""
@@ -366,46 +326,27 @@ def build_html(pending, is_monday):
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
 <body style="margin:0;padding:0;background:#eef2f7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
 <div style="max-width:720px;margin:28px auto;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.10);">
-
   <div style="background:linear-gradient(135deg,#5a67d8,#805ad5);padding:28px 32px;">
-    <div style="font-size:11px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Daily Digest</div>
+    <div style="font-size:11px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Daily Digest · Fall 2026</div>
     <h1 style="margin:0;color:white;font-size:24px;font-weight:700;letter-spacing:-0.5px;">{today.strftime('%A, %B %d')}</h1>
     <p style="margin:7px 0 0;color:rgba(255,255,255,0.75);font-size:13px;">{len(pending)} pending · {len(urgent)} due within 24h</p>
   </div>
-
   <div style="background:white;border-bottom:1px solid #e2e8f0;padding:16px 32px;display:flex;align-items:center;">
     <div style="display:flex;gap:28px;flex:1;">
-      <div style="text-align:center;">
-        <div style="font-size:26px;font-weight:800;color:#5a67d8;line-height:1;">{len(pending)}</div>
-        <div style="font-size:11px;color:#a0aec0;margin-top:3px;text-transform:uppercase;letter-spacing:0.05em;">Total</div>
-      </div>
-      <div style="text-align:center;">
-        <div style="font-size:26px;font-weight:800;color:#e53e3e;line-height:1;">{len(soon)}</div>
-        <div style="font-size:11px;color:#a0aec0;margin-top:3px;text-transform:uppercase;letter-spacing:0.05em;">This week</div>
-      </div>
-      <div style="text-align:center;">
-        <div style="font-size:26px;font-weight:800;color:#38a169;line-height:1;">{len(later)}</div>
-        <div style="font-size:11px;color:#a0aec0;margin-top:3px;text-transform:uppercase;letter-spacing:0.05em;">Later</div>
-      </div>
+      <div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#5a67d8;line-height:1;">{len(pending)}</div><div style="font-size:11px;color:#a0aec0;margin-top:3px;text-transform:uppercase;letter-spacing:0.05em;">Total</div></div>
+      <div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#e53e3e;line-height:1;">{len(soon)}</div><div style="font-size:11px;color:#a0aec0;margin-top:3px;text-transform:uppercase;letter-spacing:0.05em;">This week</div></div>
+      <div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#38a169;line-height:1;">{len(later)}</div><div style="font-size:11px;color:#a0aec0;margin-top:3px;text-transform:uppercase;letter-spacing:0.05em;">Later</div></div>
     </div>
     <div style="text-align:right;">{pills}</div>
   </div>
-
   <div style="background:white;padding:24px 32px 12px;">
-    {banner}
     {sec("Due This Week", soon, "🔥")}
     {sec("Coming Up Later", later, "📆")}
   </div>
-
-  <div style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:14px 32px;
-              display:flex;justify-content:space-between;align-items:center;">
-    <span style="font-size:12px;color:#a0aec0;">Spring 2026 · BioE 210 · CS 128 · CS 173 · Math 285 · HK 110 · LEAD 140</span>
-    <a href="{DASH_URL}" style="background:#5a67d8;color:white;text-decoration:none;
-       padding:7px 16px;border-radius:8px;font-size:12px;font-weight:600;letter-spacing:0.02em;">
-      ✅ Open Dashboard →
-    </a>
+  <div style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;">
+    <span style="font-size:12px;color:#a0aec0;">Fall 2026 · CS 361 · CS 225 · BIOE 206 · BIOE 310 · DANC 340</span>
+    <a href="{DASH_URL}" style="background:#5a67d8;color:white;text-decoration:none;padding:7px 16px;border-radius:8px;font-size:12px;font-weight:600;">✅ Dashboard →</a>
   </div>
-
 </div>
 </body></html>"""
 
@@ -440,7 +381,7 @@ def main():
     )
     print(f"📬 Pending: {len(pending)}")
     for t in pending[:5]:
-        print(f"   {parse_iso(t['due']).strftime('%m/%d')} [{t['course']}] {t['title']}")
+        print(f"   {parse_iso(t['due']).strftime('%m/%d %H:%M')} [{t['course']}] {t['title']}")
     if len(pending) > 5:
         print(f"   ... and {len(pending)-5} more")
 
@@ -448,9 +389,7 @@ def main():
         print("Nothing pending, skipping email."); return
 
     urgent_count = len([t for t in pending if (parse_iso(t["due"]) - today).total_seconds() < 86400])
-    if is_monday:
-        subject = f"📅 周一提醒 — {today.strftime('%b %d')} · {len(pending)} pending"
-    elif urgent_count:
+    if urgent_count:
         subject = f"⚠️ {urgent_count} due within 24h — {today.strftime('%a %b %d')}"
     else:
         subject = f"☀️ DDL Digest — {today.strftime('%a %b %d')} · {len(pending)} pending"
