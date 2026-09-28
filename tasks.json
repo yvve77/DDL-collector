@@ -634,7 +634,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-09-28T21:06:22.490Z"
   },
   "cs_225_lab_week_of_sep_28__20261004_2359": {
     "id": "cs_225_lab_week_of_sep_28__20261004_2359",
@@ -1219,7 +1220,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-09-28T21:06:24.022Z"
   },
   "danc_340_module_4_glossary__20261011_2359": {
     "id": "danc_340_module_4_glossary__20261011_2359",
