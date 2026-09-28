@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DDL Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta name="color-scheme" content="light dark">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <script>try { const t = localStorage.getItem("ddl_theme"); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
+  <style>
+    /* ── Theme tokens ── light (cream · blush · lavender · cocoa) */
+    :root {
+      color-scheme: light;
+      --bg: #FBF6F4; --surface: #FFFFFF; --surface-2: #F8F1F3; --border: #EEE3E6;
+      --text: #4A3A36; --muted: #9A8A86;
+      --primary: #4A3A36; --on-primary: #FFF7F9;
+      --blush: #FBEFF3;
+      --heat-1: #FBEFF4; --heat-2: #F5DCE8; --heat-3: #EBC3D9; --heat-4: #DBA3C4;
+      --exam: #B4234A; --exam-tint: #FCE8EE; --aim: #B0701A;
+      --overdue-bg: #FDF2F5; --overdue-ink: #B4234A;
+      --u-crit-bg: #FCE4EA; --u-crit: #A11D44;
+      --u-soon-bg: #FDEEE2; --u-soon: #93461A;
+      --u-week-bg: #F3EEFB; --u-week: #5E3FA3;
+      --u-later-bg: #EEF5F1; --u-later: #2C6B50;
+      --shadow: 0 1px 2px rgba(74,58,54,.04), 0 8px 24px rgba(74,58,54,.05);
+      --progress: linear-gradient(90deg, #F2A7C3, #A98AE6);
+    }
+    /* dark (plum charcoal) */
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #1B171C; --surface: #241F26; --surface-2: #2C262F; --border: #3A3239;
+      --text: #F3E9EC; --muted: #A99BA3;
+      --primary: #E7B8CB; --on-primary: #241F26;
+      --blush: #2E2430;
+      --heat-1: #2F2530; --heat-2: #3D2A3B; --heat-3: #51304B; --heat-4: #693A5F;
+      --exam: #FF8FA8; --exam-tint: #3A2229; --aim: #E6B866;
+      --overdue-bg: #2B1D23; --overdue-ink: #FF8FA8;
+      --u-crit-bg: #45222D; --u-crit: #FFB3C4;
+      --u-soon-bg: #43301F; --u-soon: #F5C08E;
+      --u-week-bg: #2F2744; --u-week: #C9B3F5;
+      --u-later-bg: #1F3530; --u-later: #9ED8BD;
+      --shadow: none;
+    } }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #1B171C; --surface: #241F26; --surface-2: #2C262F; --border: #3A3239;
+      --text: #F3E9EC; --muted: #A99BA3;
+      --primary: #E7B8CB; --on-primary: #241F26;
+      --blush: #2E2430;
+      --heat-1: #2F2530; --heat-2: #3D2A3B; --heat-3: #51304B; --heat-4: #693A5F;
+      --exam: #FF8FA8; --exam-tint: #3A2229; --aim: #E6B866;
+      --overdue-bg: #2B1D23; --overdue-ink: #FF8FA8;
+      --u-crit-bg: #45222D; --u-crit: #FFB3C4;
+      --u-soon-bg: #43301F; --u-soon: #F5C08E;
+      --u-week-bg: #2F2744; --u-week: #C9B3F5;
+      --u-later-bg: #1F3530; --u-later: #9ED8BD;
+      --shadow: none;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); min-height: 100vh; padding: 40px 20px 110px; color: var(--text); transition: background .25s, color .25s; }
+    .container { max-width: 1040px; margin: 0 auto; }
+    .serif { font-family: 'Fraunces', Georgia, serif; }
+
+    /* Header */
+    .header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 28px; flex-wrap: wrap; gap: 16px; }
+    .header h1 { font-family: 'Fraunces', Georgia, serif; font-size: 34px; font-weight: 600; letter-spacing: -0.5px; line-height: 1.1; }
+    .header p { font-size: 13px; color: var(--muted); margin-top: 6px; }
+    .header-right { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .sync-time { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); }
+    .btn { background: var(--primary); color: var(--on-primary); border: none; border-radius: 999px; padding: 9px 16px; font: 600 13px 'DM Sans', sans-serif; cursor: pointer; transition: opacity .15s, transform .1s; }
+    .btn:hover { opacity: .85; }
+    .btn:active { transform: scale(.97); }
+    .btn-ghost { background: var(--surface); color: var(--text); border: 1px solid var(--border); font-weight: 500; }
+    .icon-btn { width: 36px; height: 36px; padding: 0; display: grid; place-items: center; font-size: 15px; }
+
+    /* Weekly progress */
+    .progress { display: flex; align-items: center; gap: 10px; margin-top: 12px; font-size: 12px; color: var(--muted); }
+    .progress .track { width: 200px; height: 8px; border-radius: 9999px; background: var(--surface-2); border: 1px solid var(--border); overflow: hidden; }
+    .progress .fill { height: 100%; border-radius: 9999px; background: var(--progress); transition: width .5s cubic-bezier(.3,1.3,.5,1); }
+    .progress b { color: var(--text); font-family: 'DM Mono', monospace; font-weight: 500; }
+
+    /* Toolbar */
+    .toolbar { display: flex; flex-direction: column; gap: 12px; margin-bottom: 18px; }
+    .toolbar-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .seg { display: inline-flex; background: var(--surface-2); border: 1px solid var(--border); border-radius: 999px; padding: 3px; }
+    .seg button { border: none; background: none; padding: 6px 14px; border-radius: 999px; font: 500 13px 'DM Sans', sans-serif; color: var(--muted); cursor: pointer; }
+    .seg button.on { background: var(--surface); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+    .filter-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+    .chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 9999px; font-size: 12.5px; font-weight: 500; cursor: pointer; border: 1px solid var(--border); background: var(--surface); color: var(--text); transition: all .15s; }
+    .chip:hover { border-color: var(--muted); }
+    .chip b { font-family: 'DM Mono', monospace; font-weight: 500; color: var(--muted); font-size: 11.5px; }
+    .chip.on-all { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
+    .chip.on-all b { color: inherit; opacity: .7; }
+    .bar-right { display: flex; align-items: center; gap: 12px; }
+    .toggle { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); cursor: pointer; }
+    .toggle input { accent-color: var(--primary); cursor: pointer; }
+
+    /* Check button */
+    .ck { --c: var(--muted); width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--c); background: var(--surface); flex-shrink: 0; cursor: pointer; display: grid; place-items: center; padding: 0; transition: transform .12s, background .2s, box-shadow .2s; }
+    .ck svg { width: 12px; height: 12px; overflow: visible; }
+    .ck path { fill: none; stroke: #fff; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 12; stroke-dashoffset: 12; }
+    .ck:not(.on):hover { box-shadow: 0 0 0 4px color-mix(in srgb, var(--c) 18%, transparent); }
+    .ck:not(.on):hover path { stroke: var(--c); stroke-dashoffset: 0; opacity: .4; }
+    .ck:active { transform: scale(.82); }
+    .ck.on { background: var(--c); }
+    .ck.on path { stroke-dashoffset: 0; }
+    .ck.pop { animation: pop .42s cubic-bezier(.3,1.7,.5,1); }
+    .ck.pop path { transition: stroke-dashoffset .28s .1s ease-out; }
+    @keyframes pop { 0% { transform: scale(1); } 35% { transform: scale(1.4); } 100% { transform: scale(1); } }
+    .ck.sm { width: 16px; height: 16px; border-width: 1.5px; }
+    .ck.sm svg { width: 9px; height: 9px; }
+    .spark { position: fixed; width: 7px; height: 7px; border-radius: 2px; pointer-events: none; z-index: 300; }
+
+    /* List view */
+    .panel { border: 1px solid var(--border); border-radius: 20px; overflow: hidden; background: var(--surface); box-shadow: var(--shadow); }
+    .section-header { font-family: 'Fraunces', Georgia, serif; font-size: 16px; font-weight: 600; color: var(--text); padding: 20px 22px 6px; display: flex; align-items: baseline; gap: 8px; }
+    .section-header span { font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 400; color: var(--muted); }
+    .sec { border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    .sec:last-child { border-bottom: none; }
+    .sec.overdue { background: var(--overdue-bg); }
+    .sec.overdue .section-header { color: var(--overdue-ink); }
+    .empty-section { padding: 22px; text-align: center; color: var(--muted); font-size: 13px; }
+
+    .task { display: flex; align-items: flex-start; gap: 14px; padding: 13px 22px; transition: background .25s; overflow: hidden; }
+    .task + .task { border-top: 1px solid color-mix(in srgb, var(--border) 70%, transparent); }
+    .task:hover { background: var(--surface-2); }
+    .sec.overdue .task:hover { background: color-mix(in srgb, var(--overdue-ink) 6%, var(--overdue-bg)); }
+    .task.done { opacity: .45; }
+    .task.done .t { text-decoration: line-through; }
+    .task.completing { background: color-mix(in srgb, var(--c) 12%, var(--surface)); }
+    .task.completing .t { background-size: 100% 1.5px; color: var(--muted); }
+    .task-info { flex: 1; min-width: 0; }
+    .task-title { font-size: 14.5px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .task-title .t { background: linear-gradient(currentColor, currentColor) no-repeat 0 56% / 0 1.5px; transition: background-size .32s ease-out, color .3s; }
+    .task-title a { color: inherit; text-decoration: none; }
+    .task-title a:hover { text-decoration: underline; text-decoration-color: var(--muted); }
+    .exam-tag { font-size: 10px; font-weight: 700; color: var(--exam); background: var(--exam-tint); border-radius: 5px; padding: 1px 5px; margin-right: 7px; vertical-align: 1px; letter-spacing: .04em; }
+    .task-sub { display: flex; align-items: center; gap: 10px; margin-top: 4px; flex-wrap: wrap; font-size: 12px; }
+    .course-lbl { display: flex; align-items: center; gap: 6px; font-weight: 500; color: var(--muted); }
+    .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .task-due { color: var(--muted); }
+    .aim { font-weight: 600; color: var(--aim); }
+    .note-preview { color: var(--muted); font-style: italic; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 220px; }
+    .task-actions { display: flex; align-items: center; gap: 2px; flex-shrink: 0; }
+    .urg { font-size: 12px; font-weight: 600; white-space: nowrap; padding: 4px 10px; border-radius: 9999px; margin-right: 4px; }
+    .u-overdue, .u-critical { background: var(--u-crit-bg); color: var(--u-crit); }
+    .u-soon  { background: var(--u-soon-bg); color: var(--u-soon); }
+    .u-week  { background: var(--u-week-bg); color: var(--u-week); }
+    .u-later { background: var(--u-later-bg); color: var(--u-later); }
+    .u-done  { background: var(--u-later-bg); color: var(--u-later); }
+    .task-btn { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 13px; padding: 4px 6px; border-radius: 6px; opacity: 0; transition: opacity .15s; }
+    .task:hover .task-btn { opacity: 1; }
+    .task-btn:hover { background: var(--surface-2); color: var(--text); }
+    .note-full { margin-top: 8px; font-size: 12.5px; color: var(--text); background: var(--surface-2); border-radius: 8px; padding: 8px 12px; line-height: 1.55; display: none; white-space: pre-wrap; }
+    .note-full.open { display: block; }
+    .note-full a { color: #8A63D2; }
+
+    /* Toast */
+    .toast { position: fixed; left: 50%; bottom: 26px; transform: translate(-50%, 160%); background: var(--primary); color: var(--on-primary); border-radius: 999px; padding: 8px 8px 8px 18px; display: flex; align-items: center; gap: 14px; font-size: 14px; box-shadow: 0 12px 32px rgba(40,20,30,.28); z-index: 200; overflow: hidden; max-width: calc(100vw - 32px); transition: transform .3s cubic-bezier(.3,1.3,.5,1); }
+    .toast { visibility: hidden; transition: transform .3s cubic-bezier(.3,1.3,.5,1), visibility 0s .3s; }
+    .toast.show { transform: translate(-50%, 0); visibility: visible; transition: transform .3s cubic-bezier(.3,1.3,.5,1), visibility 0s; }
+    .toast .msg { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .toast button { background: color-mix(in srgb, var(--on-primary) 16%, transparent); color: inherit; border: none; border-radius: 999px; padding: 6px 14px; font: 600 13px 'DM Sans', sans-serif; cursor: pointer; flex-shrink: 0; }
+    .toast button:hover { background: color-mix(in srgb, var(--on-primary) 26%, transparent); }
+    .toast .timer { position: absolute; left: 0; bottom: 0; height: 3px; background: var(--progress); width: 100%; }
+
+    /* Calendar shared */
+    .cal-head { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--border); gap: 10px; flex-wrap: wrap; }
+    .cal-title { font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 600; }
+    .cal-nav { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+    .nav-btn { border: 1px solid var(--border); background: var(--surface); border-radius: 999px; padding: 5px 12px; font: 500 13px 'DM Sans', sans-serif; cursor: pointer; color: var(--text); }
+    .nav-btn:hover { background: var(--surface-2); }
+    .legend { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); padding: 12px 20px 16px; flex-wrap: wrap; border-top: 1px solid var(--border); }
+    .legend .sw { width: 14px; height: 14px; border-radius: 4px; border: 1px solid var(--border); }
+    .legend .gap { width: 12px; }
+
+    /* Month */
+    .month { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
+    .dow { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; padding: 10px 10px 8px; border-bottom: 1px solid var(--border); }
+    .day { min-height: 112px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 7px; cursor: pointer; display: flex; flex-direction: column; gap: 3px; min-width: 0; transition: box-shadow .15s; }
+    .day:nth-child(7n) { border-right: none; }
+    .day:hover { box-shadow: inset 0 0 0 2px var(--border); }
+    .day.out { background: var(--surface-2); }
+    .day.out .dnum { opacity: .45; }
+    .day.h1 { background: var(--heat-1); } .day.h2 { background: var(--heat-2); }
+    .day.h3 { background: var(--heat-3); } .day.h4 { background: var(--heat-4); }
+    .day.noclass .dnum::after { content: " · no class"; font-size: 10px; font-weight: 400; color: var(--muted); }
+    .dnum { font-size: 12px; font-weight: 600; font-family: 'DM Mono', monospace; }
+    .day.today .dnum { background: var(--primary); color: var(--on-primary); border-radius: 9999px; padding: 1px 7px; align-self: flex-start; }
+    .ev { font-size: 11px; line-height: 1.3; padding: 2px 6px; border-radius: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border-left: 3px solid; background: color-mix(in srgb, var(--surface) 78%, transparent); }
+    .ev.done { opacity: .4; text-decoration: line-through; }
+    .ev.exam { font-weight: 700; background: var(--surface); box-shadow: inset 0 0 0 1px var(--exam); border-left-color: var(--exam) !important; color: var(--exam); }
+    .ev.window { font-weight: 600; background: repeating-linear-gradient(135deg, var(--surface) 0 6px, var(--exam-tint) 6px 12px); color: var(--exam); border-left-color: var(--exam) !important; }
+    .ev.review { background: var(--surface); color: var(--exam); border: 1px dashed var(--exam); border-left: 3px solid var(--exam) !important; }
+    .more { font-size: 11px; color: var(--muted); padding-left: 6px; }
+    .mdots { display: none; gap: 3px; flex-wrap: wrap; }
+
+    /* Week */
+    .week-wrap { overflow-x: auto; }
+    .week { min-width: 760px; }
+    .wk-cols { display: grid; grid-template-columns: 52px repeat(7, minmax(0, 1fr)); }
+    .wk-dayhead { padding: 10px 8px; border-bottom: 1px solid var(--border); border-left: 1px solid var(--border); font-size: 12px; }
+    .wk-dayhead .d { font-weight: 600; }
+    .wk-dayhead .load { font-size: 10px; color: var(--muted); font-family: 'DM Mono', monospace; margin-top: 2px; }
+    .wk-dayhead.today .d { color: var(--on-primary); background: var(--primary); border-radius: 999px; padding: 1px 8px; }
+    .wk-due { border-left: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 6px; display: flex; flex-direction: column; gap: 4px; min-height: 44px; min-width: 0; }
+    .wk-due-lbl { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; padding: 10px 6px; border-bottom: 1px solid var(--border); }
+    .due-item { display: flex; align-items: flex-start; gap: 6px; font-size: 11px; line-height: 1.35; padding: 5px 6px; border-radius: 7px; border-left: 3px solid; background: var(--surface-2); transition: opacity .3s; }
+    .due-item .tm { font-family: 'DM Mono', monospace; color: var(--muted); font-size: 10px; }
+    .due-item .realdue { color: var(--aim); font-size: 10px; font-weight: 600; }
+    .due-item.done { opacity: .45; }
+    .due-item.done .txt { text-decoration: line-through; }
+    .due-item.exam, .due-item.window { background: var(--exam-tint); border-left-color: var(--exam) !important; color: var(--exam); font-weight: 600; }
+    .due-item.review { background: var(--surface); color: var(--exam); font-weight: 600; border: 1px dashed var(--exam); border-left: 3px solid var(--exam); }
+    .hour-lbl { height: 44px; font-size: 10px; color: var(--muted); font-family: 'DM Mono', monospace; text-align: right; padding-right: 6px; transform: translateY(-6px); }
+    .col { position: relative; border-left: 1px solid var(--border); background-image: linear-gradient(var(--border) 1px, transparent 1px); background-size: 100% 44px; }
+    .col.noclass { background-color: var(--surface-2); }
+    .blk { position: absolute; left: 3px; right: 3px; border-radius: 8px; padding: 4px 7px; font-size: 11px; line-height: 1.25; overflow: hidden; border-left: 3px solid; color: var(--text); }
+    .blk b { font-weight: 600; display: block; }
+    .blk .rm { color: var(--muted); font-size: 10px; }
+    .blk.exam { background: var(--exam-tint) !important; border-left-color: var(--exam) !important; color: var(--exam); }
+    .blk.half { right: auto; width: calc(50% - 4px); }
+    .blk.half2 { left: calc(50% + 1px); }
+    .now-line { position: absolute; left: 0; right: 0; height: 2px; background: #E26C9C; z-index: 2; }
+    .now-line::before { content: ""; position: absolute; left: -4px; top: -3px; width: 8px; height: 8px; border-radius: 50%; background: #E26C9C; }
+
+    /* Loading / modal */
+    .loading { text-align: center; padding: 60px 20px; color: var(--muted); font-size: 14px; }
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(30,18,24,.45); z-index: 100; align-items: center; justify-content: center; padding: 16px; backdrop-filter: blur(3px); }
+    .modal-overlay.open { display: flex; }
+    .modal { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 28px; width: 100%; max-width: 440px; box-shadow: 0 20px 60px rgba(0,0,0,.25); max-height: 90vh; overflow-y: auto; }
+    .modal h2 { font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 600; margin-bottom: 20px; }
+    .modal p { color: var(--muted); }
+    .modal a { color: #8A63D2; }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
+    .form-group input, .form-group textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; font: 14px 'DM Sans', sans-serif; color: var(--text); background: var(--surface-2); outline: none; }
+    .form-group input:focus, .form-group textarea:focus { border-color: #B79BE6; box-shadow: 0 0 0 3px color-mix(in srgb, #B79BE6 25%, transparent); }
+    .form-group textarea { resize: vertical; min-height: 72px; }
+    .modal-actions { display: flex; gap: 8px; margin-top: 20px; }
+    .btn-cancel { flex: 1; background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: 999px; padding: 10px; font: 500 14px 'DM Sans', sans-serif; cursor: pointer; }
+    .btn-save { flex: 2; background: var(--primary); color: var(--on-primary); border: none; border-radius: 999px; padding: 10px; font: 600 14px 'DM Sans', sans-serif; cursor: pointer; }
+
+    @media (max-width: 640px) {
+      body { padding: 24px 12px 100px; }
+      .header { flex-direction: column; align-items: flex-start; }
+      .header h1 { font-size: 28px; }
+      .day { min-height: 64px; padding: 4px; }
+      .day .ev, .day .more { display: none; }
+      .day .mdots { display: flex; }
+      .day.noclass .dnum::after { content: ""; }
+      .task-btn { opacity: 1; }
+      .task { padding: 13px 16px; gap: 12px; }
+      .section-header { padding: 18px 16px 6px; }
+      .note-preview { display: none; }
+      .progress .track { width: 140px; }
+      .task-title { white-space: normal; }
+      .urg { padding: 3px 8px; font-size: 11px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ck, .ck path, .task, .task-title .t, .toast, .progress .fill { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div>
+      <h1>DDL Dashboard</h1>
+      <p id="semester-label">Loading...</p>
+      <div class="progress" id="progress"></div>
+    </div>
+    <div class="header-right">
+      <span class="sync-time" id="sync-time"></span>
+      <span id="token-status" style="font-size:12px;"></span>
+      <button class="btn btn-ghost" onclick="promptToken()">🔑 Token</button>
+      <button class="btn btn-ghost" onclick="loadTasks()">↻ Refresh</button>
+      <button class="btn btn-ghost icon-btn" id="theme-btn" onclick="toggleTheme()" title="Toggle light / dark">☾</button>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <div class="toolbar-row">
+      <div class="seg" id="view-seg">
+        <button data-v="list" onclick="setView('list')">List</button>
+        <button data-v="month" onclick="setView('month')">Month</button>
+        <button data-v="week" onclick="setView('week')">Week</button>
+      </div>
+      <div class="bar-right">
+        <label class="toggle"><input type="checkbox" id="toggle-done" onchange="render()"> Show completed</label>
+        <button class="btn" onclick="openAddModal()">＋ Add DDL</button>
+      </div>
+    </div>
+    <div class="filter-chips" id="filter-chips"></div>
+  </div>
+
+  <div id="app"><div class="loading">Loading assignments…</div></div>
+</div>
+
+<div class="toast" id="toast"><span class="msg" id="toast-msg"></span><button onclick="undo()">Undo</button><div class="timer" id="toast-timer"></div></div>
+
+<!-- Token Modal -->
+<div class="modal-overlay" id="token-modal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal">
+    <h2>🔑 GitHub Token</h2>
+    <p style="font-size:13px;margin-bottom:16px;line-height:1.6;">
+      Lets the dashboard write checkmarks back to the repo.<br>
+      Generate at <a href="https://github.com/settings/tokens/new?scopes=repo&description=DDL+Dashboard" target="_blank">GitHub Settings → Tokens</a> with <strong>repo</strong> scope.
+    </p>
+    <div class="form-group"><label>Personal Access Token</label><input type="password" id="token-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"></div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="document.getElementById('token-modal').classList.remove('open')">Cancel</button>
+      <button class="btn-save" onclick="saveTokenFromModal()">Save Token</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add / Edit Modal -->
+<div class="modal-overlay" id="task-modal" onclick="if(event.target===this)closeTaskModal()">
+  <div class="modal">
+    <h2 id="task-modal-title">＋ Add Custom DDL</h2>
+    <div class="form-group"><label>Task name</label><input type="text" id="input-title" placeholder="e.g. Office hours prep"></div>
+    <div class="form-group"><label>Course</label><input type="text" id="input-course" placeholder="e.g. CS 225"></div>
+    <div class="form-group"><label>Real due date & time</label><input type="datetime-local" id="input-due"></div>
+    <div class="form-group"><label>URL (optional)</label><input type="url" id="input-url" placeholder="https://canvas.illinois.edu/..."></div>
+    <div class="form-group"><label>Notes (optional)</label><textarea id="input-notes" placeholder="Notes, reminders, links..."></textarea></div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeTaskModal()">Cancel</button>
+      <button class="btn-save" id="task-modal-save" onclick="saveTaskFromModal()">Add Task</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   SEMESTER CONFIG — the only block to edit each semester
+   ═══════════════════════════════════════════════════════════════════════════ */
+const SEMESTER = {
+  name:  "Fall 2026",
+  start: "2026-08-24",
+  lastClass: "2026-12-09",
+  noClass: [["2026-09-07","2026-09-07"], ["2026-11-21","2026-11-29"]],  // Labor Day, Fall Break
+};
+
+const COURSES = [
+  // accent: [light, dark] for dots/borders/checkboxes · tint: [light, dark] for class blocks
+  { key: "CS 225",   sub: "PrairieLearn", accent: ["#4F87C9", "#5F92D2"], tint: ["#EAF1FA", "#22303F"] },
+  { key: "BIOE 206", sub: "Canvas",       accent: ["#D25F8C", "#DC6596"], tint: ["#FBEAF1", "#3A2230"] },
+  { key: "BIOE 310", sub: "PrairieLearn", accent: ["#8A63D2", "#976FE6"], tint: ["#F1ECFB", "#2C2442"] },
+  { key: "DANC 340", sub: "Canvas",       accent: ["#C9702E", "#CB7A36"], tint: ["#FBEFE6", "#38281D"] },
+  { key: "BIOE 210 Grading", short: "210 Grading", sub: "Gradescope", accent: ["#2F9A70", "#2FA67B"], tint: ["#E6F4EE", "#1D332B"] },
+  { key: "Admin",    sub: "Registrar",    accent: ["#A0908A", "#8E8189"], tint: ["#F3EEEC", "#2C2A2B"] },
+];
+
+// Aim to finish this many days before the real DDL (exams: start reviewing N days before).
+const BUFFER_DAYS = { potd: 0, lab: 1, hw: 1, quiz: 0, project: 3, exam: 5, grading: 0, admin: 0, custom: 0 };
+
+// Weekly class meetings. days: Mon Tue Wed Thu Fri. times are 24h "HH:MM".
+// from/to optional (defaults to semester start / last class day). skip: dates with no meeting.
+const CLASS_SCHEDULE = [
+  { course: "CS 225",   type: "Lecture", days: ["Mon","Wed","Fri"], start: "11:00", end: "11:50", where: "Foellinger Aud" },
+  { course: "CS 225",   type: "Lab",     days: ["Thu"],             start: "17:00", end: "18:50", where: "CIF 4025" },
+  { course: "CS 225",   type: "Honors",  days: ["Mon"],             start: "17:00", end: "17:50", where: "0216 Siebel", from: "2026-09-14" },
+  { course: "BIOE 206", type: "Lecture", days: ["Tue","Thu"],       start: "09:30", end: "10:50", where: "CIF 3031" },
+  { course: "BIOE 310", type: "Lecture", days: ["Wed","Fri"],       start: "13:00", end: "14:20", where: "CIF 3031",
+    skip: ["2026-09-23", "2026-09-25", "2026-09-30", "2026-11-04"] },  // recorded / exam weeks (11/4 tentative)
+];
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+const REPO_API = "https://api.github.com/repos/yvve77/DDL-collector/contents/tasks.json";
+const CMAP = Object.fromEntries(COURSES.map(c => [c.key, c]));
+const DOW = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+const KIND_WEIGHT = { exam: 5, project: 3, hw: 2, lab: 2, grading: 2, quiz: 1, custom: 1, potd: 0.5, admin: 0.5 };
+const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+let tasks = {};
+let activeFilter = "all";
+let fileSha = "";
+let savedSnapshot = "";
+let saveTimer = null;
+let editingId = null;
+let view = store("ddl_view") || "list";
+let calMode = store("ddl_calmode") || "target";
+let cursor = startOfDay(new Date());
+
+// ── Small utils ───────────────────────────────────────────────────────────────
+function store(k, v) {
+  try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch { return null; }
+}
+function esc(s) { return String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function startOfDay(d) { const x = new Date(d); x.setHours(0,0,0,0); return x; }
+function addDays(d, n) { const x = new Date(d); x.setDate(x.getDate() + n); return x; }
+function ymd(d) { const p = n => String(n).padStart(2,"0"); return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`; }
+function parseYmd(s) { const [y,m,d] = s.split("-").map(Number); return new Date(y, m-1, d); }
+function mondayOf(d) { const x = startOfDay(d); return addDays(x, -((x.getDay() + 6) % 7)); }
+function fmtTime(d) { return d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }).replace(":00", ""); }
+function fmtShort(d) { return d.toLocaleDateString("en-US", { month: "short", day: "numeric" }); }
+function fmtWday(d) { return d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" }); }
+function cidx(course) { return COURSES.findIndex(c => c.key === course); }
+function color(course) { const i = cidx(course); return i < 0 ? "var(--muted)" : `var(--cc-${i})`; }
+function tint(course) { const i = cidx(course); return i < 0 ? "var(--surface-2)" : `var(--ct-${i})`; }
+(function courseVars() {
+  const v = k => COURSES.map((c, i) => `--cc-${i}:${c.accent[k]};--ct-${i}:${c.tint[k]};`).join("");
+  const el = document.createElement("style");
+  el.textContent = `:root{${v(0)}} @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){${v(1)}}} :root[data-theme="dark"]{${v(1)}}`;
+  document.head.appendChild(el);
+})();
+function isDark() {
+  const t = document.documentElement.dataset.theme;
+  return t ? t === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+}
+function toggleTheme() {
+  const next = isDark() ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  store("ddl_theme", next);
+  document.getElementById("theme-btn").textContent = next === "dark" ? "☀" : "☾";
+}
+function label(course) { return (CMAP[course] || {}).short || course; }
+function isNoClass(d) {
+  const s = ymd(d);
+  if (s > SEMESTER.lastClass) return true;
+  return SEMESTER.noClass.some(([a,b]) => s >= a && s <= b);
+}
+function visible(t) { return activeFilter === "all" || t.course === activeFilter; }
+function showDone() { return document.getElementById("toggle-done").checked; }
+function rel(d) {
+  const h = (d - new Date()) / 36e5;
+  const days = Math.round((startOfDay(d) - startOfDay(new Date())) / 864e5);  // calendar days
+  if (days <= 0) return h < 1 ? "within the hour" : `in ${Math.floor(h)}h`;
+  return days === 1 ? "tomorrow" : `in ${days}d`;
+}
+
+// Personal target: when to be done (exams: when to start reviewing)
+function target(t) {
+  const n = BUFFER_DAYS[t.kind] ?? 0;
+  if (t.kind === "exam") { const d = addDays(new Date(t.start || t.due), -n); d.setHours(9, 0, 0, 0); return d; }
+  return addDays(new Date(t.due), -n);
+}
+function hasBuffer(t) { return (BUFFER_DAYS[t.kind] ?? 0) > 0; }
+
+// ── Token ─────────────────────────────────────────────────────────────────────
+function getToken() { return store("gh_token") || ""; }
+function promptToken() { document.getElementById("token-modal").classList.add("open"); }
+function saveTokenFromModal() {
+  const v = document.getElementById("token-input").value.trim();
+  if (!v) return;
+  store("gh_token", v);
+  document.getElementById("token-modal").classList.remove("open");
+  updateTokenStatus();
+}
+function updateTokenStatus() {
+  document.getElementById("token-status").innerHTML = getToken()
+    ? '<span style="color:#38a169;">✓ Token</span>'
+    : '<span style="color:#e53e3e;">No token</span>';
+}
+
+// ── Load / Save ───────────────────────────────────────────────────────────────
+function remoteState() {
+  const out = {};
+  for (const [id, t] of Object.entries(tasks)) if (!t.custom) out[id] = t;
+  return out;
+}
+async function loadTasks() {
+  document.getElementById("app").innerHTML = `<div class="loading">Loading…</div>`;
+  updateTokenStatus();
+  try {
+    const headers = { "Accept": "application/vnd.github+json" };
+    if (getToken()) headers["Authorization"] = "Bearer " + getToken();
+    const r = await fetch(REPO_API + "?t=" + Date.now(), { headers });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const meta = await r.json();
+    fileSha = meta.sha;
+    const remote = JSON.parse(decodeURIComponent(escape(atob(meta.content.replace(/\n/g, "")))));
+    tasks = {};
+    for (const [id, t] of Object.entries(remote)) tasks[id] = { ...t };
+    savedSnapshot = JSON.stringify(remoteState());
+    setStatus("Synced " + new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }), "var(--muted)");
+    mergeCustom();
+    render();
+  } catch (e) {
+    document.getElementById("app").innerHTML = `<div class="loading">⚠️ Could not load.<br><small style="color:#aaa">${esc(e.message)}</small></div>`;
+  }
+}
+
+// Saves are batched: a few seconds after the last change, so Undo never costs a commit
+function scheduleSave(ms = 5000) {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => saveToGitHub(), ms);
+}
+async function saveToGitHub(keepalive = false) {
+  clearTimeout(saveTimer); saveTimer = null;
+  const state = remoteState();
+  const snap = JSON.stringify(state);
+  if (snap === savedSnapshot) return;
+  if (!getToken() || !fileSha) { setStatus("⚠️ No token, not saved", "#e53e3e"); return; }
+  setStatus("Saving…", "#a0aec0");
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(state, null, 2))));
+  try {
+    const r = await fetch(REPO_API, {
+      method: "PUT", keepalive,
+      headers: { "Authorization": "Bearer " + getToken(), "Accept": "application/vnd.github+json", "Content-Type": "application/json" },
+      body: JSON.stringify({ message: "chore: update tasks [skip ci]", content, sha: fileSha }),
+    });
+    if (r.ok) { fileSha = (await r.json()).content.sha; savedSnapshot = snap; setStatus("✓ Saved", "#38a169"); }
+    else if (r.status === 401) setStatus("⚠️ Token invalid", "#e53e3e");
+    else if (r.status === 409) { setStatus("⚠️ Conflict, reloading…", "#dd6b20"); await loadTasks(); }
+    else setStatus("⚠️ " + (await r.json()).message, "#e53e3e");
+  } catch (e) { setStatus("⚠️ " + e.message, "#e53e3e"); }
+}
+document.addEventListener("visibilitychange", () => { if (document.hidden && saveTimer) saveToGitHub(true); });
+function setStatus(msg, c) { const el = document.getElementById("sync-time"); el.textContent = msg; el.style.color = c; }
+
+// ── Custom tasks (this browser only) ──────────────────────────────────────────
+function loadCustom() { try { return JSON.parse(store("ddl_custom") || "{}"); } catch { return {}; } }
+function saveCustom(c) { store("ddl_custom", JSON.stringify(c)); }
+function persist(t) {
+  if (t.custom) { const c = loadCustom(); c[t.id] = t; saveCustom(c); }
+  else scheduleSave();
+}
+function mergeCustom() {
+  for (const id of Object.keys(tasks)) if (tasks[id].custom) delete tasks[id];
+  for (const [id, t] of Object.entries(loadCustom())) tasks[id] = { kind: "custom", ...t };
+}
+
+// ── Add / Edit ────────────────────────────────────────────────────────────────
+function toLocalInput(d) { const p = n => String(n).padStart(2,"0"); return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}T${p(d.getHours())}:${p(d.getMinutes())}`; }
+function openAddModal() {
+  editingId = null;
+  document.getElementById("task-modal-title").textContent = "＋ Add Custom DDL";
+  document.getElementById("task-modal-save").textContent = "Add Task";
+  for (const f of ["title","course","url","notes"]) document.getElementById("input-" + f).value = "";
+  const d = addDays(new Date(), 1); d.setHours(23, 59, 0, 0);
+  document.getElementById("input-due").value = toLocalInput(d);
+  document.getElementById("task-modal").classList.add("open");
+  setTimeout(() => document.getElementById("input-title").focus(), 80);
+}
+function openEditModal(id) {
+  const t = tasks[id]; if (!t) return;
+  editingId = id;
+  document.getElementById("task-modal-title").textContent = "✏️ Edit Task";
+  document.getElementById("task-modal-save").textContent = "Save Changes";
+  for (const f of ["title","course","url","notes"]) document.getElementById("input-" + f).value = t[f] || "";
+  document.getElementById("input-due").value = toLocalInput(new Date(t.due));
+  document.getElementById("task-modal").classList.add("open");
+}
+function closeTaskModal() { document.getElementById("task-modal").classList.remove("open"); editingId = null; }
+function saveTaskFromModal() {
+  const g = f => document.getElementById("input-" + f).value.trim();
+  const title = g("title"), course = g("course") || "Custom", dueVal = g("due"), url = g("url"), notes = g("notes");
+  if (!title) return document.getElementById("input-title").focus();
+  if (!dueVal) return document.getElementById("input-due").focus();
+  const due = new Date(dueVal).toISOString();
+  if (editingId) {
+    const t = tasks[editingId];
+    const dueChanged = new Date(t.due).getTime() !== new Date(due).getTime();
+    tasks[editingId] = { ...t, title, course, due, url, notes, edited: true,
+                         ...(dueChanged ? { allday: false, start: null } : {}) };
+    persist(tasks[editingId]);
+  } else {
+    const id = "custom__" + Date.now();
+    const t = { id, title, course, due, source: "Custom", url, notes, kind: "custom", completed: false, custom: true };
+    tasks[id] = t; persist(t);
+  }
+  closeTaskModal();
+  render();
+}
+function deleteTask(id) {
+  if (!tasks[id]?.custom) return;
+  delete tasks[id];
+  const c = loadCustom(); delete c[id]; saveCustom(c);
+  render();
+}
+function toggleNote(id) { document.getElementById("note-" + id)?.classList.toggle("open"); }
+
+// ── Check / Undo ──────────────────────────────────────────────────────────────
+let undoState = null, toastTimer = null;
+
+function ckHTML(t, small = false) {
+  return `<button class="ck ${t.completed ? "on" : ""} ${small ? "sm" : ""}" style="--c:${color(t.course)}"
+    aria-pressed="${!!t.completed}" aria-label="Mark ${esc(t.title)} ${t.completed ? "not done" : "done"}"
+    onclick="onCheck(event,'${t.id}')"><svg viewBox="0 0 12 12"><path d="M2.4 6.3l2.4 2.4 4.8-5.2"/></svg></button>`;
+}
+
+function onCheck(ev, id) {
+  ev.stopPropagation(); ev.preventDefault();
+  const t = tasks[id]; if (!t) return;
+  const btn = ev.currentTarget;
+  const row = btn.closest(".task, .due-item");
+  const wasDone = !!t.completed;
+  t.completed = !wasDone;
+  if (t.completed) t.completedAt = new Date().toISOString(); else delete t.completedAt;
+  persist(t);
+  undoState = { id, wasDone };
+
+  if (t.completed) {
+    btn.classList.add("on", "pop");
+    burst(btn, color(t.course));
+    navigator.vibrate?.(12);
+    row?.style.setProperty("--c", color(t.course));
+    row?.classList.add(row.classList.contains("task") ? "completing" : "done");
+    renderProgress();
+    showToast(`✓ Done · ${t.title}`);
+    const leave = row && row.classList.contains("task") && !showDone() && !REDUCED;
+    setTimeout(() => leave ? collapse(row, render) : render(), REDUCED ? 0 : 650);
+  } else {
+    showToast(`↺ Marked not done · ${t.title}`);
+    render();
+  }
+}
+
+function undo() {
+  if (!undoState) return;
+  const t = tasks[undoState.id];
+  if (t) {
+    t.completed = undoState.wasDone;
+    if (!t.completed) delete t.completedAt;
+    persist(t);
+  }
+  undoState = null;
+  hideToast();
+  render();
+}
+
+function showToast(msg) {
+  const el = document.getElementById("toast"), bar = document.getElementById("toast-timer");
+  document.getElementById("toast-msg").textContent = msg;
+  el.classList.add("show");
+  bar.getAnimations().forEach(a => a.cancel());
+  if (!REDUCED) bar.animate([{ width: "100%" }, { width: "0%" }], { duration: 5000, easing: "linear" });
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { hideToast(); undoState = null; }, 5000);
+}
+function hideToast() { document.getElementById("toast").classList.remove("show"); clearTimeout(toastTimer); }
+document.addEventListener("keydown", e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === "z" && undoState && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)) { e.preventDefault(); undo(); }
+});
+
+function burst(el, c) {
+  if (REDUCED) return;
+  const r = el.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+  const palette = [c, c, "#F2A7C3", "#B79BE6", "#F6CF7A", "#9DC3EA"];
+  for (let i = 0; i < 16; i++) {
+    const s = document.createElement("span");
+    s.className = "spark";
+    s.style.left = cx + "px"; s.style.top = cy + "px";
+    s.style.background = palette[i % palette.length];
+    if (i % 3 === 0) s.style.borderRadius = "50%";
+    document.body.appendChild(s);
+    const a = (Math.PI * 2 * i) / 16 + Math.random() * .4, d = 26 + Math.random() * 34;
+    s.animate([
+      { transform: "translate(-50%,-50%) scale(1) rotate(0deg)", opacity: 1 },
+      { transform: `translate(calc(-50% + ${Math.cos(a) * d}px), calc(-50% + ${Math.sin(a) * d + 14}px)) scale(.3) rotate(${Math.random() * 360}deg)`, opacity: 0 },
+    ], { duration: 620 + Math.random() * 200, easing: "cubic-bezier(.2,.7,.4,1)" }).onfinish = () => s.remove();
+  }
+}
+function collapse(row, done) {
+  const h = row.offsetHeight;
+  row.animate([
+    { height: h + "px", opacity: 1 },
+    { height: "0px", paddingTop: "0px", paddingBottom: "0px", opacity: 0 },
+  ], { duration: 280, easing: "ease-in", fill: "forwards" }).onfinish = done;
+}
+
+// ── View / filter ─────────────────────────────────────────────────────────────
+function setView(v) { view = v; store("ddl_view", v); render(); }
+function setCalMode(m) { calMode = m; store("ddl_calmode", m); render(); }
+function filterCourse(c) { activeFilter = (activeFilter === c && c !== "all") ? "all" : c; render(); }
+function shift(n) {
+  cursor = view === "month" ? new Date(cursor.getFullYear(), cursor.getMonth() + n, 1) : addDays(cursor, 7 * n);
+  render();
+}
+function goToday() { cursor = startOfDay(new Date()); render(); }
+function openWeek(s) { cursor = parseYmd(s); setView("week"); }
+
+// ── Urgency / labels ──────────────────────────────────────────────────────────
+function urgency(t) {
+  const now = new Date(), due = new Date(t.due), tg = target(t);
+  if (t.completed) return { cls: "u-done", label: "✓ Done" };
+  if (due <= now) return { cls: "u-overdue", label: "⛔ Overdue" };
+  if (t.start && new Date(t.start) <= now) return { cls: "u-critical", label: "📝 Window open" };
+  if (t.kind === "exam") {
+    const at = new Date(t.start || t.due);
+    return tg <= now ? { cls: "u-soon", label: `📚 Review · exam ${rel(at)}` } : { cls: "u-later", label: `📚 Review ${rel(tg)}` };
+  }
+  if (hasBuffer(t) && tg <= now) return { cls: "u-soon", label: `⏰ Buffer · due ${rel(due)}` };
+  const h = (tg - now) / 36e5;
+  if (h < 24) return { cls: "u-critical", label: `⚠️ ${Math.max(0, Math.floor(h))}h left` };
+  const d = Math.floor(h / 24);
+  if (d === 1) return { cls: "u-critical", label: "🔴 Tomorrow" };
+  if (d <= 3) return { cls: "u-soon", label: `${d} days` };
+  if (d <= 7) return { cls: "u-week", label: `${d} days` };
+  return { cls: "u-later", label: `${d} days` };
+}
+function dueLabel(t) {
+  const d = new Date(t.due);
+  if (t.start) return `${fmtShort(new Date(t.start))} – ${fmtShort(d)}`;
+  if (t.allday) return fmtShort(d);
+  return `${fmtShort(d)}, ${fmtTime(d)}`;
+}
+function aimLabel(t) {
+  if (t.kind === "exam") return `review from ${fmtWday(target(t))}`;
+  if (!hasBuffer(t)) return "";
+  return `aim ${fmtWday(target(t))}`;
+}
+function linkify(s) { return esc(s).replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank">$1</a>'); }
+
+// ── Render root ───────────────────────────────────────────────────────────────
+function render() {
+  renderChrome();
+  if (view === "month") renderMonth();
+  else if (view === "week") renderWeek();
+  else renderList();
+}
+
+function renderProgress() {
+  const mon = mondayOf(new Date()), sun = addDays(mon, 7);
+  const wk = Object.values(tasks).filter(t => t.kind !== "admin" && visible(t) && target(t) >= mon && target(t) < sun);
+  const done = wk.filter(t => t.completed).length, total = wk.length;
+  const pct = total ? Math.round(done / total * 100) : 0;
+  document.getElementById("progress").innerHTML = total
+    ? `This week <b>${done}/${total}</b><div class="track"><div class="fill" style="width:${pct}%"></div></div>${pct === 100 ? "🎉 All clear" : `${pct}%`}`
+    : "";
+}
+
+function renderChrome() {
+  const now = new Date();
+  const open = Object.values(tasks).filter(t => !t.completed);
+  const pending = open.filter(t => new Date(t.due) > now);
+  const overdue = open.filter(t => new Date(t.due) <= now);
+
+  const n = key => pending.filter(t => t.course === key).length;
+  document.getElementById("filter-chips").innerHTML =
+    `<span class="chip ${activeFilter === "all" ? "on-all" : ""}" onclick="filterCourse('all')">All <b>${pending.length}</b></span>` +
+    COURSES.map(c => {
+      const on = activeFilter === c.key;
+      const st = on ? `background:${tint(c.key)};border-color:${color(c.key)}` : "";
+      return `<span class="chip" style="${st}" onclick="filterCourse('${c.key}')" title="${c.sub}">
+        <span class="dot" style="background:${color(c.key)}"></span>${c.short || c.key} <b>${n(c.key)}</b></span>`;
+    }).join("");
+
+  document.querySelectorAll("#view-seg button").forEach(b => b.classList.toggle("on", b.dataset.v === view));
+  document.getElementById("semester-label").textContent =
+    `${SEMESTER.name} · ${pending.length} pending${overdue.length ? ` · ${overdue.length} overdue` : ""}`;
+  renderProgress();
+  document.getElementById("theme-btn").textContent = isDark() ? "☀" : "☾";
+}
+
+// ── List view ─────────────────────────────────────────────────────────────────
+function taskHTML(t) {
+  const u = urgency(t);
+  const titleText = t.url ? `<a href="${esc(t.url)}" target="_blank">${esc(t.title)}</a>` : esc(t.title);
+  const aim = aimLabel(t);
+  return `
+    <div class="task ${t.completed ? "done" : ""}" style="--c:${color(t.course)}">
+      ${ckHTML(t)}
+      <div class="task-info">
+        <div class="task-title">${t.kind === "exam" ? `<span class="exam-tag">EXAM</span>` : ""}<span class="t">${titleText}</span></div>
+        <div class="task-sub">
+          <span class="course-lbl"><span class="dot" style="background:${color(t.course)}"></span>${esc(label(t.course))}</span>
+          ${aim ? `<span class="aim">${aim}</span>` : ""}
+          <span class="task-due">due ${dueLabel(t)}</span>
+          ${t.notes ? `<span class="note-preview">${esc(t.notes)}</span>` : ""}
+        </div>
+        ${t.notes ? `<div class="note-full" id="note-${t.id}">${linkify(t.notes)}</div>` : ""}
+      </div>
+      <div class="task-actions">
+        <span class="urg ${u.cls}">${u.label}</span>
+        ${t.notes ? `<button class="task-btn" onclick="toggleNote('${t.id}')" title="Notes">💬</button>` : ""}
+        <button class="task-btn" onclick="openEditModal('${t.id}')" title="Edit">✏️</button>
+        ${t.custom ? `<button class="task-btn" onclick="deleteTask('${t.id}')" title="Delete">✕</button>` : ""}
+      </div>
+    </div>`;
+}
+
+function renderList() {
+  const now = new Date(), weekEnd = addDays(now, 7);
+  const all = Object.values(tasks).filter(visible).sort((a, b) => target(a) - target(b));
+  const overdue = all.filter(t => !t.completed && new Date(t.due) <= now);
+  const pending = all.filter(t => !t.completed && new Date(t.due) > now);
+  const soon = pending.filter(t => target(t) <= weekEnd);
+  const later = pending.filter(t => target(t) > weekEnd);
+  const done = all.filter(t => t.completed).sort((a, b) => new Date(b.completedAt || b.due) - new Date(a.completedAt || a.due));
+  const sec = (cls, lbl, items, empty) => `
+    <div class="sec ${cls}"><div class="section-header">${lbl} <span>${items.length}</span></div>
+    ${items.length ? items.map(taskHTML).join("") : `<div class="empty-section">${empty}</div>`}</div>`;
+
+  let html = `<div class="panel">`;
+  if (overdue.length) html += sec("overdue", "⛔ Past Due", overdue, "");
+  html += sec("", "🔥 This Week", soon, "🎉 Nothing planned this week!");
+  html += sec("", "📆 Coming Up Later", later, "Nothing here.");
+  if (showDone() && done.length) html += sec("", "✅ Completed", done, "");
+  html += `</div>`;
+  document.getElementById("app").innerHTML = html;
+}
+
+// ── Calendar data ─────────────────────────────────────────────────────────────
+function itemsByDay() {
+  const map = {};
+  const push = (k, v) => (map[k] ||= []).push(v);
+  for (const t of Object.values(tasks)) {
+    if (!visible(t)) continue;
+    if (t.completed && !showDone()) continue;
+    const due = new Date(t.due);
+    if (t.start) {
+      for (let d = startOfDay(new Date(t.start)); d <= due; d = addDays(d, 1)) push(ymd(d), { t, type: "window" });
+    } else if (calMode === "target" && t.kind !== "exam") {
+      push(ymd(target(t)), { t, type: "task" });
+    } else {
+      push(ymd(due), { t, type: t.kind === "exam" ? "exam" : "task" });
+    }
+    if (calMode === "target" && t.kind === "exam" && !t.completed) push(ymd(target(t)), { t, type: "review" });
+  }
+  const rank = { exam: 0, window: 0, review: 1, task: 2 };
+  for (const k in map) map[k].sort((a, b) => rank[a.type] - rank[b.type] || new Date(a.t.due) - new Date(b.t.due));
+  return map;
+}
+function dayScore(items) {
+  let s = 0;
+  for (const { t, type } of items) {
+    if (t.completed) continue;
+    const w = KIND_WEIGHT[t.kind] ?? 1;
+    s += type === "window" ? w * 0.5 : type === "review" ? 1 : w;
+  }
+  return s;
+}
+function heat(s) { return s <= 0 ? "" : s < 2 ? "h1" : s < 4 ? "h2" : s < 7 ? "h3" : "h4"; }
+function classesOn(d) {
+  if (isNoClass(d)) return [];
+  const s = ymd(d), dn = DOW[d.getDay()];
+  return CLASS_SCHEDULE.filter(c =>
+    c.days.includes(dn) && s >= (c.from || SEMESTER.start) && s <= (c.to || SEMESTER.lastClass) &&
+    !(c.skip || []).includes(s) &&
+    (activeFilter === "all" || activeFilter === c.course));
+}
+function modeSeg() {
+  return `<div class="seg"><button class="${calMode === "target" ? "on" : ""}" onclick="setCalMode('target')">My targets</button><button class="${calMode === "actual" ? "on" : ""}" onclick="setCalMode('actual')">Real DDLs</button></div>`;
+}
+function legend() {
+  return `<div class="legend">Workload
+    <span class="sw" style="background:var(--heat-1)"></span><span class="sw" style="background:var(--heat-2)"></span>
+    <span class="sw" style="background:var(--heat-3)"></span><span class="sw" style="background:var(--heat-4)"></span>
+    <span class="gap"></span>
+    <span class="sw" style="background:var(--exam-tint);border-color:var(--exam)"></span> Exam
+    <span class="sw" style="background:repeating-linear-gradient(135deg,var(--surface) 0 4px,var(--exam-tint) 4px 8px)"></span> Exam window
+    ${calMode === "target" ? `<span class="sw" style="background:var(--surface);border:1px dashed var(--exam)"></span> Start review` : ""}
+    <span class="gap"></span>${COURSES.map(c => `<span class="dot" style="background:${color(c.key)}"></span>${c.short || c.key}`).join(" ")}
+  </div>`;
+}
+function shortTitle(t) {
+  const num = (t.course.match(/\d+/) || [""])[0];
+  const title = t.kind === "potd" ? "POTD" : t.title.replace(/\s*\(week of [^)]*\)/, "");
+  return (num ? num + " " : "") + title;
+}
+
+// ── Month view ────────────────────────────────────────────────────────────────
+function renderMonth() {
+  const first = new Date(cursor.getFullYear(), cursor.getMonth(), 1);
+  const gridStart = mondayOf(first);
+  const gridEnd = addDays(mondayOf(new Date(cursor.getFullYear(), cursor.getMonth() + 1, 0)), 6);
+  const today = ymd(new Date());
+  const map = itemsByDay();
+
+  let cells = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].map(d => `<div class="dow">${d}</div>`).join("");
+  for (let d = new Date(gridStart); d <= gridEnd; d = addDays(d, 1)) {
+    const k = ymd(d), items = map[k] || [];
+    const inMonth = d.getMonth() === cursor.getMonth();
+    const inSem = k >= SEMESTER.start && k <= SEMESTER.lastClass;
+    const noclass = inMonth && inSem && d.getDay() >= 1 && d.getDay() <= 5 && isNoClass(d);
+    const cls = ["day", inMonth ? heat(dayScore(items)) : "out", k === today ? "today" : "", noclass ? "noclass" : ""].join(" ");
+    const evs = items.slice(0, 4).map(({ t, type }) => {
+      const c = type === "task" ? "" : type;
+      const txt = type === "review" ? `📚 Review ${shortTitle(t)}` : (type !== "task" ? "📝 " : "") + shortTitle(t);
+      return `<div class="ev ${c} ${t.completed ? "done" : ""}" style="border-left-color:${color(t.course)}" title="${esc(label(t.course))} · ${esc(t.title)} · due ${esc(dueLabel(t))}">${esc(txt)}</div>`;
+    }).join("");
+    const more = items.length > 4 ? `<div class="more">+${items.length - 4} more</div>` : "";
+    const dots = `<div class="mdots">${items.slice(0, 6).map(({ t, type }) => `<span class="dot" style="background:${type !== "task" ? "var(--exam)" : color(t.course)}"></span>`).join("")}</div>`;
+    cells += `<div class="${cls}" onclick="openWeek('${k}')"><span class="dnum">${d.getDate()}</span>${evs}${more}${dots}</div>`;
+  }
+
+  document.getElementById("app").innerHTML = `
+    <div class="panel">
+      <div class="cal-head">
+        <div class="cal-title">${first.toLocaleDateString("en-US", { month: "long", year: "numeric" })}</div>
+        <div class="cal-nav">${modeSeg()}
+          <button class="nav-btn" onclick="shift(-1)">‹</button>
+          <button class="nav-btn" onclick="goToday()">Today</button>
+          <button class="nav-btn" onclick="shift(1)">›</button>
+        </div>
+      </div>
+      <div class="month">${cells}</div>
+      ${legend()}
+    </div>`;
+}
+
+// ── Week view ─────────────────────────────────────────────────────────────────
+const H0 = 8, H1 = 22, PX = 44;
+function renderWeek() {
+  const mon = mondayOf(cursor);
+  const days = [...Array(7)].map((_, i) => addDays(mon, i));
+  const map = itemsByDay();
+  const today = ymd(new Date());
+  const toMin = s => { const [h, m] = s.split(":").map(Number); return h * 60 + m; };
+  const top = min => (min - H0 * 60) / 60 * PX;
+
+  const head = `<div class="wk-dayhead" style="border-left:none"></div>` + days.map(d => {
+    const k = ymd(d), items = map[k] || [];
+    const h = heat(dayScore(items));
+    const n = items.filter(i => !i.t.completed && i.type !== "review").length;
+    return `<div class="wk-dayhead ${k === today ? "today" : ""}" style="${h ? `background:var(--heat-${h.slice(1)})` : ""}">
+      <span class="d">${DOW[d.getDay()]} ${d.getDate()}</span><div class="load">${n} item${n === 1 ? "" : "s"}${isNoClass(d) && d.getDay() % 6 ? " · no class" : ""}</div></div>`;
+  }).join("");
+
+  const dueRow = `<div class="wk-due-lbl">${calMode === "target" ? "Plan" : "Due"}</div>` + days.map(d => {
+    const items = map[ymd(d)] || [];
+    return `<div class="wk-due">${items.map(({ t, type }) => {
+      const dt = new Date(t.due);
+      let meta = "";
+      if (type === "window") meta = `<span class="tm">window</span>`;
+      else if (type === "review") meta = `<span class="tm">start review</span>`;
+      else if (calMode === "target" && hasBuffer(t)) meta = `<span class="realdue">due ${DOW[dt.getDay()]}</span>`;
+      else if (!t.allday) meta = `<span class="tm">${fmtTime(dt)}</span>`;
+      const cls = type === "task" ? "" : type;
+      return `<div class="due-item ${cls} ${t.completed ? "done" : ""}" style="border-left-color:${color(t.course)}" title="${esc(label(t.course))} · ${esc(t.title)} · due ${esc(dueLabel(t))}">
+        ${type === "review" ? "📚" : ckHTML(t, true)}
+        <span class="txt"><b style="font-weight:600">${esc(t.course === "Admin" ? "" : label(t.course))}</b> ${esc(t.title)} ${meta}</span></div>`;
+    }).join("")}</div>`;
+  }).join("");
+
+  const hours = [...Array(H1 - H0)].map((_, i) => {
+    const h = H0 + i;
+    return `<div class="hour-lbl">${h === 12 ? "12p" : h > 12 ? (h - 12) + "p" : h + "a"}</div>`;
+  }).join("");
+
+  const nowD = new Date();
+  const cols = days.map(d => {
+    const k = ymd(d);
+    const cls = classesOn(d);
+    let blocks = cls.map((c, i) => {
+      const a = toMin(c.start), b = toMin(c.end), co = CMAP[c.course] || {};
+      // side-by-side if two meetings overlap (e.g. Honors vs other)
+      const overlap = cls.some((o, j) => j !== i && toMin(o.start) < b && toMin(o.end) > a);
+      const side = overlap ? (cls.findIndex(o => toMin(o.start) < b && toMin(o.end) > a) === i ? "half" : "half half2") : "";
+      const st = new Date(2000, 0, 1, ...c.start.split(":").map(Number));
+      return `<div class="blk ${side}" style="top:${top(a)}px;height:${Math.max((b - a) / 60 * PX - 2, 18)}px;background:${tint(c.course)};border-left-color:${color(c.course)}">
+        <b>${esc(label(c.course))} ${esc(c.type)}</b><span class="rm">${fmtTime(st)}${c.where ? " · " + esc(c.where) : ""}</span></div>`;
+    }).join("");
+    for (const { t, type } of (map[k] || [])) {
+      if (type !== "exam" || t.allday) continue;
+      const s = new Date(t.due), e = t.end ? new Date(t.end) : new Date(s.getTime() + 90 * 60000);
+      const a = s.getHours() * 60 + s.getMinutes(), b = e.getHours() * 60 + e.getMinutes();
+      if (a < H0 * 60 || a >= H1 * 60) continue;
+      blocks += `<div class="blk exam" style="top:${top(a)}px;height:${(b - a) / 60 * PX - 2}px"><b>📝 ${esc(label(t.course))}</b>${esc(t.title)}</div>`;
+    }
+    if (k === ymd(nowD)) {
+      const m = nowD.getHours() * 60 + nowD.getMinutes();
+      if (m >= H0 * 60 && m < H1 * 60) blocks += `<div class="now-line" style="top:${top(m)}px"></div>`;
+    }
+    return `<div class="col ${isNoClass(d) && d.getDay() % 6 ? "noclass" : ""}" style="height:${(H1 - H0) * PX}px">${blocks}</div>`;
+  }).join("");
+
+  document.getElementById("app").innerHTML = `
+    <div class="panel">
+      <div class="cal-head">
+        <div class="cal-title">Week of ${fmtShort(days[0])} – ${fmtShort(days[6])}</div>
+        <div class="cal-nav">${modeSeg()}
+          <button class="nav-btn" onclick="shift(-1)">‹</button>
+          <button class="nav-btn" onclick="goToday()">Today</button>
+          <button class="nav-btn" onclick="shift(1)">›</button>
+        </div>
+      </div>
+      <div class="week-wrap"><div class="week">
+        <div class="wk-cols">${head}</div>
+        <div class="wk-cols">${dueRow}</div>
+        <div class="wk-cols"><div>${hours}</div>${cols}</div>
+      </div></div>
+      ${legend()}
+    </div>`;
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+loadTasks();
+</script>
+</body>
+</html>

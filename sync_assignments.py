@@ -28,12 +28,12 @@ DASH_URL   = "https://yvve77.github.io/DDL-collector"
 SEMESTER   = "Fall 2026"
 
 COURSE_COLORS = {
-    "CS 225":   {"bg": "#f0fff4", "text": "#276749"},
-    "BIOE 206": {"bg": "#fff5eb", "text": "#c05621"},
-    "BIOE 310": {"bg": "#faf5ff", "text": "#6b46c1"},
-    "DANC 340": {"bg": "#fff0f6", "text": "#97266d"},
-    "BIOE 210 Grading": {"bg": "#eef4fb", "text": "#1e4e8c"},
-    "Admin":    {"bg": "#f1f5f9", "text": "#475569"},
+    "CS 225":           {"accent": "#4F87C9"},
+    "BIOE 206":         {"accent": "#D25F8C"},
+    "BIOE 310":         {"accent": "#8A63D2"},
+    "DANC 340":         {"accent": "#C9702E"},
+    "BIOE 210 Grading": {"accent": "#2F9A70"},
+    "Admin":            {"accent": "#A0908A"},
 }
 
 # Personal buffer: aim to finish this many days before the real DDL.
@@ -293,115 +293,137 @@ def merge_tasks(existing, fresh):
 
 # ── Email ──────────────────────────────────────────────────────────────────────
 
+# Palette (validated for color-blind separation and contrast). Pastel tints for
+# backgrounds, deeper tones of the same hue for bars and dots, cocoa for text.
+INK, MUTED, LINE = "#4A3A36", "#9A8A86", "#EFE6E3"
+PAGE, CARD, BLUSH, LAV = "#F6F0EE", "#FFFFFF", "#FBEFF3", "#8A63D2"
+EXAM, AIM, OVERDUE = "#B4234A", "#B7791F", "#B4234A"
+
 def urgency_info(due):
     h = (due - now_ct()).total_seconds() / 3600
-    if h < 0:   return "#991b1b", "⛔ Overdue"
-    if h < 24:  return "#e53e3e", f"⚠️ {int(h)}h left"
-    d = int(h // 24)
-    if d == 1:  return "#e53e3e", "🔴 Tomorrow"
-    if d <= 3:  return "#dd6b20", f"🟠 {d} days"
-    if d <= 7:  return "#d69e2e", f"🟡 {d} days"
-    return "#38a169", f"🟢 {d} days"
-
-def fmt_target(a):
-    tg, due = target_of(a), parse_iso(a["due"])
-    if a.get("kind") == "exam":
-        return f"review from {tg.strftime('%b %d')}"
-    if tg == due:
-        return ""
-    return f"aim {tg.strftime('%a %b %d')}"
+    days = (due.date() - now_ct().date()).days
+    if h < 0:     return OVERDUE, "overdue"
+    if days <= 0: return OVERDUE, f"{int(h)}h left"
+    if days == 1: return "#C0504D", "tomorrow"
+    if days <= 3: return "#C9702E", f"{days} days"
+    return MUTED, f"{days} days"
 
 def fmt_due(a):
     due = parse_iso(a["due"])
     if a.get("start"):
         s = parse_iso(a["start"])
-        return f"{s.strftime('%b %d')} to {due.strftime('%b %d')}"
+        return f"window {s.strftime('%b %-d')} to {due.strftime('%b %-d')}"
     if a.get("allday"):
-        return due.strftime("%b %d")
-    return due.strftime("%b %d, %I:%M %p")
+        return due.strftime("%a %b %-d")
+    return due.strftime("%a %b %-d, %-I:%M %p").replace(":00 ", " ")
 
-def make_table(items):
-    if not items:
-        return "<p style='color:#a0aec0;text-align:center;padding:20px 0;font-size:14px;'>🎉 Nothing here!</p>"
-    th = "padding:10px 14px;text-align:left;color:#718096;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;"
-    td = "padding:11px 14px;border-bottom:1px solid #edf2f7;"
-    rows = ""
-    for a in items:
-        tg, due = target_of(a), parse_iso(a["due"])
-        now = now_ct()
-        if due > now and tg <= now and a.get("kind") != "exam":
-            uc, ul = "#dd6b20", "⏰ Buffer"
+def row(a, show_aim=True):
+    now = now_ct()
+    due, tg = parse_iso(a["due"]), target_of(a)
+    accent = COURSE_COLORS.get(a["course"], {}).get("accent", MUTED)
+    title = a["title"]
+    if a.get("kind") == "exam":
+        exam_at = parse_iso(a.get("start") or a["due"])
+        if now < exam_at:   # before the exam: this row is the "start reviewing" reminder
+            title = "📚 Review for " + title
+            uc, ul = urgency_info(exam_at)
+            ul = "exam " + ul
         else:
-            uc, ul = urgency_info(tg if tg > now else due)
-        cc = COURSE_COLORS.get(a["course"], {"bg": "#f7fafc", "text": "#4a5568"})
-        title = ("📝 " if a.get("kind") == "exam" else "") + a["title"]
-        rows += f"""
-        <tr>
-          <td style="{td}"><a href="{a['url']}" style="color:#2d3748;text-decoration:none;font-weight:500;font-size:14px;">{title}</a></td>
-          <td style="{td}"><span style="background:{cc['bg']};color:{cc['text']};padding:3px 9px;border-radius:9999px;font-size:12px;font-weight:500;white-space:nowrap;">{a['course']}</span></td>
-          <td style="{td}font-weight:600;color:{uc};font-size:13px;white-space:nowrap;">{ul}</td>
-          <td style="{td}color:#718096;font-size:13px;white-space:nowrap;">{fmt_due(a)}<div style="font-size:11px;color:#b7791f;">{fmt_target(a)}</div></td>
-        </tr>"""
+            title = "📝 " + title
+            uc, ul = EXAM, "window open"
+    elif due > now and tg <= now and BUFFER_DAYS.get(a.get("kind"), 0):
+        uc, ul = AIM, f"buffer · due {urgency_info(due)[1]}"
+    else:
+        uc, ul = urgency_info(due)
+    course = "" if a["course"] == "Admin" else a["course"] + " · "
     return f"""
-    <table style="width:100%;border-collapse:collapse;">
-      <thead><tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0;">
-        <th style="{th}">Assignment</th><th style="{th}">Course</th><th style="{th}">Urgency</th><th style="{th}">Due</th>
-      </tr></thead>
-      <tbody>{rows}</tbody>
-    </table>"""
+      <tr><td class="ln" style="padding:11px 0;border-top:1px solid {LINE};">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+          <td width="4" style="background:{accent};border-radius:2px;"></td>
+          <td style="padding-left:12px;">
+            <div class="tx" style="font-size:15px;font-weight:600;color:{INK};line-height:1.35;">{title}</div>
+            <div class="mu" style="font-size:12px;color:{MUTED};margin-top:3px;">{course}due {fmt_due(a)}</div>
+          </td>
+          <td align="right" valign="top" class="{'ov' if uc == OVERDUE else ''}" style="white-space:nowrap;padding-left:10px;font-size:12px;font-weight:600;color:{uc};">{ul}</td>
+        </tr></table>
+      </td></tr>"""
+
+def section(title, rows_html, count, color=INK):
+    return f"""
+    <tr><td style="padding:22px 28px 0;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+        <tr><td style="padding-bottom:6px;">
+          <span class="{'ov' if color == OVERDUE else 'tx'}" style="font-family:Georgia,'Times New Roman',serif;font-size:17px;font-weight:700;color:{color};">{title}</span>
+          <span class="mu" style="font-size:12px;color:{MUTED};padding-left:6px;">{count}</span>
+        </td></tr>
+        {rows_html}
+      </table>
+    </td></tr>"""
 
 def build_html(overdue, pending):
-    today    = now_ct()
-    week_end = today + timedelta(days=7)
-    soon     = [a for a in pending if target_of(a) <= week_end]
-    later    = [a for a in pending if target_of(a) >  week_end]
-    urgent   = [a for a in pending if (parse_iso(a["due"]) - today).total_seconds() < 86400]
+    today = now_ct()
+    horizon = CT.localize(datetime.combine(today.date() + timedelta(days=7), datetime.min.time()))
+    week  = [a for a in pending if target_of(a) < horizon]
+    later = [a for a in pending if target_of(a) >= horizon]
+    big_later = [a for a in later if a.get("kind") in ("exam", "project", "admin")
+                 and target_of(a) < horizon + timedelta(days=21)][:8]
 
-    counts = {}
-    for a in pending:
-        counts[a["course"]] = counts.get(a["course"], 0) + 1
-    pills = "".join(
-        f'<span style="background:{COURSE_COLORS[c]["bg"]};color:{COURSE_COLORS[c]["text"]};padding:4px 10px;border-radius:9999px;font-size:12px;font-weight:500;margin-left:6px;">{c} {n}</span>'
-        for c, n in sorted(counts.items()) if c in COURSE_COLORS)
+    # Group this week by target day
+    by_day = {}
+    for a in week:
+        d = max(target_of(a), today).date()
+        by_day.setdefault(d, []).append(a)
 
-    def sec(title, items, icon, color="#2d3748"):
-        return f"""
-        <div style="margin-bottom:28px;">
-          <h2 style="color:{color};font-size:14px;font-weight:700;margin:0 0 12px;padding-bottom:8px;border-bottom:2px solid #edf2f7;">
-            {icon} {title} <span style="color:#a0aec0;font-size:13px;font-weight:400;margin-left:4px;">({len(items)})</span>
-          </h2>
-          {make_table(items)}
-        </div>"""
+    body = ""
+    if overdue:
+        body += section("Past due", "".join(row(a, False) for a in overdue), len(overdue), OVERDUE)
+    for d in sorted(by_day):
+        n = (d - today.date()).days
+        name = "Today" if n == 0 else "Tomorrow" if n == 1 else d.strftime("%A")
+        head = f"{name} <span style='font-family:-apple-system,Segoe UI,sans-serif;font-size:12px;font-weight:400;color:{MUTED};'>{d.strftime('%b %-d')}</span>"
+        items = sorted(by_day[d], key=lambda a: (a.get("kind") != "exam", parse_iso(a["due"])))
+        body += section(head, "".join(row(a) for a in items), len(items))
+    if big_later:
+        rest = len(later) - len(big_later)
+        more = f"""<tr><td class="mu" style="padding:10px 0 0;font-size:12px;color:{MUTED};">+ {rest} smaller items on your dashboard</td></tr>""" if rest > 0 else ""
+        body += section("Big things ahead", "".join(row(a) for a in big_later) + more, len(big_later))
 
-    stat = lambda n, c, label: f'<div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:{c};line-height:1;">{n}</div><div style="font-size:11px;color:#a0aec0;margin-top:3px;text-transform:uppercase;letter-spacing:0.05em;">{label}</div></div>'
+    stat = lambda n, label, c: f"""<td align="center" style="padding:0 14px;">
+        <div class="{'ov' if c == OVERDUE else ''}" style="font-family:Georgia,serif;font-size:26px;font-weight:700;color:{c};line-height:1;">{n}</div>
+        <div class="mu" style="font-size:11px;color:{MUTED};margin-top:4px;letter-spacing:.04em;">{label}</div></td>"""
+    stats = (stat(len(overdue), "overdue", OVERDUE) if overdue else "") + stat(len(week), "this week", LAV) + stat(len(later), "later", MUTED)
 
     return f"""<!DOCTYPE html>
-<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
-<body style="margin:0;padding:0;background:#eef2f7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
-<div style="max-width:720px;margin:28px auto;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.10);">
-  <div style="background:linear-gradient(135deg,#5a67d8,#805ad5);padding:28px 32px;">
-    <div style="font-size:11px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Daily Digest · {SEMESTER}</div>
-    <h1 style="margin:0;color:white;font-size:24px;font-weight:700;letter-spacing:-0.5px;">{today.strftime('%A, %B %d')}</h1>
-    <p style="margin:7px 0 0;color:rgba(255,255,255,0.75);font-size:13px;">{len(pending)} pending · {len(urgent)} due within 24h{f' · {len(overdue)} overdue' if overdue else ''}</p>
-  </div>
-  <div style="background:white;border-bottom:1px solid #e2e8f0;padding:16px 32px;display:flex;align-items:center;">
-    <div style="display:flex;gap:28px;flex:1;">
-      {stat(len(overdue), '#991b1b', 'Overdue') if overdue else ''}
-      {stat(len(soon), '#e53e3e', 'This week')}
-      {stat(len(later), '#38a169', 'Later')}
-    </div>
-    <div style="text-align:right;">{pills}</div>
-  </div>
-  <div style="background:white;padding:24px 32px 12px;">
-    {sec("Past Due", overdue, "⛔", "#991b1b") if overdue else ''}
-    {sec("This Week (by your target date)", soon, "🔥")}
-    {sec("Coming Up Later", later, "📆")}
-  </div>
-  <div style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;">
-    <span style="font-size:12px;color:#a0aec0;">{SEMESTER} · CS 225 · BIOE 206 · BIOE 310 · DANC 340 · BIOE 210 grading</span>
-    <a href="{DASH_URL}" style="background:#5a67d8;color:white;text-decoration:none;padding:7px 16px;border-radius:8px;font-size:12px;font-weight:600;">✅ Dashboard →</a>
-  </div>
-</div>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark"><meta name="supported-color-schemes" content="light dark">
+<style>
+  :root {{ color-scheme: light dark; supported-color-schemes: light dark; }}
+  @media (prefers-color-scheme: dark) {{
+    .bg {{ background:#1B171C !important; }} .card {{ background:#241F26 !important; }}
+    .hd {{ background:#2E2430 !important; }} .tx {{ color:#F3E9EC !important; }}
+    .mu {{ color:#A99BA3 !important; }} .ln {{ border-color:#3A3239 !important; }}
+    .btn {{ background:#E7B8CB !important; color:#241F26 !important; }}
+    .ov {{ color:#FF8FA8 !important; }}
+  }}
+  [data-ogsc] .ov {{ color:#FF8FA8 !important; }}
+  [data-ogsc] .tx {{ color:#F3E9EC !important; }} [data-ogsc] .mu {{ color:#A99BA3 !important; }}
+  [data-ogsb] .card {{ background:#241F26 !important; }} [data-ogsb] .hd {{ background:#2E2430 !important; }}
+</style></head>
+<body class="bg" style="margin:0;padding:0;background:{PAGE};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="bg" style="background:{PAGE};"><tr><td align="center" style="padding:24px 12px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="card" style="max-width:600px;background:{CARD};border-radius:18px;overflow:hidden;">
+  <tr><td class="hd" style="background:{BLUSH};padding:26px 28px 22px;border-bottom:3px solid #E7C9E0;">
+    <div class="mu" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:{MUTED};">DDL Digest · {SEMESTER}</div>
+    <div class="tx" style="font-family:Georgia,'Times New Roman',serif;font-size:26px;font-weight:700;color:{INK};margin-top:6px;">{today.strftime('%A, %B %-d')}</div>
+    <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:16px;margin-left:-14px;"><tr>{stats}</tr></table>
+  </td></tr>
+  {body}
+  <tr><td align="center" style="padding:28px 28px 30px;">
+    <a class="btn" href="{DASH_URL}" style="display:inline-block;background:{INK};color:#FFF7F9;text-decoration:none;padding:11px 22px;border-radius:999px;font-size:14px;font-weight:600;">Open dashboard</a>
+    <div class="mu" style="font-size:11px;color:{MUTED};margin-top:14px;">Sorted by your target dates. Check things off on the dashboard and they drop out of tomorrow's email.</div>
+  </td></tr>
+</table>
+</td></tr></table>
 </body></html>"""
 
 def send_email(html, subject):
