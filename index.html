@@ -382,6 +382,7 @@ let fileSha = "";
 let savedSnapshot = "";
 let saveTimer = null;
 let editingId = null;
+let tokenBad = false;
 let view = store("ddl_view") || "list";
 let calMode = store("ddl_calmode") || "target";
 let cursor = startOfDay(new Date());
@@ -448,13 +449,17 @@ function saveTokenFromModal() {
   const v = document.getElementById("token-input").value.trim();
   if (!v) return;
   store("gh_token", v);
+  tokenBad = false;
   document.getElementById("token-modal").classList.remove("open");
   updateTokenStatus();
+  loadTasks();
 }
 function updateTokenStatus() {
-  document.getElementById("token-status").innerHTML = getToken()
-    ? '<span style="color:#38a169;">✓ Token</span>'
-    : '<span style="color:#e53e3e;">No token</span>';
+  const el = document.getElementById("token-status");
+  if (tokenBad) el.innerHTML = '<a href="#" onclick="promptToken();return false;" style="color:var(--overdue-ink);font-weight:600;">⚠️ Token expired, checkmarks won\'t save</a>';
+  else el.innerHTML = getToken()
+    ? '<span style="color:var(--u-later);">✓ Token</span>'
+    : '<a href="#" onclick="promptToken();return false;" style="color:var(--overdue-ink);">No token</a>';
 }
 
 // ── Load / Save ───────────────────────────────────────────────────────────────
@@ -467,9 +472,14 @@ async function loadTasks() {
   document.getElementById("app").innerHTML = `<div class="loading">Loading…</div>`;
   updateTokenStatus();
   try {
-    const headers = { "Accept": "application/vnd.github+json" };
-    if (getToken()) headers["Authorization"] = "Bearer " + getToken();
-    const r = await fetch(REPO_API + "?t=" + Date.now(), { headers });
+    const get = auth => fetch(REPO_API + "?t=" + Date.now(), { headers: {
+      "Accept": "application/vnd.github+json", ...(auth ? { "Authorization": "Bearer " + getToken() } : {}) } });
+    let r = await get(!!getToken() && !tokenBad);
+    if (r.status === 401) {          // saved token expired or revoked: the repo is public, so read without it
+      tokenBad = true;
+      updateTokenStatus();
+      r = await get(false);
+    }
     if (!r.ok) throw new Error("HTTP " + r.status);
     const meta = await r.json();
     fileSha = meta.sha;
@@ -495,7 +505,7 @@ async function saveToGitHub(keepalive = false) {
   const state = remoteState();
   const snap = JSON.stringify(state);
   if (snap === savedSnapshot) return;
-  if (!getToken() || !fileSha) { setStatus("⚠️ No token, not saved", "#e53e3e"); return; }
+  if (!getToken() || tokenBad || !fileSha) { setStatus("⚠️ Not saved, add a valid token", "var(--overdue-ink)"); return; }
   setStatus("Saving…", "#a0aec0");
   const content = btoa(unescape(encodeURIComponent(JSON.stringify(state, null, 2))));
   try {
@@ -505,7 +515,7 @@ async function saveToGitHub(keepalive = false) {
       body: JSON.stringify({ message: "chore: update tasks [skip ci]", content, sha: fileSha }),
     });
     if (r.ok) { fileSha = (await r.json()).content.sha; savedSnapshot = snap; setStatus("✓ Saved", "#38a169"); }
-    else if (r.status === 401) setStatus("⚠️ Token invalid", "#e53e3e");
+    else if (r.status === 401) { tokenBad = true; updateTokenStatus(); setStatus("⚠️ Token expired", "var(--overdue-ink)"); }
     else if (r.status === 409) { setStatus("⚠️ Conflict, reloading…", "#dd6b20"); await loadTasks(); }
     else setStatus("⚠️ " + (await r.json()).message, "#e53e3e");
   } catch (e) { setStatus("⚠️ " + e.message, "#e53e3e"); }

@@ -28,12 +28,12 @@ DASH_URL   = "https://yvve77.github.io/DDL-collector"
 SEMESTER   = "Fall 2026"
 
 COURSE_COLORS = {
-    "CS 225":           {"accent": "#4F87C9"},
-    "BIOE 206":         {"accent": "#D25F8C"},
-    "BIOE 310":         {"accent": "#8A63D2"},
-    "DANC 340":         {"accent": "#C9702E"},
-    "BIOE 210 Grading": {"accent": "#2F9A70"},
-    "Admin":            {"accent": "#A0908A"},
+    "CS 225":           {"accent": "#5F92D2"},
+    "BIOE 206":         {"accent": "#DC6596"},
+    "BIOE 310":         {"accent": "#976FE6"},
+    "DANC 340":         {"accent": "#CB7A36"},
+    "BIOE 210 Grading": {"accent": "#2FA67B"},
+    "Admin":            {"accent": "#8E8189"},
 }
 
 # Personal buffer: aim to finish this many days before the real DDL.
@@ -293,19 +293,19 @@ def merge_tasks(existing, fresh):
 
 # ── Email ──────────────────────────────────────────────────────────────────────
 
-# Palette (validated for color-blind separation and contrast). Pastel tints for
-# backgrounds, deeper tones of the same hue for bars and dots, cocoa for text.
-INK, MUTED, LINE = "#4A3A36", "#9A8A86", "#EFE6E3"
-PAGE, CARD, BLUSH, LAV = "#F6F0EE", "#FFFFFF", "#FBEFF3", "#8A63D2"
-EXAM, AIM, OVERDUE = "#B4234A", "#B7791F", "#B4234A"
+# Dark-native palette. Outlook ignores dark-mode CSS and inverts light emails on its
+# own, so the email is dark by design and Outlook leaves it alone.
+INK, MUTED, LINE = "#EDE7EB", "#9A929C", "#2E2A31"
+PAGE, CARD, HEAD, LAV = "#141216", "#1E1B21", "#1E1B21", "#C3A6F0"
+EXAM, AIM, OVERDUE = "#FF8FA8", "#E6B866", "#FF8FA8"
 
 def urgency_info(due):
     h = (due - now_ct()).total_seconds() / 3600
     days = (due.date() - now_ct().date()).days
     if h < 0:     return OVERDUE, "overdue"
     if days <= 0: return OVERDUE, f"{int(h)}h left"
-    if days == 1: return "#C0504D", "tomorrow"
-    if days <= 3: return "#C9702E", f"{days} days"
+    if days == 1: return "#FFB08A", "tomorrow"
+    if days <= 3: return "#F2C27B", f"{days} days"
     return MUTED, f"{days} days"
 
 def fmt_due(a):
@@ -395,31 +395,19 @@ def build_html(overdue, pending):
 
     return f"""<!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="light dark"><meta name="supported-color-schemes" content="light dark">
-<style>
-  :root {{ color-scheme: light dark; supported-color-schemes: light dark; }}
-  @media (prefers-color-scheme: dark) {{
-    .bg {{ background:#1B171C !important; }} .card {{ background:#241F26 !important; }}
-    .hd {{ background:#2E2430 !important; }} .tx {{ color:#F3E9EC !important; }}
-    .mu {{ color:#A99BA3 !important; }} .ln {{ border-color:#3A3239 !important; }}
-    .btn {{ background:#E7B8CB !important; color:#241F26 !important; }}
-    .ov {{ color:#FF8FA8 !important; }}
-  }}
-  [data-ogsc] .ov {{ color:#FF8FA8 !important; }}
-  [data-ogsc] .tx {{ color:#F3E9EC !important; }} [data-ogsc] .mu {{ color:#A99BA3 !important; }}
-  [data-ogsb] .card {{ background:#241F26 !important; }} [data-ogsb] .hd {{ background:#2E2430 !important; }}
-</style></head>
+<meta name="color-scheme" content="dark"><meta name="supported-color-schemes" content="dark">
+</head>
 <body class="bg" style="margin:0;padding:0;background:{PAGE};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="bg" style="background:{PAGE};"><tr><td align="center" style="padding:24px 12px;">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="card" style="max-width:600px;background:{CARD};border-radius:18px;overflow:hidden;">
-  <tr><td class="hd" style="background:{BLUSH};padding:26px 28px 22px;border-bottom:3px solid #E7C9E0;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="card" style="max-width:600px;background:{CARD};border-radius:18px;overflow:hidden;border:1px solid {LINE};">
+  <tr><td class="hd" style="background:{HEAD};padding:28px 28px 22px;border-bottom:1px solid {LINE};">
     <div class="mu" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:{MUTED};">DDL Digest · {SEMESTER}</div>
     <div class="tx" style="font-family:Georgia,'Times New Roman',serif;font-size:26px;font-weight:700;color:{INK};margin-top:6px;">{today.strftime('%A, %B %-d')}</div>
     <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:16px;margin-left:-14px;"><tr>{stats}</tr></table>
   </td></tr>
   {body}
   <tr><td align="center" style="padding:28px 28px 30px;">
-    <a class="btn" href="{DASH_URL}" style="display:inline-block;background:{INK};color:#FFF7F9;text-decoration:none;padding:11px 22px;border-radius:999px;font-size:14px;font-weight:600;">Open dashboard</a>
+    <a class="btn" href="{DASH_URL}" style="display:inline-block;background:{LAV};color:#141216;text-decoration:none;padding:11px 22px;border-radius:999px;font-size:14px;font-weight:600;">Open dashboard</a>
     <div class="mu" style="font-size:11px;color:{MUTED};margin-top:14px;">Sorted by your target dates. Check things off on the dashboard and they drop out of tomorrow's email.</div>
   </td></tr>
 </table>
