@@ -1466,7 +1466,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-09-28T21:06:12.327Z"
   },
   "bioe_210_grading_grade_hw_3": {
     "id": "bioe_210_grading_grade_hw_3",
