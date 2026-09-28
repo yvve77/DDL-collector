@@ -2,12 +2,15 @@ name: Daily DDL Digest
 
 on:
   schedule:
-    # Every day at 8:00 AM Central Time (14:00 UTC)
+    # Every day at 8:00 AM Central Time (14:00 UTC during CDT)
     - cron: "0 14 * * *"
-  workflow_dispatch:  # manual trigger for testing
+  workflow_dispatch:  # manual trigger
 
 permissions:
   contents: write  # needed to commit tasks.json back to repo
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   digest:
@@ -22,20 +25,23 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install requests pytz
+        run: pip install pytz
 
       - name: Run digest script
         env:
-          PL_TOKEN:           ${{ secrets.PL_TOKEN }}
           GMAIL_ADDRESS:      ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           TO_EMAIL:           ${{ secrets.TO_EMAIL }}
         run: python sync_assignments.py
 
+      # Runs even if the email step failed, so the dashboard still gets fresh tasks
       - name: Commit updated tasks.json
+        if: always()
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add tasks.json
-          git diff --cached --quiet || git commit -m "chore: update tasks.json [skip ci]"
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: update tasks.json [skip ci]"
+          git pull --rebase --autostash || true
           git push
