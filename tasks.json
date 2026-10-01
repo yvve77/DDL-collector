@@ -1013,7 +1013,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-01T21:50:48.364Z"
   },
   "bioe_206_hw_5__20261008_2359": {
     "id": "bioe_206_hw_5__20261008_2359",
