@@ -1157,7 +1157,8 @@
     "start": "2026-09-29T00:00:00-05:00",
     "allday": true,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-02T18:48:03.116Z"
   },
   "bioe_310_midterm_2": {
     "id": "bioe_310_midterm_2",
