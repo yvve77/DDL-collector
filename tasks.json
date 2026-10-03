@@ -63,7 +63,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-03T04:26:36.441Z"
   },
   "cs_225_potd_oct_05__20261005_2359": {
     "id": "cs_225_potd_oct_05__20261005_2359",
@@ -870,7 +871,8 @@
     "start": "2026-09-30T00:00:00-05:00",
     "allday": true,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-03T04:26:33.304Z"
   },
   "cs_225_exam_3__20261023_2359": {
     "id": "cs_225_exam_3__20261023_2359",
