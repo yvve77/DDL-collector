@@ -1305,7 +1305,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-04T22:58:36.679Z"
   },
   "danc_340_project_1_interview__20261004_2359": {
     "id": "danc_340_project_1_interview__20261004_2359",
@@ -1318,7 +1319,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-04T22:58:31.975Z"
   },
   "danc_340_project_1_writing__20261004_2359": {
     "id": "danc_340_project_1_writing__20261004_2359",
@@ -1331,7 +1333,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-04T22:58:33.678Z"
   },
   "danc_340_module_4_quiz__20261018_2359": {
     "id": "danc_340_module_4_quiz__20261018_2359",
