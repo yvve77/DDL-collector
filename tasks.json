@@ -650,7 +650,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-04T20:26:09.426Z"
   },
   "cs_225_lab_week_of_oct_05__20261011_2359": {
     "id": "cs_225_lab_week_of_oct_05__20261011_2359",
