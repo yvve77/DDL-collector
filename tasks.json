@@ -1027,14 +1027,16 @@
     "id": "bioe_206_hw_5__20261008_2359",
     "title": "HW 5",
     "course": "BIOE 206",
-    "due": "2026-10-08T23:59:00-05:00",
+    "due": "2026-10-14T04:59:00.000Z",
     "source": "Canvas",
     "url": "https://canvas.illinois.edu",
     "kind": "hw",
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "notes": "",
+    "edited": true
   },
   "bioe_206_hw_6__20261015_2359": {
     "id": "bioe_206_hw_6__20261015_2359",
