@@ -836,7 +836,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-08T03:25:07.494Z"
   },
   "cs_225_informal_early_feedback_survey__20261007_2359": {
     "id": "cs_225_informal_early_feedback_survey__20261007_2359",
