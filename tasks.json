@@ -957,7 +957,8 @@
     "start": null,
     "allday": true,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-08T14:33:26.301Z"
   },
   "cs_225_book_final_exam_slot_aim_for_12_17__20261019_2359": {
     "id": "cs_225_book_final_exam_slot_aim_for_12_17__20261019_2359",
