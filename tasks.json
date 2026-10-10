@@ -24,7 +24,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-10T03:44:18.265Z"
   },
   "cs_225_potd_sep_30__20260930_2359": {
     "id": "cs_225_potd_sep_30__20260930_2359",
@@ -37,7 +38,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-10T03:44:21.148Z"
   },
   "cs_225_potd_oct_01__20261001_2359": {
     "id": "cs_225_potd_oct_01__20261001_2359",
@@ -50,7 +52,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-10T03:44:22.650Z"
   },
   "cs_225_potd_oct_02__20261002_2359": {
     "id": "cs_225_potd_oct_02__20261002_2359",
@@ -1501,7 +1504,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-10T03:44:12.798Z"
   },
   "bioe_210_grading_grade_hw_4": {
     "id": "bioe_210_grading_grade_hw_4",
