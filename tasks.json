@@ -870,7 +870,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-11T03:32:37.675Z"
   },
   "cs_225_exam_2__20261002_2359": {
     "id": "cs_225_exam_2__20261002_2359",
