@@ -791,7 +791,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-12T03:26:16.355Z"
   },
   "cs_225_mp3": {
     "id": "cs_225_mp3",
