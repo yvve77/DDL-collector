@@ -1539,7 +1539,8 @@
     "start": null,
     "allday": true,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-15T01:11:43.500Z"
   },
   "admin_sp27_priority_registration_opens__20261102_2359": {
     "id": "admin_sp27_priority_registration_opens__20261102_2359",
