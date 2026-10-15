@@ -1047,9 +1047,10 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false,
+    "completed": true,
     "notes": "",
-    "edited": true
+    "edited": true,
+    "completedAt": "2026-10-15T01:11:31.793Z"
   },
   "bioe_206_hw_6__20261015_2359": {
     "id": "bioe_206_hw_6__20261015_2359",
