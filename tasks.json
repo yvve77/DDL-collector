@@ -192,7 +192,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-17T04:18:55.946Z"
   },
   "cs_225_potd_oct_16__20261016_2359": {
     "id": "cs_225_potd_oct_16__20261016_2359",
@@ -205,7 +206,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-17T04:18:59.536Z"
   },
   "cs_225_potd_oct_19__20261019_2359": {
     "id": "cs_225_potd_oct_19__20261019_2359",
@@ -1064,7 +1066,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-17T04:18:53.578Z"
   },
   "bioe_206_hw_7__20261029_2359": {
     "id": "bioe_206_hw_7__20261029_2359",
