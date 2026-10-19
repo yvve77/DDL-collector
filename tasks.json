@@ -985,7 +985,8 @@
     "start": null,
     "allday": true,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-19T22:09:38.709Z"
   },
   "cs_225_book_exam_4_slot__20261029_2359": {
     "id": "cs_225_book_exam_4_slot__20261029_2359",
@@ -1225,7 +1226,8 @@
     "start": null,
     "allday": true,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-19T22:09:40.737Z"
   },
   "bioe_310_reserve_midterm_2_slot__20261022_2359": {
     "id": "bioe_310_reserve_midterm_2_slot__20261022_2359",
