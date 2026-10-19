@@ -691,7 +691,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-19T02:05:47.495Z"
   },
   "cs_225_lab_week_of_oct_19__20261025_2359": {
     "id": "cs_225_lab_week_of_oct_19__20261025_2359",
@@ -1372,7 +1373,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-19T02:05:54.106Z"
   },
   "danc_340_ee_3_playlist_lineage__20261018_2359": {
     "id": "danc_340_ee_3_playlist_lineage__20261018_2359",
@@ -1385,7 +1387,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-19T02:05:49.982Z"
   },
   "danc_340_module_5_quiz__20261101_2359": {
     "id": "danc_340_module_5_quiz__20261101_2359",
