@@ -1135,7 +1135,8 @@
     "start": null,
     "allday": true,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-21T02:24:00.703Z"
   },
   "bioe_206_exam_3_weeks_9_12__20261117_2359": {
     "id": "bioe_206_exam_3_weeks_9_12__20261117_2359",
