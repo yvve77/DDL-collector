@@ -1244,7 +1244,8 @@
     "start": null,
     "allday": true,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-22T14:46:04.923Z"
   },
   "danc_340_module_3_glossary__20260927_2359": {
     "id": "danc_340_module_3_glossary__20260927_2359",
