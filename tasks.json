@@ -1290,7 +1290,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-26T04:44:48.302Z"
   },
   "danc_340_module_6_glossary__20261108_2359": {
     "id": "danc_340_module_6_glossary__20261108_2359",
