@@ -817,7 +817,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-27T02:35:49.462Z"
   },
   "cs_225_mp4": {
     "id": "cs_225_mp4",
