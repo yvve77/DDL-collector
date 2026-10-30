@@ -332,7 +332,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-30T05:00:11.183Z"
   },
   "cs_225_potd_oct_30__20261030_2359": {
     "id": "cs_225_potd_oct_30__20261030_2359",
@@ -1010,7 +1011,8 @@
     "start": null,
     "allday": true,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-10-30T05:00:15.002Z"
   },
   "cs_225_book_exam_5_slot__20261112_2359": {
     "id": "cs_225_book_exam_5_slot__20261112_2359",
