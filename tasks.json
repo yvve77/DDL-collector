@@ -346,7 +346,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-11-01T21:21:45.930Z"
   },
   "cs_225_potd_nov_02__20261102_2359": {
     "id": "cs_225_potd_nov_02__20261102_2359",
