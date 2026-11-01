@@ -1420,7 +1420,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-11-01T21:21:55.578Z"
   },
   "danc_340_ee_4_dance_floor_connections__20261101_2359": {
     "id": "danc_340_ee_4_dance_floor_connections__20261101_2359",
@@ -1433,7 +1434,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-11-01T21:21:53.567Z"
   },
   "danc_340_module_6_quiz__20261115_2359": {
     "id": "danc_340_module_6_quiz__20261115_2359",
