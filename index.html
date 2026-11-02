@@ -226,6 +226,68 @@
     .now-line { position: absolute; left: 0; right: 0; height: 2px; background: #E26C9C; z-index: 2; }
     .now-line::before { content: ""; position: absolute; left: -4px; top: -3px; width: 8px; height: 8px; border-radius: 50%; background: #E26C9C; }
 
+    /* Timeline */
+    .tl-wrap { overflow-x: auto; position: relative; --tl-lbl: 124px; }
+    .tl { position: relative; }
+    .tl-row { display: flex; border-bottom: 1px solid var(--border); }
+    .tl-row:last-of-type { border-bottom: none; }
+    .tl-lbl { position: sticky; left: 0; z-index: 3; width: var(--tl-lbl); flex-shrink: 0; background: var(--surface); border-right: 1px solid var(--border); padding: 11px 12px; font-size: 12.5px; font-weight: 600; display: flex; align-items: flex-start; gap: 7px; line-height: 1.25; }
+    .tl-lbl .dot { margin-top: 4px; }
+    .tl-head .tl-lbl { align-items: center; color: var(--muted); font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+    .tl-days { display: flex; }
+    .tl-dcell { width: 60px; flex-shrink: 0; text-align: center; padding: 8px 0 7px; font-size: 10.5px; color: var(--muted); border-left: 1px solid transparent; }
+    .tl-dcell b { display: block; font: 500 11.5px 'DM Mono', monospace; color: var(--text); margin-top: 2px; }
+    .tl-dcell.mon { border-left-color: var(--border); }
+    .tl-dcell.off { background: var(--surface-2); }
+    .tl-dcell.today b { display: inline-block; background: var(--primary); color: var(--on-primary); border-radius: 999px; padding: 0 6px; }
+    .tl-track { position: relative; flex-shrink: 0; background-image: linear-gradient(to right, color-mix(in srgb, var(--border) 55%, transparent) 1px, transparent 1px); background-size: 60px 100%; }
+    .tl-bar { position: absolute; height: 24px; border-radius: 999px; border: 1.5px solid var(--c); background: var(--t); font-size: 11.5px; font-weight: 600; padding: 0 8px; display: flex; align-items: center; white-space: nowrap; overflow: clip; color: var(--text); cursor: pointer; transition: transform .12s; }
+    .tl-bar:hover { transform: translateY(-1px); box-shadow: 0 3px 10px rgba(0,0,0,.12); z-index: 1; }
+    .tl-bar span { overflow: hidden; text-overflow: ellipsis; position: sticky; left: calc(var(--tl-lbl) + 6px); }
+    .tl-bar.narrow { padding: 0 6px; font-size: 11px; }
+    .tl-bar.est { border-style: dashed; }
+    .tl-bar.done { opacity: .4; }
+    .tl-bar.done span { text-decoration: line-through; }
+    .tl-bar.window { border-color: var(--exam); color: var(--exam); background: repeating-linear-gradient(135deg, var(--surface) 0 6px, var(--exam-tint) 6px 12px); }
+    .tl-bar.exam { border-color: var(--exam); color: var(--exam); background: var(--exam-tint); }
+    .tl-bar.review { background: transparent; border: 1.5px dashed var(--exam); border-right: none; border-radius: 999px 0 0 999px; color: var(--exam); font-weight: 500; opacity: .85; }
+    .tl-now { position: absolute; top: 0; bottom: 0; width: 2px; background: #E26C9C; z-index: 2; pointer-events: none; }
+
+    /* GPA */
+    .gpa-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 480px), 1fr)); gap: 16px; margin-top: 16px; }
+    .gpa-top { padding: 22px; display: flex; gap: 28px; flex-wrap: wrap; align-items: flex-end; }
+    .big { font-family: 'Fraunces', Georgia, serif; font-size: 44px; font-weight: 600; line-height: 1; }
+    .kpi .k { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 6px; }
+    .kpi .v { font: 500 20px 'DM Mono', monospace; }
+    .kpi .s { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .gcard { padding: 18px 20px 16px; }
+    .gcard-h { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .gcard-h h3 { font-family: 'Fraunces', Georgia, serif; font-size: 18px; font-weight: 600; }
+    .gcard-h .cr { font-size: 12px; color: var(--muted); }
+    .gcard-h .sp { flex: 1; }
+    .risk { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; letter-spacing: .03em; }
+    .risk.high { background: var(--u-crit-bg); color: var(--u-crit); }
+    .risk.med { background: var(--u-soon-bg); color: var(--u-soon); }
+    .risk.low { background: var(--u-later-bg); color: var(--u-later); }
+    .gsel { font: 500 12.5px 'DM Sans', sans-serif; color: var(--text); background: var(--surface-2); border: 1px solid var(--border); border-radius: 999px; padding: 4px 8px; }
+    .gstats { display: flex; gap: 22px; margin: 14px 0 4px; flex-wrap: wrap; }
+    .gstats .kpi .v { font-size: 16px; }
+    .formula { font: 12px 'DM Mono', monospace; color: var(--muted); background: var(--surface-2); border-radius: 8px; padding: 7px 10px; margin-top: 10px; overflow-x: auto; white-space: nowrap; }
+    table.gt { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; }
+    table.gt th { text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); font-weight: 600; padding: 6px 6px; border-bottom: 1px solid var(--border); }
+    table.gt td { padding: 7px 6px; border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent); vertical-align: top; }
+    table.gt td.n { font-family: 'DM Mono', monospace; white-space: nowrap; }
+    table.gt tr.drop td { color: var(--muted); text-decoration: line-through; }
+    table.gt .sub { color: var(--muted); font-size: 11.5px; }
+    .need-ok { color: var(--u-later); font-weight: 600; }
+    .need-hard { color: var(--u-soon); font-weight: 600; }
+    .need-no { color: var(--u-crit); font-weight: 600; }
+    .tag { font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 5px; background: var(--surface-2); color: var(--muted); margin-left: 5px; letter-spacing: .03em; vertical-align: 1px; }
+    .tag.ref { background: var(--u-week-bg); color: var(--u-week); }
+    .gnotes { margin-top: 12px; padding-left: 18px; font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+    .gnotes li + li { margin-top: 3px; }
+    .gpa-sc { padding: 6px 20px 18px; overflow-x: auto; }
+
     /* Loading / modal */
     .loading { text-align: center; padding: 60px 20px; color: var(--muted); font-size: 14px; }
     .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(30,18,24,.45); z-index: 100; align-items: center; justify-content: center; padding: 16px; backdrop-filter: blur(3px); }
@@ -258,6 +320,9 @@
       .progress .track { width: 140px; }
       .task-title { white-space: normal; }
       .urg { padding: 3px 8px; font-size: 11px; }
+      .tl-wrap { --tl-lbl: 86px; }
+      .tl-lbl { padding: 10px 8px; font-size: 11.5px; }
+      .big { font-size: 36px; }
     }
     @media (prefers-reduced-motion: reduce) {
       .ck, .ck path, .task, .task-title .t, .toast, .progress .fill { transition: none !important; animation: none !important; }
@@ -288,8 +353,10 @@
         <button data-v="list" onclick="setView('list')">List</button>
         <button data-v="month" onclick="setView('month')">Month</button>
         <button data-v="week" onclick="setView('week')">Week</button>
+        <button data-v="timeline" onclick="setView('timeline')">Timeline</button>
+        <button data-v="gpa" onclick="setView('gpa')">GPA</button>
       </div>
-      <div class="bar-right">
+      <div class="bar-right" id="bar-right">
         <label class="toggle"><input type="checkbox" id="toggle-done" onchange="render()"> Show completed</label>
         <button class="btn" onclick="openAddModal()">＋ Add DDL</button>
       </div>
@@ -351,12 +418,14 @@ const COURSES = [
   { key: "BIOE 206", sub: "Canvas",       accent: ["#D25F8C", "#DC6596"], tint: ["#FBEAF1", "#3A2230"] },
   { key: "BIOE 310", sub: "PrairieLearn", accent: ["#8A63D2", "#976FE6"], tint: ["#F1ECFB", "#2C2442"] },
   { key: "DANC 340", sub: "Canvas",       accent: ["#C9702E", "#CB7A36"], tint: ["#FBEFE6", "#38281D"] },
+  { key: "CPSC 131", sub: "Canvas",       accent: ["#2E8C9A", "#3FA7B5"], tint: ["#E4F3F5", "#1C3135"] },
+  { key: "CS ARG",   sub: "Reading group", accent: ["#7A8A2E", "#9AAE45"], tint: ["#F1F4E2", "#2A2F1C"] },
   { key: "BIOE 210 Grading", short: "210 Grading", sub: "Gradescope", accent: ["#2F9A70", "#2FA67B"], tint: ["#E6F4EE", "#1D332B"] },
   { key: "Admin",    sub: "Registrar",    accent: ["#A0908A", "#8E8189"], tint: ["#F3EEEC", "#2C2A2B"] },
 ];
 
 // Aim to finish this many days before the real DDL (exams: start reviewing N days before).
-const BUFFER_DAYS = { potd: 0, lab: 1, hw: 1, quiz: 0, project: 3, exam: 5, grading: 0, admin: 0, custom: 0 };
+const BUFFER_DAYS = { potd: 0, lab: 1, hw: 1, quiz: 0, project: 3, exam: 5, grading: 0, admin: 0, reading: 1, custom: 0 };
 
 // Weekly class meetings. days: Mon Tue Wed Thu Fri. times are 24h "HH:MM".
 // from/to optional (defaults to semester start / last class day). skip: dates with no meeting.
@@ -367,13 +436,14 @@ const CLASS_SCHEDULE = [
   { course: "BIOE 206", type: "Lecture", days: ["Tue","Thu"],       start: "09:30", end: "10:50", where: "CIF 3031" },
   { course: "BIOE 310", type: "Lecture", days: ["Wed","Fri"],       start: "13:00", end: "14:20", where: "CIF 3031",
     skip: ["2026-09-23", "2026-09-25", "2026-09-30", "2026-11-04"] },  // recorded / exam weeks (11/4 tentative)
+  { course: "CS ARG",   type: "Meeting", days: ["Fri"],             start: "18:30", end: "19:30", where: "Siebel 4102", from: "2026-10-02" },
 ];
 /* ═══════════════════════════════════════════════════════════════════════════ */
 
 const REPO_API = "https://api.github.com/repos/yvve77/DDL-collector/contents/tasks.json";
 const CMAP = Object.fromEntries(COURSES.map(c => [c.key, c]));
 const DOW = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-const KIND_WEIGHT = { exam: 5, project: 3, hw: 2, lab: 2, grading: 2, quiz: 1, custom: 1, potd: 0.5, admin: 0.5 };
+const KIND_WEIGHT = { exam: 5, project: 3, hw: 2, lab: 2, grading: 2, reading: 1, quiz: 1, custom: 1, potd: 0.5, admin: 0.5 };
 const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 let tasks = {};
@@ -679,10 +749,11 @@ function setView(v) { view = v; store("ddl_view", v); render(); }
 function setCalMode(m) { calMode = m; store("ddl_calmode", m); render(); }
 function filterCourse(c) { activeFilter = (activeFilter === c && c !== "all") ? "all" : c; render(); }
 function shift(n) {
+  if (view === "timeline") { document.getElementById("tl-wrap")?.scrollBy({ left: n * 7 * TL_DAY, behavior: "smooth" }); return; }
   cursor = view === "month" ? new Date(cursor.getFullYear(), cursor.getMonth() + n, 1) : addDays(cursor, 7 * n);
   render();
 }
-function goToday() { cursor = startOfDay(new Date()); render(); }
+function goToday() { cursor = startOfDay(new Date()); tlScroll = null; render(); }
 function openWeek(s) { cursor = parseYmd(s); setView("week"); }
 
 // ── Urgency / labels ──────────────────────────────────────────────────────────
@@ -722,6 +793,8 @@ function render() {
   renderChrome();
   if (view === "month") renderMonth();
   else if (view === "week") renderWeek();
+  else if (view === "timeline") renderTimeline();
+  else if (view === "gpa") renderGPA();
   else renderList();
 }
 
@@ -751,6 +824,9 @@ function renderChrome() {
         <span class="dot" style="background:${color(c.key)}"></span>${c.short || c.key} <b>${n(c.key)}</b></span>`;
     }).join("");
 
+  const gpa = view === "gpa";
+  document.getElementById("filter-chips").style.display = gpa ? "none" : "";
+  document.getElementById("bar-right").style.display = gpa ? "none" : "";
   document.querySelectorAll("#view-seg button").forEach(b => b.classList.toggle("on", b.dataset.v === view));
   document.getElementById("semester-label").textContent =
     `${SEMESTER.name} · ${pending.length} pending${overdue.length ? ` · ${overdue.length} overdue` : ""}`;
@@ -990,8 +1066,188 @@ function renderWeek() {
     </div>`;
 }
 
+// ── Timeline view ─────────────────────────────────────────────────────────────
+// One row per course, bars for open windows (MP release to due, CBTF windows,
+// aim-to-due buffers), dashed outline for estimated dates. POTDs are left out.
+const TL_DAY = 60, TL_LANE = 30;
+let tlScroll = null;
+function tlSegments(t) {
+  const due = new Date(t.due), d0 = d => startOfDay(d), end = d => addDays(startOfDay(d), 1);
+  if (t.kind === "exam") {
+    const at = new Date(t.start || t.due), segs = [];
+    if (!t.completed && calMode === "target" && target(t) < d0(at)) segs.push({ s: d0(target(t)), e: d0(at), type: "review" });
+    segs.push({ s: d0(at), e: end(due), type: t.start ? "window" : "exam" });
+    return segs;
+  }
+  if (t.opens) return [{ s: d0(new Date(t.opens)), e: end(due), type: "task" }];
+  if (calMode === "target" && hasBuffer(t)) return [{ s: d0(target(t)), e: end(due), type: "task" }];
+  return [{ s: d0(due), e: end(due), type: "task" }];
+}
+function tlLabel(t, narrow) {
+  const base = t.title.replace(/\s*\([^)]*\)/g, "").trim();
+  if (!narrow) return base;
+  return { grading: "Grade", reading: "Reading" }[t.kind] || base.replace(/^Module (\d+) /, "M$1 ").replace(/^Book /, "Book ");
+}
+function renderTimeline() {
+  const from = mondayOf(parseYmd(SEMESTER.start));
+  let last = parseYmd(SEMESTER.lastClass);
+  for (const t of Object.values(tasks)) { const d = new Date(t.due); if (d > last) last = d; }
+  const to = addDays(mondayOf(last), 7);
+  const nDays = Math.round((to - from) / 864e5);
+  const X = d => (d - from) / 864e5 * TL_DAY;
+  const W = nDays * TL_DAY, today = ymd(new Date());
+
+  let cells = "";
+  for (let i = 0; i < nDays; i++) {
+    const d = addDays(from, i), k = ymd(d), wd = d.getDay();
+    const off = wd === 0 || wd === 6 || (k >= SEMESTER.start && isNoClass(d));
+    cells += `<div class="tl-dcell ${wd === 1 ? "mon" : ""} ${off ? "off" : ""} ${k === today ? "today" : ""}">${DOW[wd]}<b>${d.getMonth() + 1}/${d.getDate()}</b></div>`;
+  }
+  let rows = `<div class="tl-row tl-head"><div class="tl-lbl">Course</div><div class="tl-days">${cells}</div></div>`;
+
+  for (const c of COURSES) {
+    if (activeFilter !== "all" && activeFilter !== c.key) continue;
+    const items = Object.values(tasks)
+      .filter(t => t.course === c.key && t.kind !== "potd" && (showDone() || !t.completed))
+      .map(t => { const segs = tlSegments(t); return { t, segs, s: segs[0].s, e: segs[segs.length - 1].e }; })
+      .sort((a, b) => a.s - b.s || a.e - b.e);
+    if (!items.length) continue;
+    const lanes = [];
+    for (const it of items) {
+      let i = lanes.findIndex(end => end <= it.s);
+      if (i < 0) { i = lanes.length; lanes.push(0); }
+      lanes[i] = it.e; it.lane = i;
+    }
+    const bars = items.map(({ t, segs, lane }) => segs.map(g => {
+      const left = X(g.s), width = X(g.e) - left - (g.type === "review" ? 0 : 3);
+      const est = /\(.*est\.|tentative/.test(t.title) ? "est" : "";
+      const narrow = width < 2 * TL_DAY;
+      const txt = g.type === "review" ? "📚 review" : (g.type !== "task" ? "📝 " : "") + tlLabel(t, narrow);
+      const tip = `${label(t.course)} · ${t.title} · due ${dueLabel(t)}${g.type === "review" ? " · start review" : ""}`;
+      return `<div class="tl-bar ${g.type === "task" ? "" : g.type} ${est} ${narrow ? "narrow" : ""} ${t.completed ? "done" : ""}"
+        style="left:${left}px;width:${Math.max(width, 20)}px;top:${4 + lane * TL_LANE}px;--c:${color(t.course)};--t:${tint(t.course)}"
+        title="${esc(tip)}" onclick="openWeek('${ymd(g.type === "review" ? g.s : new Date(t.due))}')"><span>${esc(txt)}</span></div>`;
+    }).join("")).join("");
+    rows += `<div class="tl-row"><div class="tl-lbl"><span class="dot" style="background:${color(c.key)}"></span>${esc(c.short || c.key)}</div>
+      <div class="tl-track" style="width:${W}px;height:${lanes.length * TL_LANE + 8}px">${bars}</div></div>`;
+  }
+
+  const now = new Date();
+  document.getElementById("app").innerHTML = `
+    <div class="panel">
+      <div class="cal-head">
+        <div class="cal-title">Semester timeline</div>
+        <div class="cal-nav">${modeSeg()}
+          <button class="nav-btn" onclick="shift(-1)">‹</button>
+          <button class="nav-btn" onclick="goToday()">Today</button>
+          <button class="nav-btn" onclick="shift(1)">›</button>
+        </div>
+      </div>
+      <div class="tl-wrap" id="tl-wrap"><div class="tl" style="width:calc(var(--tl-lbl) + ${W}px)">
+        ${rows}
+        ${now >= from && now < to ? `<div class="tl-now" style="left:calc(var(--tl-lbl) + ${X(now)}px)"></div>` : ""}
+      </div></div>
+      <div class="legend">
+        <span class="sw" style="border:1.5px solid var(--muted)"></span> Open to due${calMode === "target" ? " (or aim to due)" : ""}
+        <span class="gap"></span><span class="sw" style="border:1.5px dashed var(--muted)"></span> Estimated date
+        <span class="gap"></span><span class="sw" style="background:repeating-linear-gradient(135deg,var(--surface) 0 4px,var(--exam-tint) 4px 8px);border-color:var(--exam)"></span> Exam window
+        ${calMode === "target" ? `<span class="gap"></span><span class="sw" style="border:1px dashed var(--exam)"></span> Review` : ""}
+        <span class="gap"></span>POTDs hidden · click a bar to open its week
+      </div>
+    </div>`;
+  const wrap = document.getElementById("tl-wrap");
+  wrap.scrollLeft = tlScroll ?? Math.max(0, X(startOfDay(now)) - (wrap.clientWidth < 600 ? 1 : 3) * TL_DAY);
+  wrap.addEventListener("scroll", () => { tlScroll = wrap.scrollLeft; }, { passive: true });
+}
+
+// ── GPA view ──────────────────────────────────────────────────────────────────
+// Data lives in grades.json (same repo). Each course: components with weight (% of
+// the course) and score (% or null when still to come), optional bonus points added
+// after cutoffs, and cutoffs. Need = (cutoff − locked − bonus) / remaining weight.
+const GP = { "A+": 4, "A": 4, "A-": 3.67, "B+": 3.33, "B": 3, "B-": 2.67, "C+": 2.33, "C": 2, "C-": 1.67, "D+": 1.33, "D": 1, "D-": 0.67, "F": 0 };
+let grades = null, gradesErr = "";
+async function loadGrades() {
+  try {
+    const r = await fetch("grades.json?t=" + Date.now());
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    grades = await r.json(); gradesErr = "";
+  } catch (e) { gradesErr = e.message; }
+  if (view === "gpa") render();
+}
+function expectMap() { try { return JSON.parse(store("ddl_expect") || "{}"); } catch { return {}; } }
+function setExpect(course, g) { const m = expectMap(); m[course] = g; store("ddl_expect", JSON.stringify(m)); render(); }
+function expected(c) { return expectMap()[c.key] || c.expected; }
+function cumGPA(letters) {
+  let h = grades.prior.hours, p = grades.prior.points, sh = 0, sp = 0;
+  for (const c of grades.courses) { const g = letters(c); if (!(g in GP)) continue; sh += c.credits; sp += c.credits * GP[g]; }
+  return { sem: sh ? sp / sh : 0, cum: (p + sp) / (h + sh) };
+}
+function gradeCalc(c) {
+  const live = (c.components || []).filter(x => !x.dropped);
+  const known = live.filter(x => x.score != null), unk = live.filter(x => x.score == null);
+  const fixed = known.reduce((s, x) => s + x.weight * x.score / 100, 0);
+  const bonus = (c.bonus || []).reduce((s, b) => s + b.value, 0);
+  const R = unk.reduce((s, x) => s + x.weight, 0);
+  const kw = known.reduce((s, x) => s + x.weight, 0);
+  return { fixed, bonus, R, graded: kw ? fixed / kw * 100 : null, max: fixed + bonus + R };
+}
+function needCell(k, cut) {
+  const need = k.R ? (cut - k.fixed - k.bonus) / k.R * 100 : (k.fixed + k.bonus >= cut ? -1 : Infinity);
+  if (need <= 0) return `<span class="need-ok">locked in</span>`;
+  if (need > 100) return `<span class="need-no">out of reach</span> <span class="sub">(max ${k.max.toFixed(2)})</span>`;
+  return `<span class="${need >= 90 ? "need-hard" : "need-ok"}">${need.toFixed(1)}%</span> <span class="sub">avg on what's left</span>`;
+}
+const f2 = n => (Math.round(n * 100) / 100).toFixed(2);
+function gcardHTML(c) {
+  const k = gradeCalc(c), cur = expected(c);
+  const sel = `<select class="gsel" onchange="setExpect('${esc(c.key)}', this.value)" title="Expected letter, used for the GPA above">
+    ${Object.keys(GP).slice(0, 9).map(g => `<option ${g === cur ? "selected" : ""}>${g}</option>`).join("")}</select>`;
+  const comps = c.components || [];
+  const stats = comps.length ? `<div class="gstats">
+      <div class="kpi"><div class="k">Locked in</div><div class="v">${f2(k.fixed + k.bonus)}</div><div class="s">${k.bonus ? `incl. ${f2(k.bonus)} bonus` : "of 100"}</div></div>
+      <div class="kpi"><div class="k">Still to earn</div><div class="v">${f2(k.R)}</div><div class="s">weight left</div></div>
+      <div class="kpi"><div class="k">Max possible</div><div class="v">${f2(k.max)}</div></div>
+      ${k.graded != null ? `<div class="kpi"><div class="k">Graded so far</div><div class="v">${k.graded.toFixed(1)}%</div></div>` : ""}
+    </div>` : "";
+  const cuts = (c.cutoffs || []).length && comps.length ? `<table class="gt"><tr><th>Grade</th><th>Cutoff</th><th>Need</th></tr>${
+    c.cutoffs.map(x => `<tr><td>${esc(x.grade)}${x.ref ? `<span class="tag ref">REF</span>` : ""}</td><td class="n">${x.min}</td><td>${needCell(k, x.min)}</td></tr>`).join("")}</table>` : "";
+  const rows = comps.length ? `<table class="gt"><tr><th>Component</th><th>Weight</th><th>Score</th></tr>${
+    comps.map(x => `<tr class="${x.dropped ? "drop" : ""}"><td>${esc(x.name)}${x.assumed ? `<span class="tag">ASSUMED</span>` : ""}${x.note ? `<div class="sub">${esc(x.note)}</div>` : ""}</td>
+      <td class="n">${f2(x.weight)}</td><td class="n">${x.score == null ? "–" : x.score.toFixed(2) + "%"}</td></tr>`).join("")}${
+    (c.bonus || []).map(b => `<tr><td>${esc(b.name)}<span class="tag">BONUS</span>${b.note ? `<div class="sub">${esc(b.note)}</div>` : ""}</td><td class="n">+${f2(b.value)}</td><td></td></tr>`).join("")}</table>` : "";
+  return `<div class="panel gcard">
+    <div class="gcard-h"><span class="dot" style="background:${color(c.key)}"></span><h3>${esc(c.key)}</h3><span class="cr">${c.credits} cr</span>
+      ${c.risk ? `<span class="risk ${c.risk}">${{ high: "HIGH RISK", med: "MEDIUM", low: "LOW RISK" }[c.risk]}</span>` : ""}<span class="sp"></span>Expect ${sel}</div>
+    ${stats}${c.formula ? `<div class="formula">${esc(c.formula)}</div>` : ""}${cuts}${rows}
+    ${(c.notes || []).length ? `<ul class="gnotes">${c.notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul>` : ""}
+  </div>`;
+}
+function renderGPA() {
+  const app = document.getElementById("app");
+  if (!grades) { app.innerHTML = `<div class="loading">${gradesErr ? "⚠️ Could not load grades.json · " + esc(gradesErr) : "Loading grades…"}</div>`; if (!gradesErr) loadGrades(); return; }
+  const mine = cumGPA(expected);
+  const hrs = grades.courses.reduce((s, c) => s + (c.credits || 0), 0);
+  const order = grades.courses.map(c => c.key);
+  const sc = (grades.scenarios || []).map(s => {
+    const r = cumGPA(c => s.grades[c.key] || expected(c));
+    return `<tr><td>${esc(s.name)}</td>${order.map(k => `<td class="n">${esc(s.grades[k] || "·")}</td>`).join("")}<td class="n">${r.sem.toFixed(2)}</td><td class="n"><b>${r.cum.toFixed(2)}</b></td></tr>`;
+  }).join("");
+  app.innerHTML = `
+    <div class="panel">
+      <div class="gpa-top">
+        <div class="kpi"><div class="k">Projected cumulative</div><div class="big">${mine.cum.toFixed(2)}</div><div class="s">from the "Expect" picks below</div></div>
+        <div class="kpi"><div class="k">${esc(SEMESTER.name)} semester</div><div class="v">${mine.sem.toFixed(2)}</div><div class="s">${hrs} graded hours</div></div>
+        <div class="kpi"><div class="k">Before this term</div><div class="v">${grades.prior.gpa.toFixed(2)}</div><div class="s">${grades.prior.hours} hrs · ${grades.prior.points} pts</div></div>
+        <div class="kpi"><div class="k">Updated</div><div class="v" style="font-size:14px">${esc(grades.updated)}</div><div class="s">A+ and A both count 4.00</div></div>
+      </div>
+      <div class="gpa-sc"><table class="gt"><tr><th>Scenario</th>${order.map(k => `<th>${esc(label(k))}</th>`).join("")}<th>Sem</th><th>Cum</th></tr>${sc}</table></div>
+    </div>
+    <div class="gpa-grid">${grades.courses.map(gcardHTML).join("")}</div>`;
+}
+
 // ── Init ──────────────────────────────────────────────────────────────────────
 loadTasks();
+loadGrades();
 </script>
 </body>
 </html>

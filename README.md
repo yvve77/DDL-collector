@@ -92,4 +92,11 @@ pl("Pre-unit HW", "CS 173", ct(3, 3))
 
 ---
 
+## Timeline and GPA views (Fall 2026)
+
+- **Timeline**: one row per course, bars run from release (`opens`) or your aim date to the due date, CBTF windows are striped, dashed outlines mean the date is still an estimate. POTDs are hidden.
+- **GPA**: reads `grades.json`. Each course lists components with a weight (% of the course) and a score (`null` when still to come), optional `bonus` points added after cutoffs, and `cutoffs` (`ref: true` when the real cutoff is unknown). Needed score = (cutoff − locked in − bonus) / remaining weight. The "Expect" pickers drive the projected GPA and are saved in this browser only.
+
+---
+
 *Spring 2026 · University of Illinois Urbana-Champaign*

@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """
 DDL Digest, Fall 2026
-Courses: CS 225, BIOE 206, BIOE 310, DANC 340 (+ BIOE 210 grading, Admin dates)
+Courses: CS 225, BIOE 206, BIOE 310, DANC 340, CPSC 131
+         (+ CS ARG reading group, BIOE 210 grading, Admin dates)
 
 Each task has:
   title, course, due (datetime), source, url,
   kind   : hw | quiz | lab | potd | project | exam | grading | admin
   start  : optional window start (exam windows)
+  opens  : optional release date, only used to draw the bar on the Timeline view
   allday : True when only the date is known
 """
 
@@ -32,6 +34,8 @@ COURSE_COLORS = {
     "BIOE 206":         {"accent": "#DC6596"},
     "BIOE 310":         {"accent": "#976FE6"},
     "DANC 340":         {"accent": "#CB7A36"},
+    "CPSC 131":         {"accent": "#3FA7B5"},
+    "CS ARG":           {"accent": "#9AAE45"},
     "BIOE 210 Grading": {"accent": "#2FA67B"},
     "Admin":            {"accent": "#8E8189"},
 }
@@ -39,16 +43,15 @@ COURSE_COLORS = {
 # Personal buffer: aim to finish this many days before the real DDL.
 # Exams: start reviewing this many days before the exam (or window start).
 BUFFER_DAYS = {"potd": 0, "lab": 1, "hw": 1, "quiz": 0, "project": 3,
-               "exam": 5, "grading": 0, "admin": 0}
+               "exam": 5, "grading": 0, "admin": 0, "reading": 1}
 
-# BIOE 210 grader: (homework, due) as shown in Gradescope. Add new rows as HWs are posted.
-# Rule: finish grading HW n three days before HW n+1 is due.
-# The newest HW has no successor yet, so its grading date assumes a 7-day gap.
-GRADER_HWS = [
-    ("HW 2", "2026-09-18 09:00"),
-    ("HW 3", "2026-09-28 09:00"),
-    ("HW 4", "2026-10-05 09:00"),
-]
+# BIOE 210 grading: due every Thursday 23:59 (no fall-break week).
+GRADING_FIRST = date(YEAR, 9, 3)
+GRADING_LAST  = date(YEAR, 12, 10)
+
+# CS ARG (Indu Panigrahi, Fri 6:30 PM Siebel 4102): guided reading due Fri 6:00 PM.
+ARG_FIRST = date(YEAR, 10, 2)
+ARG_LAST  = date(YEAR, 12, 4)
 
 URLS = {
     "Canvas":       "https://canvas.illinois.edu",
@@ -56,6 +59,7 @@ URLS = {
     "PrairieTest":  "https://us.prairietest.com",
     "Registrar":    "https://registrar.illinois.edu/academic-calendars/",
     "Gradescope":   "https://www.gradescope.com",
+    "":             "",
 }
 
 # No-class days
@@ -79,12 +83,13 @@ def task_id(title, course, due):
     return f"{safe}__{due.strftime('%Y%m%d_%H%M')}"
 
 def T(title, course, due, source, kind, start=None, allday=False, end=None,
-      stable=False, keep=False, done=False, key=None):
+      stable=False, keep=False, done=False, key=None, opens=None):
     """stable: id ignores the date, so an estimate can later be corrected in place.
     keep: add even if already past due.  done: start out checked."""
     return {"title": title, "course": course, "due": due, "source": source,
             "url": URLS.get(source, ""), "kind": kind, "start": start, "allday": allday,
-            "end": end.isoformat() if end else None, "stable": stable or bool(key), "keep": keep, "done": done, "key": key}
+            "end": end.isoformat() if end else None,
+            "opens": opens.isoformat() if opens else None, "stable": stable or bool(key), "keep": keep, "done": done, "key": key}
 
 def target_of(t):
     """When to aim to be done (or, for exams, start reviewing)."""
@@ -135,13 +140,18 @@ def all_assignments():
     tasks.append(T("MP1 mp_lists", "CS 225", ct(9, 28), "PrairieLearn", "project", done=True))
     tasks.append(T("MP_EC2 mp_mosaics extra credit", "CS 225", ct(10, 5), "PrairieLearn", "hw"))
     tasks.append(T("MP2 mp_mosaics", "CS 225", ct(10, 12), "PrairieLearn", "project"))
-    for n, (m, d) in [(3, (10, 26)), (4, (11, 9)), (5, (11, 30))]:
-        tasks.append(T(f"MP{n} (est.)", "CS 225", ct(m, d), "PrairieLearn", "project", key=f"MP{n}"))
+    tasks.append(T("MP3 mp_traversals", "CS 225", ct(10, 26), "PrairieLearn", "project", key="MP3"))
+    tasks.append(T("MP4 mp_mazes", "CS 225", ct(11, 9), "PrairieLearn", "project", key="MP4",
+                   opens=ct(10, 27, 0, 0)))
+    tasks.append(T("MP5 mp_puzzle (due est.)", "CS 225", ct(11, 30), "PrairieLearn", "project", key="MP5",
+                   opens=ct(11, 9, 0, 0)))
 
     # Extra credit + feedback
     tasks.append(T("LabEC0 lab_trees (extra credit)", "CS 225", ct(10, 7), "PrairieLearn", "hw"))
     tasks.append(T("Informal Early Feedback survey", "CS 225", ct(10, 7), "PrairieLearn", "quiz"))
     tasks.append(T("Research consent form", "CS 225", ct(10, 12), "PrairieLearn", "admin"))
+    tasks.append(T("lab_ml (extra credit)", "CS 225", ct(11, 18), "PrairieLearn", "hw",
+                   opens=ct(11, 3, 0, 0)))
 
     # Exam windows (CBTF)
     for title, (sm, sd), (em, ed) in [
@@ -215,16 +225,31 @@ def all_assignments():
         for title, kind in items:
             tasks.append(T(title, "DANC 340", ct(m, d), "Canvas", kind))
 
-    # ── BIOE 210 grading (Gradescope) ─────────────────────────────────────────
-    for i, (hw, due_s) in enumerate(GRADER_HWS):
-        if i + 1 < len(GRADER_HWS):
-            nxt = CT.localize(datetime.strptime(GRADER_HWS[i + 1][1], "%Y-%m-%d %H:%M"))
-            title = f"Grade {hw}"
-        else:
-            nxt = CT.localize(datetime.strptime(due_s, "%Y-%m-%d %H:%M")) + timedelta(days=7)
-            title = f"Grade {hw} (est.)"
-        tasks.append(T(title, "BIOE 210 Grading", nxt - timedelta(days=3), "Gradescope", "grading",
-                       key=f"Grade {hw}", keep=True))
+    # ── BIOE 210 grading (Gradescope) — every Thursday 23:59 ───────────────────
+    for d in daterange(GRADING_FIRST, GRADING_LAST):
+        if d.weekday() == 3 and d not in FALL_BREAK:
+            tasks.append(T(f"Grading (week of {(d - timedelta(days=3)).strftime('%b %d')})",
+                           "BIOE 210 Grading", ct(d.month, d.day), "Gradescope", "grading"))
+
+    # ── CS ARG — guided reading, Fridays 6:00 PM (meeting 6:30) ───────────────
+    for d in daterange(ARG_FIRST, ARG_LAST):
+        if d.weekday() == 4 and d not in FALL_BREAK:
+            tasks.append(T(f"Guided reading ({d.strftime('%b %d')})", "CS ARG",
+                           ct(d.month, d.day, 18, 0), "", "reading"))
+
+    # ── CPSC 131 — Canvas, second-half online course ──────────────────────────
+    # Confirmed: Quiz 1 (10/28), Quiz 2 + Agriculture paper (11/4). Due Wed 23:59, late until Fri.
+    # Assumed: a quiz every Wednesday, a paper every other Wednesday. Rows marked (est.)
+    # have a key, so a real date can replace the estimate in place.
+    tasks.append(T("Quiz 1", "CPSC 131", ct(10, 28), "Canvas", "quiz", done=True))
+    tasks.append(T("Quiz 2", "CPSC 131", ct(11, 4), "Canvas", "quiz", key="Quiz 2"))
+    tasks.append(T("Agriculture paper on your chosen culture", "CPSC 131", ct(11, 4), "Canvas", "project",
+                   key="Paper 1", opens=ct(10, 28, 0, 0)))
+    for n, (m, d) in enumerate([(11, 11), (11, 18), (12, 2), (12, 9)], 3):
+        tasks.append(T(f"Quiz {n} (est.)", "CPSC 131", ct(m, d), "Canvas", "quiz", key=f"Quiz {n}"))
+    for n, (m, d) in enumerate([(11, 18), (12, 2)], 2):
+        tasks.append(T(f"Paper / project {n} (est.)", "CPSC 131", ct(m, d), "Canvas", "project",
+                       key=f"Paper {n}"))
 
     # ── Admin ─────────────────────────────────────────────────────────────────
     for title, (m, d) in [
@@ -264,8 +289,10 @@ def merge_tasks(existing, fresh):
         fresh_ids.add(tid)
         if tid in updated:
             t = updated[tid]
-            for k in ("kind", "start", "allday", "end"):
+            for k in ("kind", "start", "allday", "end", "opens"):
                 t.setdefault(k, a[k])
+            if a["opens"]:
+                t["opens"] = a["opens"]
             if a["stable"] and not t.get("edited"):
                 t["title"], t["due"] = a["title"], a["due"].isoformat()
                 t["start"], t["end"], t["allday"] = a["start"], a["end"], a["allday"]
@@ -276,7 +303,7 @@ def merge_tasks(existing, fresh):
             "id": tid, "title": a["title"], "course": a["course"],
             "due": a["due"].isoformat(), "source": a["source"], "url": a["url"],
             "kind": a["kind"], "start": a["start"], "allday": a["allday"], "end": a["end"],
-            "completed": a["done"],
+            "opens": a["opens"], "completed": a["done"],
         }
     # Drop tasks that were removed from the schedule and are already past
     for tid in list(updated):

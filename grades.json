@@ -1,0 +1,134 @@
+{
+  "updated": "2026-11-02",
+  "prior": { "hours": 34, "points": 132.33, "gpa": 3.89 },
+  "courses": [
+    {
+      "key": "BIOE 310",
+      "credits": 3,
+      "risk": "high",
+      "expected": "B+",
+      "formula": "Total = 10·Attendance + 20·HW + 20·M1 + 20·M2 + 30·Final",
+      "components": [
+        { "name": "Attendance", "weight": 10, "score": 82.35, "note": "14 of 17 class days with a poll answered (missed 8/26, 10/7, 10/23)" },
+        { "name": "Homework", "weight": 20, "score": 100, "note": "HW1-3 all 100%" },
+        { "name": "Midterm 1", "weight": 20, "score": 43.75, "note": "17.5 / 40" },
+        { "name": "Midterm 2", "weight": 20, "score": null, "note": "CBTF, taking Thu 11/5" },
+        { "name": "Final", "weight": 30, "score": null, "note": "CBTF from 12/10, cumulative" }
+      ],
+      "cutoffs": [
+        { "grade": "90", "min": 90, "ref": true },
+        { "grade": "85", "min": 85, "ref": true },
+        { "grade": "80", "min": 80, "ref": true },
+        { "grade": "75", "min": 75, "ref": true }
+      ],
+      "notes": [
+        "Cutoffs are not published. The rows above are reference lines only.",
+        "SP22 to SP25 about 74% of students got an A-range grade, so real cutoffs must be well below 90.",
+        "Attendance assumes a day counts once any poll is answered. If it is scored by poll points instead it would be 54.8%.",
+        "Still needed: the Midterm 1 class mean."
+      ]
+    },
+    {
+      "key": "BIOE 206",
+      "credits": 3,
+      "risk": "high",
+      "expected": "A-",
+      "formula": "Total = 32·HW + 20·(best two of three midterms) + 20·Final + 8·iClicker",
+      "components": [
+        { "name": "Homework", "weight": 32, "score": 99.09, "note": "520.24 / 525 so far, assumed to stay here" },
+        { "name": "iClicker", "weight": 8, "score": 95.73, "note": "50% participation + 50% accuracy (full at 70%), lowest two dropped" },
+        { "name": "Exam 1", "weight": 20, "score": 74.38, "note": "59.5 / 80, kept" },
+        { "name": "Exam 2", "weight": 20, "score": 67.5, "dropped": true, "note": "54 / 80, dropped once Exam 3 is above 67.5%" },
+        { "name": "Exam 3", "weight": 20, "score": null, "note": "Tue 11/17" },
+        { "name": "Final", "weight": 20, "score": null, "note": "Fri 12/11, 1:30 to 4:30 PM, cumulative" }
+      ],
+      "cutoffs": [
+        { "grade": "A+", "min": 97 },
+        { "grade": "A", "min": 93 },
+        { "grade": "A-", "min": 90 },
+        { "grade": "B+", "min": 87 }
+      ],
+      "notes": [
+        "No rounding at any step, 92.99 is an A-.",
+        "iClicker assumes equal weight per session and that every question was answered in sessions marked participated.",
+        "Lecture activities (e.g. Lecture 17, /7) are not in any syllabus category yet."
+      ]
+    },
+    {
+      "key": "CS 225",
+      "credits": 4,
+      "risk": "med",
+      "expected": "A-",
+      "formula": "Points out of 1000 shown as %: MPs 240 · Labs 120 · Exams 6×80 · Final 160, then extra credit",
+      "components": [
+        { "name": "Exams 0 to 3", "weight": 32, "score": 74.25, "note": "237.6 / 320 (72, 100, 96, 29)" },
+        { "name": "MPs 0 to 3", "weight": 16, "score": 100, "note": "160 / 160" },
+        { "name": "Labs 0 to 7", "weight": 9.6, "score": 91.88, "note": "88.2 / 96 (lab_quacks 35%)" },
+        { "name": "MP4 mp_mazes, MP5 mp_puzzle", "weight": 8, "score": 100, "assumed": true, "note": "80 pts" },
+        { "name": "Labs 8 and 9", "weight": 2.4, "score": 100, "assumed": true, "note": "24 pts" },
+        { "name": "Exam 4", "weight": 8, "score": null, "note": "CBTF 11/11 to 11/13" },
+        { "name": "Exam 5", "weight": 8, "score": null, "note": "CBTF 12/2 to 12/4" },
+        { "name": "Final", "weight": 16, "score": null, "note": "CBTF 12/10 to 12/17" }
+      ],
+      "bonus": [
+        { "name": "Extra credit earned", "value": 3.4, "note": "34 pts: POTD 22, MP early 8, lab_trees 4" },
+        { "name": "Extra credit planned", "value": 2.0, "note": "20 pts: POTD +8 to the cap, MP4/MP5 early +8, lab_ml +4" },
+        { "name": "Exam 3 retake at 80%", "value": 2.856, "note": "New E3 = 0.7·R + 0.3·29%, gain = 56·(R − 0.29) pts" }
+      ],
+      "cutoffs": [
+        { "grade": "A-", "min": 90 },
+        { "grade": "B-", "min": 80 }
+      ],
+      "notes": [
+        "A and A+ cutoffs are not published. Only A- (900) and B- (800) are posted, and they can only go down.",
+        "Survey EC (+8, class-wide threshold) is not counted. With it, every need above drops by 2.5 points.",
+        "Retake covers Exams 0 to 4 only and uses 70% new + 30% original.",
+        "Honors section (CS 296) is not included."
+      ]
+    },
+    {
+      "key": "DANC 340",
+      "credits": 3,
+      "risk": "low",
+      "expected": "A",
+      "formula": "Points out of 780 shown as %",
+      "components": [
+        { "name": "Graded so far", "weight": 45.51, "score": 96.06, "note": "341 / 355" },
+        { "name": "Submitted, not graded", "weight": 15.38, "score": null, "note": "EE3, EE4, Module 4 and 5 glossary (120 pts)" },
+        { "name": "Still to come", "weight": 39.1, "score": null, "note": "Project 2, Project 3, quizzes 6 to 8, glossaries 6 to 8 (305 pts)" }
+      ],
+      "cutoffs": [
+        { "grade": "A+", "min": 100 },
+        { "grade": "A", "min": 95 },
+        { "grade": "A-", "min": 90 }
+      ],
+      "notes": [
+        "Embodiment exercises have been 88% so far, everything else near 100%.",
+        "Unclear how a score like 94.5% is placed between A- and A."
+      ]
+    },
+    {
+      "key": "CPSC 131",
+      "credits": 3,
+      "expected": "A",
+      "notes": [
+        "Quiz 1 10/10. Syllabus weights not entered yet, A assumed."
+      ]
+    },
+    {
+      "key": "BIOE 397",
+      "credits": 3,
+      "expected": "A",
+      "notes": [
+        "RA in Prof. Amos's lab, A assumed."
+      ]
+    }
+  ],
+  "scenarios": [
+    { "name": "Best",      "grades": { "BIOE 310": "A",  "BIOE 206": "A",  "CS 225": "A",  "DANC 340": "A",  "CPSC 131": "A", "BIOE 397": "A" } },
+    { "name": "Good",      "grades": { "BIOE 310": "A-", "BIOE 206": "A-", "CS 225": "A-", "DANC 340": "A",  "CPSC 131": "A", "BIOE 397": "A" } },
+    { "name": "Realistic", "grades": { "BIOE 310": "B+", "BIOE 206": "A-", "CS 225": "B+", "DANC 340": "A",  "CPSC 131": "A", "BIOE 397": "A" } },
+    { "name": "Weak",      "grades": { "BIOE 310": "B",  "BIOE 206": "B+", "CS 225": "B",  "DANC 340": "A",  "CPSC 131": "A", "BIOE 397": "A" } },
+    { "name": "Bad",       "grades": { "BIOE 310": "B-", "BIOE 206": "B",  "CS 225": "B-", "DANC 340": "A-", "CPSC 131": "A", "BIOE 397": "A" } }
+  ]
+}
