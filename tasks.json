@@ -1583,7 +1583,8 @@
     "start": null,
     "allday": true,
     "end": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-11-02T22:43:19.564Z"
   },
   "admin_last_day_of_instruction__20261209_2359": {
     "id": "admin_last_day_of_instruction__20261209_2359",
