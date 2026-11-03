@@ -11,7 +11,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-09-29T02:54:47.002Z"
+    "completedAt": "2026-09-29T02:54:47.002Z",
+    "opens": null
   },
   "cs_225_potd_sep_29__20260929_2359": {
     "id": "cs_225_potd_sep_29__20260929_2359",
@@ -25,7 +26,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-10T03:44:18.265Z"
+    "completedAt": "2026-10-10T03:44:18.265Z",
+    "opens": null
   },
   "cs_225_potd_sep_30__20260930_2359": {
     "id": "cs_225_potd_sep_30__20260930_2359",
@@ -39,7 +41,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-10T03:44:21.148Z"
+    "completedAt": "2026-10-10T03:44:21.148Z",
+    "opens": null
   },
   "cs_225_potd_oct_01__20261001_2359": {
     "id": "cs_225_potd_oct_01__20261001_2359",
@@ -53,7 +56,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-10T03:44:22.650Z"
+    "completedAt": "2026-10-10T03:44:22.650Z",
+    "opens": null
   },
   "cs_225_potd_oct_02__20261002_2359": {
     "id": "cs_225_potd_oct_02__20261002_2359",
@@ -67,7 +71,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-03T04:26:36.441Z"
+    "completedAt": "2026-10-03T04:26:36.441Z",
+    "opens": null
   },
   "cs_225_potd_oct_05__20261005_2359": {
     "id": "cs_225_potd_oct_05__20261005_2359",
@@ -81,7 +86,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-06T02:55:08.562Z"
+    "completedAt": "2026-10-06T02:55:08.562Z",
+    "opens": null
   },
   "cs_225_potd_oct_06__20261006_2359": {
     "id": "cs_225_potd_oct_06__20261006_2359",
@@ -95,7 +101,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-07T04:58:39.307Z"
+    "completedAt": "2026-10-07T04:58:39.307Z",
+    "opens": null
   },
   "cs_225_potd_oct_07__20261007_2359": {
     "id": "cs_225_potd_oct_07__20261007_2359",
@@ -109,7 +116,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-08T14:33:12.979Z"
+    "completedAt": "2026-10-08T14:33:12.979Z",
+    "opens": null
   },
   "cs_225_potd_oct_08__20261008_2359": {
     "id": "cs_225_potd_oct_08__20261008_2359",
@@ -123,7 +131,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-09T03:40:15.199Z"
+    "completedAt": "2026-10-09T03:40:15.199Z",
+    "opens": null
   },
   "cs_225_potd_oct_09__20261009_2359": {
     "id": "cs_225_potd_oct_09__20261009_2359",
@@ -137,7 +146,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-11T03:32:19.443Z"
+    "completedAt": "2026-10-11T03:32:19.443Z",
+    "opens": null
   },
   "cs_225_potd_oct_12__20261012_2359": {
     "id": "cs_225_potd_oct_12__20261012_2359",
@@ -151,7 +161,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-13T02:58:32.437Z"
+    "completedAt": "2026-10-13T02:58:32.437Z",
+    "opens": null
   },
   "cs_225_potd_oct_13__20261013_2359": {
     "id": "cs_225_potd_oct_13__20261013_2359",
@@ -165,7 +176,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-14T00:13:42.304Z"
+    "completedAt": "2026-10-14T00:13:42.304Z",
+    "opens": null
   },
   "cs_225_potd_oct_14__20261014_2359": {
     "id": "cs_225_potd_oct_14__20261014_2359",
@@ -179,7 +191,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-15T03:31:28.850Z"
+    "completedAt": "2026-10-15T03:31:28.850Z",
+    "opens": null
   },
   "cs_225_potd_oct_15__20261015_2359": {
     "id": "cs_225_potd_oct_15__20261015_2359",
@@ -193,7 +206,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-17T04:18:55.946Z"
+    "completedAt": "2026-10-17T04:18:55.946Z",
+    "opens": null
   },
   "cs_225_potd_oct_16__20261016_2359": {
     "id": "cs_225_potd_oct_16__20261016_2359",
@@ -207,7 +221,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-17T04:18:59.536Z"
+    "completedAt": "2026-10-17T04:18:59.536Z",
+    "opens": null
   },
   "cs_225_potd_oct_19__20261019_2359": {
     "id": "cs_225_potd_oct_19__20261019_2359",
@@ -221,7 +236,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-20T02:51:27.221Z"
+    "completedAt": "2026-10-20T02:51:27.221Z",
+    "opens": null
   },
   "cs_225_potd_oct_20__20261020_2359": {
     "id": "cs_225_potd_oct_20__20261020_2359",
@@ -235,7 +251,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-21T04:30:01.923Z"
+    "completedAt": "2026-10-21T04:30:01.923Z",
+    "opens": null
   },
   "cs_225_potd_oct_21__20261021_2359": {
     "id": "cs_225_potd_oct_21__20261021_2359",
@@ -249,7 +266,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-22T03:38:28.176Z"
+    "completedAt": "2026-10-22T03:38:28.176Z",
+    "opens": null
   },
   "cs_225_potd_oct_22__20261022_2359": {
     "id": "cs_225_potd_oct_22__20261022_2359",
@@ -263,7 +281,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-23T04:29:03.824Z"
+    "completedAt": "2026-10-23T04:29:03.824Z",
+    "opens": null
   },
   "cs_225_potd_oct_23__20261023_2359": {
     "id": "cs_225_potd_oct_23__20261023_2359",
@@ -277,7 +296,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-26T03:47:55.350Z"
+    "completedAt": "2026-10-26T03:47:55.350Z",
+    "opens": null
   },
   "cs_225_potd_oct_26__20261026_2359": {
     "id": "cs_225_potd_oct_26__20261026_2359",
@@ -291,7 +311,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-27T04:41:34.108Z"
+    "completedAt": "2026-10-27T04:41:34.108Z",
+    "opens": null
   },
   "cs_225_potd_oct_27__20261027_2359": {
     "id": "cs_225_potd_oct_27__20261027_2359",
@@ -305,7 +326,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-28T04:54:15.723Z"
+    "completedAt": "2026-10-28T04:54:15.723Z",
+    "opens": null
   },
   "cs_225_potd_oct_28__20261028_2359": {
     "id": "cs_225_potd_oct_28__20261028_2359",
@@ -319,7 +341,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-29T04:52:54.565Z"
+    "completedAt": "2026-10-29T04:52:54.565Z",
+    "opens": null
   },
   "cs_225_potd_oct_29__20261029_2359": {
     "id": "cs_225_potd_oct_29__20261029_2359",
@@ -333,7 +356,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-30T05:00:11.183Z"
+    "completedAt": "2026-10-30T05:00:11.183Z",
+    "opens": null
   },
   "cs_225_potd_oct_30__20261030_2359": {
     "id": "cs_225_potd_oct_30__20261030_2359",
@@ -347,7 +371,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-11-01T21:21:45.930Z"
+    "completedAt": "2026-11-01T21:21:45.930Z",
+    "opens": null
   },
   "cs_225_potd_nov_02__20261102_2359": {
     "id": "cs_225_potd_nov_02__20261102_2359",
@@ -361,7 +386,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-11-03T02:27:38.871Z"
+    "completedAt": "2026-11-03T02:27:38.871Z",
+    "opens": null
   },
   "cs_225_potd_nov_03__20261103_2359": {
     "id": "cs_225_potd_nov_03__20261103_2359",
@@ -374,7 +400,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_potd_nov_04__20261104_2359": {
     "id": "cs_225_potd_nov_04__20261104_2359",
@@ -387,7 +414,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_potd_nov_05__20261105_2359": {
     "id": "cs_225_potd_nov_05__20261105_2359",
@@ -400,7 +428,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_potd_nov_06__20261106_2359": {
     "id": "cs_225_potd_nov_06__20261106_2359",
@@ -413,7 +442,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_potd_nov_09__20261109_2359": {
     "id": "cs_225_potd_nov_09__20261109_2359",
@@ -426,7 +456,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_potd_nov_10__20261110_2359": {
     "id": "cs_225_potd_nov_10__20261110_2359",
@@ -439,7 +470,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_potd_nov_11__20261111_2359": {
     "id": "cs_225_potd_nov_11__20261111_2359",
@@ -452,7 +484,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_potd_nov_12__20261112_2359": {
     "id": "cs_225_potd_nov_12__20261112_2359",
@@ -465,7 +498,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_potd_nov_13__20261113_2359": {
     "id": "cs_225_potd_nov_13__20261113_2359",
@@ -478,7 +512,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_potd_nov_16__20261116_2359": {
     "id": "cs_225_potd_nov_16__20261116_2359",
@@ -491,7 +526,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_potd_nov_17__20261117_2359": {
     "id": "cs_225_potd_nov_17__20261117_2359",
@@ -504,7 +540,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_potd_nov_18__20261118_2359": {
     "id": "cs_225_potd_nov_18__20261118_2359",
@@ -517,7 +554,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_potd_nov_19__20261119_2359": {
     "id": "cs_225_potd_nov_19__20261119_2359",
@@ -530,7 +568,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_potd_nov_20__20261120_2359": {
     "id": "cs_225_potd_nov_20__20261120_2359",
@@ -543,7 +582,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_potd_nov_30__20261130_2359": {
     "id": "cs_225_potd_nov_30__20261130_2359",
@@ -556,7 +596,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_potd_dec_01__20261201_2359": {
     "id": "cs_225_potd_dec_01__20261201_2359",
@@ -569,7 +610,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_potd_dec_02__20261202_2359": {
     "id": "cs_225_potd_dec_02__20261202_2359",
@@ -582,7 +624,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_potd_dec_03__20261203_2359": {
     "id": "cs_225_potd_dec_03__20261203_2359",
@@ -595,7 +638,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_potd_dec_04__20261204_2359": {
     "id": "cs_225_potd_dec_04__20261204_2359",
@@ -608,7 +652,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_potd_dec_07__20261207_2359": {
     "id": "cs_225_potd_dec_07__20261207_2359",
@@ -621,7 +666,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_potd_dec_08__20261208_2359": {
     "id": "cs_225_potd_dec_08__20261208_2359",
@@ -634,7 +680,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_potd_dec_09__20261209_2359": {
     "id": "cs_225_potd_dec_09__20261209_2359",
@@ -647,7 +694,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_lab_week_of_sep_21__20260927_2359": {
     "id": "cs_225_lab_week_of_sep_21__20260927_2359",
@@ -661,7 +709,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-09-28T21:06:22.490Z"
+    "completedAt": "2026-09-28T21:06:22.490Z",
+    "opens": null
   },
   "cs_225_lab_week_of_sep_28__20261004_2359": {
     "id": "cs_225_lab_week_of_sep_28__20261004_2359",
@@ -675,7 +724,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-04T20:26:09.426Z"
+    "completedAt": "2026-10-04T20:26:09.426Z",
+    "opens": null
   },
   "cs_225_lab_week_of_oct_05__20261011_2359": {
     "id": "cs_225_lab_week_of_oct_05__20261011_2359",
@@ -689,7 +739,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-12T01:03:50.937Z"
+    "completedAt": "2026-10-12T01:03:50.937Z",
+    "opens": null
   },
   "cs_225_lab_week_of_oct_12__20261018_2359": {
     "id": "cs_225_lab_week_of_oct_12__20261018_2359",
@@ -703,7 +754,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-19T02:05:47.495Z"
+    "completedAt": "2026-10-19T02:05:47.495Z",
+    "opens": null
   },
   "cs_225_lab_week_of_oct_19__20261025_2359": {
     "id": "cs_225_lab_week_of_oct_19__20261025_2359",
@@ -717,7 +769,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-26T03:48:07.087Z"
+    "completedAt": "2026-10-26T03:48:07.087Z",
+    "opens": null
   },
   "cs_225_lab_week_of_oct_26__20261101_2359": {
     "id": "cs_225_lab_week_of_oct_26__20261101_2359",
@@ -731,7 +784,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-11-02T03:21:57.017Z"
+    "completedAt": "2026-11-02T03:21:57.017Z",
+    "opens": null
   },
   "cs_225_lab_week_of_nov_02__20261108_2359": {
     "id": "cs_225_lab_week_of_nov_02__20261108_2359",
@@ -744,7 +798,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_lab_week_of_nov_09__20261115_2359": {
     "id": "cs_225_lab_week_of_nov_09__20261115_2359",
@@ -757,7 +812,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_lab_week_of_nov_30__20261206_2359": {
     "id": "cs_225_lab_week_of_nov_30__20261206_2359",
@@ -770,7 +826,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_mp1_mp_lists__20260928_2359": {
     "id": "cs_225_mp1_mp_lists__20260928_2359",
@@ -783,7 +840,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": true
+    "completed": true,
+    "opens": null
   },
   "cs_225_mp_ec2_mp_mosaics_extra_credit__20261005_2359": {
     "id": "cs_225_mp_ec2_mp_mosaics_extra_credit__20261005_2359",
@@ -797,7 +855,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-06T02:36:19.390Z"
+    "completedAt": "2026-10-06T02:36:19.390Z",
+    "opens": null
   },
   "cs_225_mp2_mp_mosaics__20261012_2359": {
     "id": "cs_225_mp2_mp_mosaics__20261012_2359",
@@ -811,11 +870,12 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-12T03:26:16.355Z"
+    "completedAt": "2026-10-12T03:26:16.355Z",
+    "opens": null
   },
   "cs_225_mp3": {
     "id": "cs_225_mp3",
-    "title": "MP3 (est.)",
+    "title": "MP3 mp_traversals",
     "course": "CS 225",
     "due": "2026-10-26T23:59:00-05:00",
     "source": "PrairieLearn",
@@ -825,11 +885,12 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-27T02:35:49.462Z"
+    "completedAt": "2026-10-27T02:35:49.462Z",
+    "opens": null
   },
   "cs_225_mp4": {
     "id": "cs_225_mp4",
-    "title": "MP4 (est.)",
+    "title": "MP4 mp_mazes",
     "course": "CS 225",
     "due": "2026-11-09T23:59:00-06:00",
     "source": "PrairieLearn",
@@ -838,11 +899,12 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": "2026-10-27T00:00:00-05:00"
   },
   "cs_225_mp5": {
     "id": "cs_225_mp5",
-    "title": "MP5 (est.)",
+    "title": "MP5 mp_puzzle (due est.)",
     "course": "CS 225",
     "due": "2026-11-30T23:59:00-06:00",
     "source": "PrairieLearn",
@@ -851,7 +913,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": "2026-11-09T00:00:00-06:00"
   },
   "cs_225_labec0_lab_trees_extra_credit__20261007_2359": {
     "id": "cs_225_labec0_lab_trees_extra_credit__20261007_2359",
@@ -865,7 +928,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-08T03:25:07.494Z"
+    "completedAt": "2026-10-08T03:25:07.494Z",
+    "opens": null
   },
   "cs_225_informal_early_feedback_survey__20261007_2359": {
     "id": "cs_225_informal_early_feedback_survey__20261007_2359",
@@ -879,7 +943,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-04T22:59:16.395Z"
+    "completedAt": "2026-10-04T22:59:16.395Z",
+    "opens": null
   },
   "cs_225_research_consent_form__20261012_2359": {
     "id": "cs_225_research_consent_form__20261012_2359",
@@ -893,7 +958,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-11T03:32:37.675Z"
+    "completedAt": "2026-10-11T03:32:37.675Z",
+    "opens": null
   },
   "cs_225_exam_2__20261002_2359": {
     "id": "cs_225_exam_2__20261002_2359",
@@ -907,7 +973,8 @@
     "allday": true,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-03T04:26:33.304Z"
+    "completedAt": "2026-10-03T04:26:33.304Z",
+    "opens": null
   },
   "cs_225_exam_3__20261023_2359": {
     "id": "cs_225_exam_3__20261023_2359",
@@ -921,7 +988,8 @@
     "allday": true,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-26T03:47:53.582Z"
+    "completedAt": "2026-10-26T03:47:53.582Z",
+    "opens": null
   },
   "cs_225_exam_4__20261113_2359": {
     "id": "cs_225_exam_4__20261113_2359",
@@ -934,7 +1002,8 @@
     "start": "2026-11-11T00:00:00-06:00",
     "allday": true,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_exam_5__20261204_2359": {
     "id": "cs_225_exam_5__20261204_2359",
@@ -947,7 +1016,8 @@
     "start": "2026-12-02T00:00:00-06:00",
     "allday": true,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_retake_exam__20261208_2359": {
     "id": "cs_225_retake_exam__20261208_2359",
@@ -960,7 +1030,8 @@
     "start": "2026-12-06T00:00:00-06:00",
     "allday": true,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_final_exam__20261217_2359": {
     "id": "cs_225_final_exam__20261217_2359",
@@ -973,7 +1044,8 @@
     "start": "2026-12-10T00:00:00-06:00",
     "allday": true,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_book_exam_3_slot__20261008_2359": {
     "id": "cs_225_book_exam_3_slot__20261008_2359",
@@ -987,7 +1059,8 @@
     "allday": true,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-08T14:33:26.301Z"
+    "completedAt": "2026-10-08T14:33:26.301Z",
+    "opens": null
   },
   "cs_225_book_final_exam_slot_aim_for_12_17__20261019_2359": {
     "id": "cs_225_book_final_exam_slot_aim_for_12_17__20261019_2359",
@@ -1001,7 +1074,8 @@
     "allday": true,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-19T22:09:38.709Z"
+    "completedAt": "2026-10-19T22:09:38.709Z",
+    "opens": null
   },
   "cs_225_book_exam_4_slot__20261029_2359": {
     "id": "cs_225_book_exam_4_slot__20261029_2359",
@@ -1015,7 +1089,8 @@
     "allday": true,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-30T05:00:15.002Z"
+    "completedAt": "2026-10-30T05:00:15.002Z",
+    "opens": null
   },
   "cs_225_book_exam_5_slot__20261112_2359": {
     "id": "cs_225_book_exam_5_slot__20261112_2359",
@@ -1028,7 +1103,8 @@
     "start": null,
     "allday": true,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "cs_225_decide_on_retake_book_slot__20261119_2359": {
     "id": "cs_225_decide_on_retake_book_slot__20261119_2359",
@@ -1041,7 +1117,8 @@
     "start": null,
     "allday": true,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "bioe_206_hw_4__20261001_2359": {
     "id": "bioe_206_hw_4__20261001_2359",
@@ -1055,7 +1132,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-01T21:50:48.364Z"
+    "completedAt": "2026-10-01T21:50:48.364Z",
+    "opens": null
   },
   "bioe_206_hw_5__20261008_2359": {
     "id": "bioe_206_hw_5__20261008_2359",
@@ -1071,7 +1149,8 @@
     "completed": true,
     "notes": "",
     "edited": true,
-    "completedAt": "2026-10-15T01:11:31.793Z"
+    "completedAt": "2026-10-15T01:11:31.793Z",
+    "opens": null
   },
   "bioe_206_hw_6__20261015_2359": {
     "id": "bioe_206_hw_6__20261015_2359",
@@ -1085,7 +1164,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-17T04:18:53.578Z"
+    "completedAt": "2026-10-17T04:18:53.578Z",
+    "opens": null
   },
   "bioe_206_hw_7__20261029_2359": {
     "id": "bioe_206_hw_7__20261029_2359",
@@ -1098,7 +1178,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "bioe_206_hw_8__20261105_2359": {
     "id": "bioe_206_hw_8__20261105_2359",
@@ -1111,7 +1192,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "bioe_206_hw_9__20261112_2359": {
     "id": "bioe_206_hw_9__20261112_2359",
@@ -1124,7 +1206,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "bioe_206_hw_10__20261203_2359": {
     "id": "bioe_206_hw_10__20261203_2359",
@@ -1137,7 +1220,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "bioe_206_exam_2_weeks_5_8__20261020_2359": {
     "id": "bioe_206_exam_2_weeks_5_8__20261020_2359",
@@ -1151,7 +1235,8 @@
     "allday": true,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-21T02:24:00.703Z"
+    "completedAt": "2026-10-21T02:24:00.703Z",
+    "opens": null
   },
   "bioe_206_exam_3_weeks_9_12__20261117_2359": {
     "id": "bioe_206_exam_3_weeks_9_12__20261117_2359",
@@ -1164,7 +1249,8 @@
     "start": null,
     "allday": true,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "bioe_206_final_exam_cumulative__20261211_1330": {
     "id": "bioe_206_final_exam_cumulative__20261211_1330",
@@ -1177,7 +1263,8 @@
     "start": null,
     "allday": false,
     "end": "2026-12-11T16:30:00-06:00",
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "bioe_310_hw_2__20260928_2359": {
     "id": "bioe_310_hw_2__20260928_2359",
@@ -1190,7 +1277,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": true
+    "completed": true,
+    "opens": null
   },
   "bioe_310_midterm_1": {
     "id": "bioe_310_midterm_1",
@@ -1204,7 +1292,8 @@
     "allday": true,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-02T18:48:03.116Z"
+    "completedAt": "2026-10-02T18:48:03.116Z",
+    "opens": null
   },
   "bioe_310_midterm_2": {
     "id": "bioe_310_midterm_2",
@@ -1217,7 +1306,8 @@
     "start": "2026-11-03T00:00:00-06:00",
     "allday": true,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "bioe_310_final": {
     "id": "bioe_310_final",
@@ -1230,7 +1320,8 @@
     "start": "2026-12-10T00:00:00-06:00",
     "allday": true,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "bioe_310_register_for_final_exam_slot__20261019_2359": {
     "id": "bioe_310_register_for_final_exam_slot__20261019_2359",
@@ -1244,7 +1335,8 @@
     "allday": true,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-19T22:09:40.737Z"
+    "completedAt": "2026-10-19T22:09:40.737Z",
+    "opens": null
   },
   "bioe_310_reserve_midterm_2_slot__20261022_2359": {
     "id": "bioe_310_reserve_midterm_2_slot__20261022_2359",
@@ -1258,7 +1350,8 @@
     "allday": true,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-22T14:46:04.923Z"
+    "completedAt": "2026-10-22T14:46:04.923Z",
+    "opens": null
   },
   "danc_340_module_3_glossary__20260927_2359": {
     "id": "danc_340_module_3_glossary__20260927_2359",
@@ -1272,7 +1365,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-09-28T21:06:24.022Z"
+    "completedAt": "2026-09-28T21:06:24.022Z",
+    "opens": null
   },
   "danc_340_module_4_glossary__20261011_2359": {
     "id": "danc_340_module_4_glossary__20261011_2359",
@@ -1286,7 +1380,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-12T02:09:22.435Z"
+    "completedAt": "2026-10-12T02:09:22.435Z",
+    "opens": null
   },
   "danc_340_module_5_glossary__20261025_2359": {
     "id": "danc_340_module_5_glossary__20261025_2359",
@@ -1300,7 +1395,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-26T04:44:48.302Z"
+    "completedAt": "2026-10-26T04:44:48.302Z",
+    "opens": null
   },
   "danc_340_module_6_glossary__20261108_2359": {
     "id": "danc_340_module_6_glossary__20261108_2359",
@@ -1313,7 +1409,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "danc_340_module_7_glossary__20261122_2359": {
     "id": "danc_340_module_7_glossary__20261122_2359",
@@ -1326,7 +1423,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "danc_340_module_8_glossary__20261206_2359": {
     "id": "danc_340_module_8_glossary__20261206_2359",
@@ -1339,7 +1437,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "danc_340_module_3_quiz__20261004_2359": {
     "id": "danc_340_module_3_quiz__20261004_2359",
@@ -1353,7 +1452,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-04T22:58:36.679Z"
+    "completedAt": "2026-10-04T22:58:36.679Z",
+    "opens": null
   },
   "danc_340_project_1_interview__20261004_2359": {
     "id": "danc_340_project_1_interview__20261004_2359",
@@ -1367,7 +1467,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-04T22:58:31.975Z"
+    "completedAt": "2026-10-04T22:58:31.975Z",
+    "opens": null
   },
   "danc_340_project_1_writing__20261004_2359": {
     "id": "danc_340_project_1_writing__20261004_2359",
@@ -1381,7 +1482,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-04T22:58:33.678Z"
+    "completedAt": "2026-10-04T22:58:33.678Z",
+    "opens": null
   },
   "danc_340_module_4_quiz__20261018_2359": {
     "id": "danc_340_module_4_quiz__20261018_2359",
@@ -1395,7 +1497,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-19T02:05:54.106Z"
+    "completedAt": "2026-10-19T02:05:54.106Z",
+    "opens": null
   },
   "danc_340_ee_3_playlist_lineage__20261018_2359": {
     "id": "danc_340_ee_3_playlist_lineage__20261018_2359",
@@ -1409,7 +1512,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-19T02:05:49.982Z"
+    "completedAt": "2026-10-19T02:05:49.982Z",
+    "opens": null
   },
   "danc_340_module_5_quiz__20261101_2359": {
     "id": "danc_340_module_5_quiz__20261101_2359",
@@ -1423,7 +1527,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-11-01T21:21:55.578Z"
+    "completedAt": "2026-11-01T21:21:55.578Z",
+    "opens": null
   },
   "danc_340_ee_4_dance_floor_connections__20261101_2359": {
     "id": "danc_340_ee_4_dance_floor_connections__20261101_2359",
@@ -1437,7 +1542,8 @@
     "allday": false,
     "end": null,
     "completed": true,
-    "completedAt": "2026-11-01T21:21:53.567Z"
+    "completedAt": "2026-11-01T21:21:53.567Z",
+    "opens": null
   },
   "danc_340_module_6_quiz__20261115_2359": {
     "id": "danc_340_module_6_quiz__20261115_2359",
@@ -1450,7 +1556,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "danc_340_project_2_mapping__20261115_2359": {
     "id": "danc_340_project_2_mapping__20261115_2359",
@@ -1463,7 +1570,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "danc_340_module_7_quiz__20261129_2359": {
     "id": "danc_340_module_7_quiz__20261129_2359",
@@ -1476,7 +1584,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "danc_340_project_3_final_synthesis_draft__20261129_2359": {
     "id": "danc_340_project_3_final_synthesis_draft__20261129_2359",
@@ -1489,7 +1598,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "danc_340_module_8_quiz__20261213_2359": {
     "id": "danc_340_module_8_quiz__20261213_2359",
@@ -1502,7 +1612,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
+    "completed": false,
+    "opens": null
   },
   "danc_340_project_3_final_synthesis__20261213_2359": {
     "id": "danc_340_project_3_final_synthesis__20261213_2359",
@@ -1515,49 +1626,8 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false
-  },
-  "bioe_210_grading_grade_hw_2": {
-    "id": "bioe_210_grading_grade_hw_2",
-    "title": "Grade HW 2",
-    "course": "BIOE 210 Grading",
-    "due": "2026-09-25T09:00:00-05:00",
-    "source": "Gradescope",
-    "url": "https://www.gradescope.com",
-    "kind": "grading",
-    "start": null,
-    "allday": false,
-    "end": null,
-    "completed": true,
-    "completedAt": "2026-09-28T21:06:12.327Z"
-  },
-  "bioe_210_grading_grade_hw_3": {
-    "id": "bioe_210_grading_grade_hw_3",
-    "title": "Grade HW 3",
-    "course": "BIOE 210 Grading",
-    "due": "2026-10-02T09:00:00-05:00",
-    "source": "Gradescope",
-    "url": "https://www.gradescope.com",
-    "kind": "grading",
-    "start": null,
-    "allday": false,
-    "end": null,
-    "completed": true,
-    "completedAt": "2026-10-10T03:44:12.798Z"
-  },
-  "bioe_210_grading_grade_hw_4": {
-    "id": "bioe_210_grading_grade_hw_4",
-    "title": "Grade HW 4 (est.)",
-    "course": "BIOE 210 Grading",
-    "due": "2026-10-09T09:00:00-05:00",
-    "source": "Gradescope",
-    "url": "https://www.gradescope.com",
-    "kind": "grading",
-    "start": null,
-    "allday": false,
-    "end": null,
-    "completed": true,
-    "completedAt": "2026-10-26T03:47:57.089Z"
+    "completed": false,
+    "opens": null
   },
   "admin_last_day_to_drop_without_a_w__20261016_2359": {
     "id": "admin_last_day_to_drop_without_a_w__20261016_2359",
@@ -1571,7 +1641,8 @@
     "allday": true,
     "end": null,
     "completed": true,
-    "completedAt": "2026-10-15T01:11:43.500Z"
+    "completedAt": "2026-10-15T01:11:43.500Z",
+    "opens": null
   },
   "admin_sp27_priority_registration_opens__20261102_2359": {
     "id": "admin_sp27_priority_registration_opens__20261102_2359",
@@ -1585,7 +1656,8 @@
     "allday": true,
     "end": null,
     "completed": true,
-    "completedAt": "2026-11-02T22:43:19.564Z"
+    "completedAt": "2026-11-02T22:43:19.564Z",
+    "opens": null
   },
   "admin_last_day_of_instruction__20261209_2359": {
     "id": "admin_last_day_of_instruction__20261209_2359",
@@ -1598,6 +1670,259 @@
     "start": null,
     "allday": true,
     "end": null,
+    "completed": false,
+    "opens": null
+  },
+  "cs_225_lab_ml_extra_credit__20261118_2359": {
+    "id": "cs_225_lab_ml_extra_credit__20261118_2359",
+    "title": "lab_ml (extra credit)",
+    "course": "CS 225",
+    "due": "2026-11-18T23:59:00-06:00",
+    "source": "PrairieLearn",
+    "url": "https://us.prairielearn.com",
+    "kind": "hw",
+    "start": null,
+    "allday": false,
+    "end": null,
+    "opens": "2026-11-03T00:00:00-06:00",
+    "completed": false
+  },
+  "bioe_210_grading_grading_week_of_nov_02__20261105_2359": {
+    "id": "bioe_210_grading_grading_week_of_nov_02__20261105_2359",
+    "title": "Grading (week of Nov 02)",
+    "course": "BIOE 210 Grading",
+    "due": "2026-11-05T23:59:00-06:00",
+    "source": "Gradescope",
+    "url": "https://www.gradescope.com",
+    "kind": "grading",
+    "start": null,
+    "allday": false,
+    "end": null,
+    "opens": null,
+    "completed": false
+  },
+  "bioe_210_grading_grading_week_of_nov_09__20261112_2359": {
+    "id": "bioe_210_grading_grading_week_of_nov_09__20261112_2359",
+    "title": "Grading (week of Nov 09)",
+    "course": "BIOE 210 Grading",
+    "due": "2026-11-12T23:59:00-06:00",
+    "source": "Gradescope",
+    "url": "https://www.gradescope.com",
+    "kind": "grading",
+    "start": null,
+    "allday": false,
+    "end": null,
+    "opens": null,
+    "completed": false
+  },
+  "bioe_210_grading_grading_week_of_nov_16__20261119_2359": {
+    "id": "bioe_210_grading_grading_week_of_nov_16__20261119_2359",
+    "title": "Grading (week of Nov 16)",
+    "course": "BIOE 210 Grading",
+    "due": "2026-11-19T23:59:00-06:00",
+    "source": "Gradescope",
+    "url": "https://www.gradescope.com",
+    "kind": "grading",
+    "start": null,
+    "allday": false,
+    "end": null,
+    "opens": null,
+    "completed": false
+  },
+  "bioe_210_grading_grading_week_of_nov_30__20261203_2359": {
+    "id": "bioe_210_grading_grading_week_of_nov_30__20261203_2359",
+    "title": "Grading (week of Nov 30)",
+    "course": "BIOE 210 Grading",
+    "due": "2026-12-03T23:59:00-06:00",
+    "source": "Gradescope",
+    "url": "https://www.gradescope.com",
+    "kind": "grading",
+    "start": null,
+    "allday": false,
+    "end": null,
+    "opens": null,
+    "completed": false
+  },
+  "bioe_210_grading_grading_week_of_dec_07__20261210_2359": {
+    "id": "bioe_210_grading_grading_week_of_dec_07__20261210_2359",
+    "title": "Grading (week of Dec 07)",
+    "course": "BIOE 210 Grading",
+    "due": "2026-12-10T23:59:00-06:00",
+    "source": "Gradescope",
+    "url": "https://www.gradescope.com",
+    "kind": "grading",
+    "start": null,
+    "allday": false,
+    "end": null,
+    "opens": null,
+    "completed": false
+  },
+  "cs_arg_guided_reading_nov_06__20261106_1800": {
+    "id": "cs_arg_guided_reading_nov_06__20261106_1800",
+    "title": "Guided reading (Nov 06)",
+    "course": "CS ARG",
+    "due": "2026-11-06T18:00:00-06:00",
+    "source": "",
+    "url": "",
+    "kind": "reading",
+    "start": null,
+    "allday": false,
+    "end": null,
+    "opens": null,
+    "completed": false
+  },
+  "cs_arg_guided_reading_nov_13__20261113_1800": {
+    "id": "cs_arg_guided_reading_nov_13__20261113_1800",
+    "title": "Guided reading (Nov 13)",
+    "course": "CS ARG",
+    "due": "2026-11-13T18:00:00-06:00",
+    "source": "",
+    "url": "",
+    "kind": "reading",
+    "start": null,
+    "allday": false,
+    "end": null,
+    "opens": null,
+    "completed": false
+  },
+  "cs_arg_guided_reading_nov_20__20261120_1800": {
+    "id": "cs_arg_guided_reading_nov_20__20261120_1800",
+    "title": "Guided reading (Nov 20)",
+    "course": "CS ARG",
+    "due": "2026-11-20T18:00:00-06:00",
+    "source": "",
+    "url": "",
+    "kind": "reading",
+    "start": null,
+    "allday": false,
+    "end": null,
+    "opens": null,
+    "completed": false
+  },
+  "cs_arg_guided_reading_dec_04__20261204_1800": {
+    "id": "cs_arg_guided_reading_dec_04__20261204_1800",
+    "title": "Guided reading (Dec 04)",
+    "course": "CS ARG",
+    "due": "2026-12-04T18:00:00-06:00",
+    "source": "",
+    "url": "",
+    "kind": "reading",
+    "start": null,
+    "allday": false,
+    "end": null,
+    "opens": null,
+    "completed": false
+  },
+  "cpsc_131_quiz_2": {
+    "id": "cpsc_131_quiz_2",
+    "title": "Quiz 2",
+    "course": "CPSC 131",
+    "due": "2026-11-04T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "kind": "quiz",
+    "start": null,
+    "allday": false,
+    "end": null,
+    "opens": null,
+    "completed": false
+  },
+  "cpsc_131_paper_1": {
+    "id": "cpsc_131_paper_1",
+    "title": "Agriculture paper on your chosen culture",
+    "course": "CPSC 131",
+    "due": "2026-11-04T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "kind": "project",
+    "start": null,
+    "allday": false,
+    "end": null,
+    "opens": "2026-10-28T00:00:00-05:00",
+    "completed": false
+  },
+  "cpsc_131_quiz_3": {
+    "id": "cpsc_131_quiz_3",
+    "title": "Quiz 3 (est.)",
+    "course": "CPSC 131",
+    "due": "2026-11-11T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "kind": "quiz",
+    "start": null,
+    "allday": false,
+    "end": null,
+    "opens": null,
+    "completed": false
+  },
+  "cpsc_131_quiz_4": {
+    "id": "cpsc_131_quiz_4",
+    "title": "Quiz 4 (est.)",
+    "course": "CPSC 131",
+    "due": "2026-11-18T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "kind": "quiz",
+    "start": null,
+    "allday": false,
+    "end": null,
+    "opens": null,
+    "completed": false
+  },
+  "cpsc_131_quiz_5": {
+    "id": "cpsc_131_quiz_5",
+    "title": "Quiz 5 (est.)",
+    "course": "CPSC 131",
+    "due": "2026-12-02T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "kind": "quiz",
+    "start": null,
+    "allday": false,
+    "end": null,
+    "opens": null,
+    "completed": false
+  },
+  "cpsc_131_quiz_6": {
+    "id": "cpsc_131_quiz_6",
+    "title": "Quiz 6 (est.)",
+    "course": "CPSC 131",
+    "due": "2026-12-09T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "kind": "quiz",
+    "start": null,
+    "allday": false,
+    "end": null,
+    "opens": null,
+    "completed": false
+  },
+  "cpsc_131_paper_2": {
+    "id": "cpsc_131_paper_2",
+    "title": "Paper / project 2 (est.)",
+    "course": "CPSC 131",
+    "due": "2026-11-18T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "kind": "project",
+    "start": null,
+    "allday": false,
+    "end": null,
+    "opens": null,
+    "completed": false
+  },
+  "cpsc_131_paper_3": {
+    "id": "cpsc_131_paper_3",
+    "title": "Paper / project 3 (est.)",
+    "course": "CPSC 131",
+    "due": "2026-12-02T23:59:00-06:00",
+    "source": "Canvas",
+    "url": "https://canvas.illinois.edu",
+    "kind": "project",
+    "start": null,
+    "allday": false,
+    "end": null,
+    "opens": null,
     "completed": false
   }
 }
