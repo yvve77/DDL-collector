@@ -400,8 +400,9 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-05T05:16:27.097Z"
   },
   "cs_225_potd_nov_04__20261104_2359": {
     "id": "cs_225_potd_nov_04__20261104_2359",
@@ -414,8 +415,9 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-05T05:16:33.331Z"
   },
   "cs_225_potd_nov_05__20261105_2359": {
     "id": "cs_225_potd_nov_05__20261105_2359",
@@ -1825,7 +1827,8 @@
     "allday": false,
     "end": null,
     "opens": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-11-05T05:16:55.287Z"
   },
   "cpsc_131_paper_1": {
     "id": "cpsc_131_paper_1",
@@ -1839,7 +1842,8 @@
     "allday": false,
     "end": null,
     "opens": "2026-10-28T00:00:00-05:00",
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-11-05T05:16:31.453Z"
   },
   "cpsc_131_quiz_3": {
     "id": "cpsc_131_quiz_3",
