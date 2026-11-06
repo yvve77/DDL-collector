@@ -430,8 +430,9 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-06T19:23:38.239Z"
   },
   "cs_225_potd_nov_06__20261106_2359": {
     "id": "cs_225_potd_nov_06__20261106_2359",
@@ -1180,8 +1181,9 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-06T19:23:34.365Z"
   },
   "bioe_206_hw_8__20261105_2359": {
     "id": "bioe_206_hw_8__20261105_2359",
@@ -1194,8 +1196,9 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-06T19:23:35.667Z"
   },
   "bioe_206_hw_9__20261112_2359": {
     "id": "bioe_206_hw_9__20261112_2359",
@@ -1308,8 +1311,9 @@
     "start": "2026-11-03T00:00:00-06:00",
     "allday": true,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-06T19:23:33.211Z"
   },
   "bioe_310_final": {
     "id": "bioe_310_final",
