@@ -445,8 +445,9 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-08T22:25:11.543Z"
   },
   "cs_225_potd_nov_09__20261109_2359": {
     "id": "cs_225_potd_nov_09__20261109_2359",
@@ -1775,7 +1776,8 @@
     "allday": false,
     "end": null,
     "opens": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-11-08T22:25:09.189Z"
   },
   "cs_arg_guided_reading_nov_13__20261113_1800": {
     "id": "cs_arg_guided_reading_nov_13__20261113_1800",
