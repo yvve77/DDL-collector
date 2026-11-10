@@ -1866,7 +1866,8 @@
     "allday": false,
     "end": null,
     "opens": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-11-10T16:15:51.998Z"
   },
   "cpsc_131_quiz_4": {
     "id": "cpsc_131_quiz_4",
