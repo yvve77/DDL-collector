@@ -802,8 +802,9 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-10T04:23:59.369Z"
   },
   "cs_225_lab_week_of_nov_09__20261115_2359": {
     "id": "cs_225_lab_week_of_nov_09__20261115_2359",
@@ -903,8 +904,9 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false,
-    "opens": "2026-10-27T00:00:00-05:00"
+    "completed": true,
+    "opens": "2026-10-27T00:00:00-05:00",
+    "completedAt": "2026-11-10T04:24:03.296Z"
   },
   "cs_225_mp5": {
     "id": "cs_225_mp5",
@@ -1416,8 +1418,9 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-10T04:24:01.322Z"
   },
   "danc_340_module_7_glossary__20261122_2359": {
     "id": "danc_340_module_7_glossary__20261122_2359",
