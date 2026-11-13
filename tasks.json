@@ -460,8 +460,9 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-13T00:44:04.629Z"
   },
   "cs_225_potd_nov_10__20261110_2359": {
     "id": "cs_225_potd_nov_10__20261110_2359",
@@ -474,8 +475,9 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-13T00:44:06.166Z"
   },
   "cs_225_potd_nov_11__20261111_2359": {
     "id": "cs_225_potd_nov_11__20261111_2359",
@@ -488,8 +490,9 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-13T00:44:07.690Z"
   },
   "cs_225_potd_nov_12__20261112_2359": {
     "id": "cs_225_potd_nov_12__20261112_2359",
@@ -1109,8 +1112,9 @@
     "start": null,
     "allday": true,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-13T00:44:00.717Z"
   },
   "cs_225_decide_on_retake_book_slot__20261119_2359": {
     "id": "cs_225_decide_on_retake_book_slot__20261119_2359",
@@ -1214,8 +1218,9 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-13T00:43:55.747Z"
   },
   "bioe_206_hw_10__20261203_2359": {
     "id": "bioe_206_hw_10__20261203_2359",
@@ -1709,7 +1714,8 @@
     "allday": false,
     "end": null,
     "opens": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-11-13T00:44:09.231Z"
   },
   "bioe_210_grading_grading_week_of_nov_09__20261112_2359": {
     "id": "bioe_210_grading_grading_week_of_nov_09__20261112_2359",
