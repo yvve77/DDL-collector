@@ -1800,7 +1800,8 @@
     "allday": false,
     "end": null,
     "opens": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-11-14T01:02:53.276Z"
   },
   "cs_arg_guided_reading_nov_20__20261120_1800": {
     "id": "cs_arg_guided_reading_nov_20__20261120_1800",
