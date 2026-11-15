@@ -505,8 +505,9 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-15T17:42:29.000Z"
   },
   "cs_225_potd_nov_13__20261113_2359": {
     "id": "cs_225_potd_nov_13__20261113_2359",
@@ -519,8 +520,9 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-15T17:42:30.991Z"
   },
   "cs_225_potd_nov_16__20261116_2359": {
     "id": "cs_225_potd_nov_16__20261116_2359",
@@ -1011,8 +1013,9 @@
     "start": "2026-11-11T00:00:00-06:00",
     "allday": true,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-15T17:42:27.481Z"
   },
   "cs_225_exam_5__20261204_2359": {
     "id": "cs_225_exam_5__20261204_2359",
