@@ -822,8 +822,9 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-16T17:02:18.950Z"
   },
   "cs_225_lab_week_of_nov_30__20261206_2359": {
     "id": "cs_225_lab_week_of_nov_30__20261206_2359",
@@ -1574,8 +1575,9 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-16T17:02:20.715Z"
   },
   "danc_340_project_2_mapping__20261115_2359": {
     "id": "danc_340_project_2_mapping__20261115_2359",
@@ -1588,8 +1590,9 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-16T17:02:17.217Z"
   },
   "danc_340_module_7_quiz__20261129_2359": {
     "id": "danc_340_module_7_quiz__20261129_2359",
