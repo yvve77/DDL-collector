@@ -565,8 +565,9 @@
     "start": null,
     "allday": false,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-19T04:58:02.594Z"
   },
   "cs_225_potd_nov_19__20261119_2359": {
     "id": "cs_225_potd_nov_19__20261119_2359",
@@ -1897,7 +1898,8 @@
     "allday": false,
     "end": null,
     "opens": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-11-19T04:58:03.351Z"
   },
   "cpsc_131_quiz_5": {
     "id": "cpsc_131_quiz_5",
