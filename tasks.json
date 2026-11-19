@@ -1710,7 +1710,8 @@
     "allday": false,
     "end": null,
     "opens": "2026-11-03T00:00:00-06:00",
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-11-19T05:14:23.140Z"
   },
   "bioe_210_grading_grading_week_of_nov_02__20261105_2359": {
     "id": "bioe_210_grading_grading_week_of_nov_02__20261105_2359",
