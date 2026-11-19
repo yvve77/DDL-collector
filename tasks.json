@@ -1697,8 +1697,9 @@
     "start": null,
     "allday": true,
     "end": null,
-    "completed": false,
-    "opens": null
+    "completed": true,
+    "opens": null,
+    "completedAt": "2026-11-19T16:25:44.557Z"
   },
   "cs_225_lab_ml_extra_credit__20261118_2359": {
     "id": "cs_225_lab_ml_extra_credit__20261118_2359",
