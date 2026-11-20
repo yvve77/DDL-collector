@@ -1829,7 +1829,8 @@
     "allday": false,
     "end": null,
     "opens": null,
-    "completed": false
+    "completed": true,
+    "completedAt": "2026-11-20T04:24:21.118Z"
   },
   "cs_arg_guided_reading_dec_04__20261204_1800": {
     "id": "cs_arg_guided_reading_dec_04__20261204_1800",
